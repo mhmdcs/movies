@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 /// Summary description for CRUD
 /// </summary>
 /// 
-namespace ATA.App_Code
+namespace movies.App_Code
 {
 
     public class CRUD
@@ -232,6 +232,37 @@ namespace ATA.App_Code
                     {
                         con.Open();
                         newIdentityId = (Int32.Parse(cmd.ExecuteScalar().ToString()));
+                    }
+                }
+            }
+
+            //catch (Exception ex)
+            //{
+            //    ex.Message.ToString();
+            //}
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                throw ex;
+            }
+            //   return new List<Dictionary<string, object>>(); ////return new List<DataTable>();
+            return newIdentityId;
+        }
+        public string getNameExecuteScalar(string mySql, Dictionary<string, object> myPara) //9
+        {
+            string newIdentityId ="";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(mySql, con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    foreach (KeyValuePair<string, object> p in myPara)
+                    {
+                        cmd.Parameters.AddWithValue(p.Key, p.Value);
+                    }
+                    using (con)
+                    {
+                        con.Open();
+                        newIdentityId = (cmd.ExecuteScalar().ToString());
                     }
                 }
             }
