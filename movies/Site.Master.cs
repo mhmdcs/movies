@@ -30,6 +30,16 @@ namespace movies
                 adminLink.Visible = true;
             }
 
+            if (HttpContext.Current.User.IsInRole("user"))
+            {
+                ticketLink.Visible = true;
+            }
+
+            if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                ticketLink.Visible = true;
+            }
+
             if (HttpContext.Current.User.IsInRole("admin"))
             {
                 loginLink.Visible = false;

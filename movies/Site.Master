@@ -56,8 +56,9 @@
             <a runat="server" href="~/">
                 <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo2.jpg" alt="logo" BorderStyle="None" />
             </a>
-             
+                         <br />
             <br />  
+                         <br />
         </div>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -83,7 +84,7 @@
                             </ul>
                         </li>
                         <li><a runat="server" href="~/Cinemas">Cinemas</a></li>
-                        <li><a href="~/Ticket.aspx" runat="server">Order Ticket</a></li>
+                        <li><a runat="server" id="ticketLink" visible="false" href="~/OrderTicket/Ticket.aspx">Order Ticket</a></li>
                         <li><a runat="server" id="loginLink" visible="true" href="~/Account/Login">Log in</a></li>
                         <li><a runat="server" id="signupLink" visible="true" href="~/Account/Signup">Sign up</a></li>
 

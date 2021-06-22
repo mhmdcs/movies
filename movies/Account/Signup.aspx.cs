@@ -14,6 +14,7 @@ namespace movies.Account
         {
 
         }
+        // try fixing issue not being able to set default roles for registered users
 
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {

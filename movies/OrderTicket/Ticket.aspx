@@ -43,6 +43,12 @@
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
         </td>
     </tr>
+    <tr>
+        <td class="modal-sm" style="width: 211px">&nbsp;</td>
+        <td>
+            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" />
+        </td>
+    </tr>
 </table>
 <br />
 

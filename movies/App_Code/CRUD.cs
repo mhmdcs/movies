@@ -610,6 +610,17 @@ namespace movies.App_Code
         {
             SqlConnection.ClearAllPools();
         }
+
+
+        public void newServiceName()
+        {
+
+        }
+
+        public string newServiceName2()
+        {
+            return "";
+        }
     }// Cls
 
 }/// NS
