@@ -15,6 +15,17 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <style type="text/css">
+        .auto-style1 {
+            float: left;
+            padding: 15px 15px;
+            font-size: x-large;
+            line-height: 20px;
+            height: 50px;
+            color: #FFFFFF;
+        }
+    </style>
+
 </head>
 <body>
     <form runat="server">
@@ -43,8 +54,9 @@
 
          <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
-                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo2.jpg" BorderStyle="None" />
-            </a>  
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo2.jpg" alt="logo" BorderStyle="None" />
+            </a>
+             
             <br />  
         </div>
 
@@ -58,28 +70,29 @@
                     </button>
 
 
-                    <a class="navbar-brand" runat="server" href="~/">Movies</a>
+                    <a class="auto-style1" runat="server" href="~/">Movies</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Cinemas">Cinemas</a></li>
-
 
                            <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false" href="~/WhatsNew/default">WhatsNew<span class ="caret"></span> </a>
+                            aria-haspopup="true" aria-expanded="false" href="~/WhatsNew/default">Whats New<span class ="caret"></span> </a>
                             <ul class ="dropdown-menu">
                                 <li><a href="~/WhatsNew/NowShowing.aspx" runat="server">Now Showing</a></li>
                                 <li><a href="~/WhatsNew/ComingSoon.aspx" runat="server">Coming Soon</a></li>
                             </ul>
                         </li>
-
-                        <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                        <li><a runat="server" href="~/Account/Signup">Sign up</a></li>
+                        <li><a runat="server" href="~/Cinemas">Cinemas</a></li>
+                        <li><a href="~/Ticket.aspx" runat="server">Order Ticket</a></li>
+                        <li><a runat="server" id="loginLink" visible="true" href="~/Account/Login">Log in</a></li>
+                        <li><a runat="server" id="signupLink" visible="true" href="~/Account/Signup">Sign up</a></li>
 
 
                         <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false" id="adminLink" visible="false" href="~/Admin/default">Admin<span class ="caret"></span> </a>
                             <ul class ="dropdown-menu">
+                                <li><a href="~/Admin/MoviesManagement.aspx" runat="server">Movies Management</a></li>
+                                <li class="divider" role="separator"></li>
                                 <li><a href="~/Admin/ChangePassword.aspx" runat="server">Change Password</a></li>
                                 <li><a href="~/Admin/passwordRecovery.aspx" runat="server">Password Recovery</a></li>
                                 <li><a href="~/Admin/Register.aspx" runat="server">Register</a></li>

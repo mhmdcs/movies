@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\MoviesManagement.aspx" />
     <Content Include="Cinemas.aspx" />
     <Content Include="Account\default.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -133,10 +134,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Admin\web.config" />
-    <Content Include="Ratings.aspx" />
+    <Content Include="Ticket.aspx" />
     <Content Include="WhatsNew\ComingSoon.aspx" />
     <Content Include="WhatsNew\default.aspx" />
     <Content Include="WhatsNew\NowShowing.aspx" />
+    <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\moviesLogo2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -212,6 +214,13 @@
     <Compile Include="Admin\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MoviesManagement.aspx.cs">
+      <DependentUpon>MoviesManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MoviesManagement.aspx.designer.cs">
+      <DependentUpon>MoviesManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\passwordRecovery.aspx.cs">
       <DependentUpon>passwordRecovery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -268,13 +277,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ratings.aspx.cs">
-      <DependentUpon>Ratings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Ratings.aspx.designer.cs">
-      <DependentUpon>Ratings.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -288,6 +290,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Ticket.aspx.cs">
+      <DependentUpon>Ticket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ticket.aspx.designer.cs">
+      <DependentUpon>Ticket.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

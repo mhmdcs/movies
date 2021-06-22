@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace movies
+namespace movies.Admin
 {
 
 
-    public partial class Ratings
+    public partial class MoviesManagement
     {
     }
 }

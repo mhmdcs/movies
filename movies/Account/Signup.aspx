@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
         <br />
-        <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
+        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" OnCreatedUser="RegisterUser_CreatedUser">
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server" />
                 <asp:CompleteWizardStep runat="server" />

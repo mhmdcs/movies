@@ -86,6 +86,7 @@ namespace movies.Account
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
                 // email admin when a user logged in the site
                 DateTime myDate = DateTime.Now;
+                Response.Redirect("~/Default.aspx");
             }
             else
             {

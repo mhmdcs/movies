@@ -14,14 +14,14 @@
             </tr>
             <tr>
                 <td class="style2">
-                    User Name</td>
+                    <strong>User Name:</strong></td>
                 <td>
                     <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    Password</td>
+                    <strong>Password:</strong></td>
                 <td>
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox> 
                 </td>

@@ -30,6 +30,27 @@ namespace movies
                 adminLink.Visible = true;
             }
 
+            if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                loginLink.Visible = false;
+            }
+
+            if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                signupLink.Visible = false;
+            }
+
+            if (HttpContext.Current.User.IsInRole("user"))
+            {
+                loginLink.Visible = false;
+            }
+
+            if (HttpContext.Current.User.IsInRole("user"))
+            {
+                signupLink.Visible = false;
+            }
+
+
         }
     }
 }
