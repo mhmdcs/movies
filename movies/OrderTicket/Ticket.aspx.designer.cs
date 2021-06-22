@@ -58,13 +58,13 @@ namespace movies {
         protected global::System.Web.UI.WebControls.DropDownList ddlCinema;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnOrderTicket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnOrderTicket;
         
         /// <summary>
         /// btnShowAllTickets control.
@@ -85,15 +85,6 @@ namespace movies {
         protected global::System.Web.UI.WebControls.GridView gvTicketData;
         
         /// <summary>
-        /// ExportManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ExportManager;
-        
-        /// <summary>
         /// btnExportPDF control.
         /// </summary>
         /// <remarks>
@@ -101,5 +92,32 @@ namespace movies {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExportPDF;
+        
+        /// <summary>
+        /// txtTicketId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTicketId;
+        
+        /// <summary>
+        /// btnUpdateTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateTicket;
+        
+        /// <summary>
+        /// btnDeleteTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteTicket;
     }
 }

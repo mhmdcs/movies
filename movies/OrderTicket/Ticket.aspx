@@ -38,9 +38,9 @@
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px">&nbsp;</td>
-        <td>
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+        <td class="modal-sm" style="width: 211px; height: 27px;"></td>
+        <td style="height: 27px">
+            <asp:Button ID="btnOrderTicket" runat="server" Text="Order Ticket" OnClick="btnOrderTicket_Click" />
         </td>
     </tr>
     <tr>
@@ -49,23 +49,40 @@
             <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" />
         </td>
     </tr>
-</table>
+    <tr>
+        <td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>
+    </tr>
+    <tr>
+        <td colspan="2"><asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" /></td>
+    </tr>
+    </table>
 <br />
 
 
 
 
-<div >
-
-    <asp:GridView ID="gvTicketData" runat="server"></asp:GridView>
-
-</div>
 
 
-<div id ="ExportManager" runat="server" visible="true">
 
-    <asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" />
 
-</div>
+    
+
+    <table class="nav-justified">
+        <tr>
+            <td style="width: 194px">Ticket Id</td>
+            <td>
+            <asp:TextBox ID="txtTicketId" runat="server"></asp:TextBox>
+            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" />
+            <asp:Button ID="btnDeleteTicket" runat="server" OnClick="btnDeleteTicket_Click" Text="Delete Ticket" />
+
+            </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+
 
 </asp:Content>

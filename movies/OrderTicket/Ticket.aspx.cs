@@ -20,6 +20,7 @@ namespace movies
                 populateTicket();
                 populateCinema();
 
+
             }//post back boundery
 
             if (Roles.IsUserInRole("admin"))
@@ -73,7 +74,7 @@ namespace movies
 
 
         //action query with Dictionary object
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnOrderTicket_Click(object sender, EventArgs e)
         {
             //code to retrieve current logged in UserId
             // Get current username
@@ -84,7 +85,7 @@ namespace movies
             //or try putting Membership.GetUser().ProviderUserKey in the myPara.Add method value parameter
 
             CRUD myCrud = new CRUD();
-            string mySql = @"insert into customer(customerFullName,movieId,ticketId,cinemaId,UserId) 
+            string mySql = @"insert into customerTicket(customerFullName,movieId,ticketId,cinemaId,UserId) 
                             values(@customerFullName,@movieId,@ticketId,@cinemaId,CAST(@UserId AS UNIQUEIDENTIFIER))
 							SELECT CAST(scope_identity() AS int);";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
@@ -103,44 +104,75 @@ namespace movies
             //    lblOutput.Text = "Failed to Order Ticket";
             //}
 
-            showTicketrData(pk);
+            showTicketsData(pk);
         }//button submit boundery
 
 
         //populates gridview and display all customers tickets
-        protected void showTicketrData()
+        protected void showTicketsData()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customer.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
                             from  movie inner join
-		                    customer on movie.movieId = customer.movieId inner join
-		                    ticket on customer.ticketId = ticket.ticketId inner join
-		                    cinema on customer.cinemaId = cinema.cinemaId";
+		                    customerTicket on movie.movieId = customerTicket.movieId inner join
+		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
+		                    cinema on customerTicket.cinemaId = cinema.cinemaId";
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
         }
 
         //populates gridview and only display current customer name
-        protected void showTicketrData(int pk)
+        protected void showTicketsData(int pk)
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customer.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
                             from  movie inner join
-		                    customer on movie.movieId = customer.movieId inner join
-		                    ticket on customer.ticketId = ticket.ticketId inner join
-		                    cinema on customer.cinemaId = cinema.cinemaId
-                            where customer.customerId = @customerId";
+		                    customerTicket on movie.movieId = customerTicket.movieId inner join
+		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
+		                    cinema on customerTicket.cinemaId = cinema.cinemaId
+                            where customerTicket.customerTicketId = @customerTicketId";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
-            myPara.Add("@customerId", pk);
-            SqlDataReader dr = myCrud.getDrPassSql(mySql);
+            myPara.Add("@customerTicketId", pk);
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
         }
 
         protected void btnShowAllTickets_Click(object sender, EventArgs e)
         {
-            showTicketrData();
+            showTicketsData();
+        }
+
+        protected void btnUpdateTicket_Click(object sender, EventArgs e)
+        {
+            //CRUD code to update ticket
+        }
+
+        protected void btnDeleteTicket_Click(object sender, EventArgs e)
+        {
+
+            string uname = HttpContext.Current.User.Identity.Name.ToString();
+            MembershipUser user = Membership.GetUser(uname);
+            string userId = user.ProviderUserKey.ToString();
+
+            CRUD myCrud = new CRUD();
+            string mySql = @"delete customerTicket where UserId = CAST(@UserId AS UNIQUEIDENTIFIER) 
+                            AND customerTicketId = @customerTicketId
+                            SELECT CAST(scope_identity() AS int);";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
+            myPara.Add("UserId", userId);
+            int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
+            showTicketsData(pk);
+            if (pk >= 1)
+            {
+                lblOutput.Text = "Succesfully Ordered Ticket";
+            }
+            else
+            {
+                lblOutput.Text = "Failed to Order Ticket";
+            }
         }
 
     }//class boundery
