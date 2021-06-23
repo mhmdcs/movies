@@ -96,6 +96,21 @@ namespace movies.Admin
             moviesGvV2.DataBind();
         }
 
+        protected void populateMoviesGvNoImages()
+        {
+
+            CRUD myCrud = new CRUD();
+            string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieDescription, movie.moviePrice, genre.genre, language.language, movie.movieDate, movieStatus.movieStatus, rating.rating
+                             FROM movie inner join 
+                             genre on genre.genreId = movie.genreId inner join
+                             language on movie.languageId = language.languageId inner join
+                             movieStatus on movie.movieStatusId = movieStatus.movieStatusId inner join
+                             rating on movie.ratingId = rating.ratingId;";
+            SqlDataReader dr = myCrud.getDrPassSql(mySql);
+            moviesGv.DataSource = dr;
+            moviesGv.DataBind();
+        }
+
 
         //protected void populateMoviesGv()
         //{
@@ -230,7 +245,7 @@ namespace movies.Admin
 
         protected void btnExportToExcel_Click_Click(object sender, EventArgs e)
         {
-            ExportGridToExcel(moviesGvV2);
+            ExportGridToExcel(moviesGvV);
         }
         public void ExportGridToExcel(GridView grd)
         {
@@ -242,7 +257,7 @@ namespace movies.Admin
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
             grd.AllowPaging = false;
-            populateMoviesGv();
+            populateMoviesGvNoImages();
             grd.RenderControl(hw);
             string style = @"<style> .textmode { mso-number-format:\@; } </style>";
             Response.Write(style);
@@ -268,9 +283,9 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment;filename=GridViewExport.doc");
-            moviesGvV2.GridLines = GridLines.Both;
-            moviesGvV2.HeaderStyle.Font.Bold = true;
-            moviesGvV2.RenderControl(htmltextwrtter);
+            moviesGvV.GridLines = GridLines.Both;
+            moviesGvV.HeaderStyle.Font.Bold = true;
+            moviesGvV.RenderControl(htmltextwrtter);
             Response.Write(strwritter.ToString());
             Response.End();
         }
@@ -287,7 +302,7 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
-            moviesGvV2.RenderControl(hw);
+            moviesGvV.RenderControl(hw);
             StringReader sr = new StringReader(sw.ToString());
             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
             iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
@@ -297,8 +312,8 @@ namespace movies.Admin
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
-            moviesGvV2.AllowPaging = true;
-            moviesGvV2.DataBind();
+            moviesGvV.AllowPaging = true;
+            moviesGvV.DataBind();
         }
 
     }

@@ -276,16 +276,17 @@ namespace movies
         //change to void?
         public string sendEmailViaGmail() // worked 100%, this is a nice one use it with  properties
         {
-            string myFrom = "mohamedunknown@gmail.com";
-            string myTo = "masalmekhlafi@sm.imamu.edu.sa";
+            string myFrom = "movieskfmca@gmail.com"; //Email: movieskfmca@gmail.com         Pass: summ2021
+
+            string myTo = "mohamedunknown@gmail.com";
             string mySubject = "testing sending email";
             string myBody = "email message content";
 
             string myHostsmtpAddress = "smtp.gmail.com";//"smtp.mail.yahoo.com";  //mail.wdbcs.com 
             int myPortNumber = 587;
             bool myEnableSSL = true;
-            string myUserName = "xxxxx@gmail.com";//"ajalzahrani1@gmail.com";
-            string myPassword = "xxxxxxx";//"atheer@22";
+            string myUserName = "movieskfmca@gmail.com";//"ajalzahrani1@gmail.com";
+            string myPassword = "summ2021";//"atheer@22";
 
 
             //string visitorUserName = Page.User.Identity.Name;
