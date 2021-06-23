@@ -67,6 +67,15 @@ namespace movies {
         protected global::System.Web.UI.WebControls.Button btnOrderTicket;
         
         /// <summary>
+        /// btnShowMyTickets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowMyTickets;
+        
+        /// <summary>
         /// btnShowAllTickets control.
         /// </summary>
         /// <remarks>

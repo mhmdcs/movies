@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\misc\iTextSharp_5.4.4\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -106,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\MoviesManagement.aspx" />
+    <Content Include="Admin\web.config" />
     <Content Include="Cinemas.aspx" />
     <Content Include="Account\default.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -133,7 +137,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Admin\web.config" />
     <Content Include="OrderTicket\Ticket.aspx" />
     <Content Include="WhatsNew\ComingSoon.aspx" />
     <Content Include="WhatsNew\default.aspx" />

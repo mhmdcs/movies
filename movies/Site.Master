@@ -88,7 +88,7 @@
                         <li><a runat="server" id="loginLink" visible="true" href="~/Account/Login">Log in</a></li>
                         <li><a runat="server" id="signupLink" visible="true" href="~/Account/Signup">Sign up</a></li>
 
-
+                        
                         <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false" id="adminLink" visible="false" href="~/Admin/default">Admin<span class ="caret"></span> </a>
                             <ul class ="dropdown-menu">
@@ -121,7 +121,7 @@
                                 </span>! </span>
                         [
                                 <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
-                                    LogoutPageUrl="~/default.aspx" />
+                                    LogoutPageUrl="~/Default.aspx" />
                                 ]
                             </LoggedInTemplate>
                         </asp:LoginView>

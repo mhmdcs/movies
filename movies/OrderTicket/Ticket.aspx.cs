@@ -1,8 +1,14 @@
-﻿using movies.App_Code;
+﻿using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using movies.App_Code;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Threading;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -14,6 +20,8 @@ namespace movies
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (!Page.IsPostBack)
             {
                 populateMovie();
@@ -29,6 +37,13 @@ namespace movies
             }
 
         }//page load boundery
+
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
+
 
         protected void populateMovie()
         {
@@ -89,11 +104,11 @@ namespace movies
                             values(@customerFullName,@movieId,@ticketId,@cinemaId,CAST(@UserId AS UNIQUEIDENTIFIER))
 							SELECT CAST(scope_identity() AS int);";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
-            myPara.Add("customerFullName", txtFullName.Text);
-            myPara.Add("movieId", ddlMovie.SelectedValue);
-            myPara.Add("ticketId", ddlTicket.SelectedValue);
-            myPara.Add("cinemaId", ddlCinema.SelectedValue);
-            myPara.Add("UserId", userId);
+            myPara.Add("@customerFullName", txtFullName.Text);
+            myPara.Add("@movieId", ddlMovie.SelectedValue);
+            myPara.Add("@ticketId", ddlTicket.SelectedValue);
+            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+            myPara.Add("@UserId", userId);
             int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
             //if (rtn >= 1)
             //{
@@ -108,7 +123,7 @@ namespace movies
         }//button submit boundery
 
 
-        //populates gridview and display all customers tickets
+        //populates gridview and display all customers tickets -- admnin only
         protected void showTicketsData()
         {
             CRUD myCrud = new CRUD();
@@ -144,11 +159,63 @@ namespace movies
             showTicketsData();
         }
 
-        protected void btnUpdateTicket_Click(object sender, EventArgs e)
+        protected void btnShowMyTickets_Click(object sender, EventArgs e)
         {
-            //CRUD code to update ticket
+            string uname = HttpContext.Current.User.Identity.Name.ToString();
+            MembershipUser user = Membership.GetUser(uname);
+            string userId = user.ProviderUserKey.ToString();
+
+            CRUD myCrud = new CRUD();
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
+                            from  movie inner join
+		                    customerTicket on movie.movieId = customerTicket.movieId inner join
+		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
+		                    cinema on customerTicket.cinemaId = cinema.cinemaId
+                            where customerTicket.UserId = @UserId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@UserId", userId);
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            gvTicketData.DataSource = dr;
+            gvTicketData.DataBind();
         }
 
+
+        protected void btnUpdateTicket_Click(object sender, EventArgs e)
+        {
+            string uname = HttpContext.Current.User.Identity.Name.ToString();
+            MembershipUser user = Membership.GetUser(uname);
+            string userId = user.ProviderUserKey.ToString();
+
+            string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
+                           cinemaId =@cinemaId, ticketId = @ticketId
+                           where customerTicketId = @customerTicketId
+                              AND  UserId = CAST(@UserId AS UNIQUEIDENTIFIER)
+                              SELECT CAST(scope_identity() AS int);";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            CRUD myCrud = new CRUD();
+            myPara.Add("@customerFullName", txtFullName.Text);
+            myPara.Add("@movieId", ddlMovie.SelectedValue);
+            myPara.Add("@ticketId", ddlTicket.SelectedValue);
+            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+            myPara.Add("@UserId", userId);
+            myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+            int pk = int.Parse(txtTicketId.Text);
+            pk = myCrud.InsertUpdateDelete(mySql, myPara);
+
+                if (pk >= 1)
+                {
+                    lblOutput.Text = "Succesfully Updated Ticket";
+                }
+                else
+                {
+                    lblOutput.Text = "Failed to Update Ticket";
+                }
+            showTicketsData(pk);
+        }
+
+
+
+        
         protected void btnDeleteTicket_Click(object sender, EventArgs e)
         {
 
@@ -157,23 +224,108 @@ namespace movies
             string userId = user.ProviderUserKey.ToString();
 
             CRUD myCrud = new CRUD();
-            string mySql = @"delete customerTicket where UserId = CAST(@UserId AS UNIQUEIDENTIFIER) 
-                            AND customerTicketId = @customerTicketId
-                            SELECT CAST(scope_identity() AS int);";
+            string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
+                             AND  UserId = CAST(@UserId AS UNIQUEIDENTIFIER)";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
             myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
+            int pk = int.Parse(txtTicketId.Text);
             myPara.Add("UserId", userId);
-            int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
+             pk = myCrud.InsertUpdateDelete(mySql, myPara);
             showTicketsData(pk);
+
+
             if (pk >= 1)
             {
-                lblOutput.Text = "Succesfully Ordered Ticket";
+                lblOutput.Text = "Succesfully Deleted Ticket";
             }
             else
             {
-                lblOutput.Text = "Failed to Order Ticket";
+                lblOutput.Text = "Failed to Delete Ticket";
             }
         }
+
+        protected void btnExportPDF_Click(object sender, EventArgs e)
+        {
+            ExportGridToPDF();
+        }
+
+
+        protected void ExportGridToPDF()
+        {
+
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            gvTicketData.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+            gvTicketData.AllowPaging = true;
+            gvTicketData.DataBind();
+        }
+
+
+        //change to void?
+        public string sendEmailViaGmail() // worked 100%, this is a nice one use it with  properties
+        {
+            string myFrom = "mohamedunknown@gmail.com";
+            string myTo = "masalmekhlafi@sm.imamu.edu.sa";
+            string mySubject = "testing sending email";
+            string myBody = "email message content";
+
+            string myHostsmtpAddress = "smtp.gmail.com";//"smtp.mail.yahoo.com";  //mail.wdbcs.com 
+            int myPortNumber = 587;
+            bool myEnableSSL = true;
+            string myUserName = "xxxxx@gmail.com";//"ajalzahrani1@gmail.com";
+            string myPassword = "xxxxxxx";//"atheer@22";
+
+
+            //string visitorUserName = Page.User.Identity.Name;
+            using (MailMessage m = new MailMessage(myFrom, myTo, mySubject, myBody)) // .............................1
+            {
+                SmtpClient sc = new SmtpClient(myHostsmtpAddress, myPortNumber); //..................................2
+                try
+                {
+                    sc.Credentials = new System.Net.NetworkCredential(myUserName, myPassword);  //.................3
+                    sc.EnableSsl = true;
+                    sc.Send(m);
+                    return "Email Send successfully";
+                    //lblMsg.Text = ("Email Send successfully");
+                    //lblMsg.ForeColor = Color.Green; // using System.Drawing above 2/2018
+                }
+                catch (SmtpFailedRecipientException ex)
+                {
+                    SmtpStatusCode statusCode = ex.StatusCode;
+                    if (statusCode == SmtpStatusCode.MailboxBusy || statusCode == SmtpStatusCode.MailboxUnavailable || statusCode == SmtpStatusCode.TransactionFailed)
+                    {   // wait 5 seconds, try a second time
+                        Thread.Sleep(5000);
+                        sc.Send(m);
+                        return ex.Message.ToString();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return ex.ToString();
+                }
+                finally
+                {
+                    m.Dispose();
+                }
+            }// end using 
+        }
+
 
     }//class boundery
 }//namespace boundery

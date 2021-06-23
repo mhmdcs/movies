@@ -41,6 +41,7 @@
         <td class="modal-sm" style="width: 211px; height: 27px;"></td>
         <td style="height: 27px">
             <asp:Button ID="btnOrderTicket" runat="server" Text="Order Ticket" OnClick="btnOrderTicket_Click" />
+            <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="Show All My Tickets" />
         </td>
     </tr>
     <tr>
@@ -50,13 +51,14 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>
+        <td class="modal-sm" style="width: 211px">&nbsp;</td>
+        <td>
+            &nbsp;</td>
     </tr>
     <tr>
-        <td colspan="2"><asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" /></td>
+        <td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>
     </tr>
     </table>
-<br />
 
 
 
@@ -69,17 +71,31 @@
 
     <table class="nav-justified">
         <tr>
+            <td style="width: 194px">&nbsp;</td>
+            <td>
+                <asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" OnClick="btnExportPDF_Click" />
+
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 194px">&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td style="width: 194px">Ticket Id</td>
             <td>
             <asp:TextBox ID="txtTicketId" runat="server"></asp:TextBox>
-            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" />
-            <asp:Button ID="btnDeleteTicket" runat="server" OnClick="btnDeleteTicket_Click" Text="Delete Ticket" />
 
             </td>
         </tr>
         <tr>
             <td> </td>
-            <td>&nbsp;</td>
+            <td>
+            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" />
+            <asp:Button ID="btnDeleteTicket" runat="server" OnClick="btnDeleteTicket_Click" Text="Delete Ticket" />
+
+            </td>
         </tr>
     </table>
 

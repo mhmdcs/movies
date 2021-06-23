@@ -140,3 +140,4 @@ C:\kingFahadIntern2021\projects\movies-dev\movies\obj\Debug\movies.csproj.CoreCo
 C:\kingFahadIntern2021\projects\movies-dev\movies\obj\Debug\movies.csproj.CopyComplete
 C:\kingFahadIntern2021\projects\movies-dev\movies\obj\Debug\movies.dll
 C:\kingFahadIntern2021\projects\movies-dev\movies\obj\Debug\movies.pdb
+C:\kingFahadIntern2021\projects\movies-dev\movies\bin\itextsharp.dll
