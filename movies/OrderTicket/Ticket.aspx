@@ -11,20 +11,20 @@
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px">Full Name</td>
+        <td class="modal-sm" style="width: 211px">Name</td>
         <td>
             <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px; height: 20px">Movie</td>
+        <td class="modal-sm" style="width: 211px; height: 20px">Movie Title</td>
         <td style="height: 20px">
             <asp:DropDownList ID="ddlMovie" runat="server">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px">Ticket</td>
+        <td class="modal-sm" style="width: 211px">Ticket Type</td>
         <td>
             <asp:DropDownList ID="ddlTicket" runat="server">
             </asp:DropDownList>
@@ -56,7 +56,21 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>
+        <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
+
+                            <asp:GridView ID="gvTicketData" runat="server" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
+                            <asp:BoundField DataField="customerFullName" HeaderText="Name" />
+                            <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
+                            <asp:BoundField DataField="ticket" HeaderText="Ticket Type" />
+                            <asp:BoundField DataField="cinema" HeaderText="Cinema" />
+                            <asp:BoundField DataField="movieDate" HeaderText="Showing Date" />
+                            <asp:BoundField DataField="moviePrice" HeaderText="Ticket Price" />
+
+                        </Columns>
+                    </asp:GridView>
+
     </tr>
     </table>
 
@@ -83,7 +97,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 194px">Ticket Id</td>
+            <td style="width: 194px">Ticket Number</td>
             <td>
             <asp:TextBox ID="txtTicketId" runat="server"></asp:TextBox>
 

@@ -127,7 +127,7 @@ namespace movies
         protected void showTicketsData()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movie.movieDate, movie.moviePrice
                             from  movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
@@ -141,7 +141,7 @@ namespace movies
         protected void showTicketsData(int pk)
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movie.movieDate, movie.moviePrice
                             from  movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
@@ -166,7 +166,7 @@ namespace movies
             string userId = user.ProviderUserKey.ToString();
 
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movie.movieDate, movie.moviePrice
                             from  movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join

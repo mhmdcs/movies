@@ -9,6 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
 
 namespace movies.Admin
 {
@@ -23,8 +26,14 @@ namespace movies.Admin
                 populateLanguage();
                 populateStatus();
                 populateRating();
-          //      populateMoviesGv();
+                //    populateMoviesGv();
             }
+        }
+
+        //fixes error when exporting pdf, word, excel, etc
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
         }
 
         protected void populateGenre()
@@ -127,7 +136,7 @@ namespace movies.Admin
             if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".jpeg")
             {
                 Stream stream = postedFile.InputStream;
-                myPara.Add("@movieImage",stream);
+                myPara.Add("@movieImage", stream);
             }
 ;
             myPara.Add("@genreId", ddlGenre.SelectedValue);
@@ -183,7 +192,7 @@ namespace movies.Admin
             myPara.Add("@ratingId", ddlRating.SelectedValue);
             myPara.Add("@movieId", int.Parse(txtMovieId.Text));
             int pk = int.Parse(txtMovieId.Text);
-             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
             if (rtn >= 1)
             {
                 lblOutput.Text = "Succesfully Updated Movie";
@@ -218,5 +227,79 @@ namespace movies.Admin
         {
             populateMoviesGv();
         }
+
+        protected void btnExportToExcel_Click_Click(object sender, EventArgs e)
+        {
+            ExportGridToExcel(moviesGvV2);
+        }
+        public void ExportGridToExcel(GridView grd)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.xls");
+            Response.Charset = "";
+            Response.ContentType = "application/vnd.ms-excel";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            grd.AllowPaging = false;
+            populateMoviesGv();
+            grd.RenderControl(hw);
+            string style = @"<style> .textmode { mso-number-format:\@; } </style>";
+            Response.Write(style);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+        }
+
+        protected void btnExportToWord_Click_Click(object sender, EventArgs e)
+        {
+            ExportGridToword();
+        }
+        public void ExportGridToword()
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.Charset = "";
+            //string FileName = "Vithal" + DateTime.Now + ".doc";
+            StringWriter strwritter = new StringWriter();
+            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "application/msword";
+            Response.AddHeader("Content-Disposition", "attachment;filename=GridViewExport.doc");
+            moviesGvV2.GridLines = GridLines.Both;
+            moviesGvV2.HeaderStyle.Font.Bold = true;
+            moviesGvV2.RenderControl(htmltextwrtter);
+            Response.Write(strwritter.ToString());
+            Response.End();
+        }
+
+        protected void btnExportToPdf_Click_Click(object sender, EventArgs e)
+        {
+            ExportGridToPDF();
+        }
+        public void ExportGridToPDF()
+        {
+
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            moviesGvV2.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+            moviesGvV2.AllowPaging = true;
+            moviesGvV2.DataBind();
+        }
+
     }
 }

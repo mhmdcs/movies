@@ -138,6 +138,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="OrderTicket\Ticket.aspx" />
+    <Content Include="WhatsNew\All.aspx" />
     <Content Include="WhatsNew\ComingSoon.aspx" />
     <Content Include="WhatsNew\default.aspx" />
     <Content Include="WhatsNew\NowShowing.aspx" />
@@ -311,6 +312,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WhatsNew\All.aspx.cs">
+      <DependentUpon>All.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WhatsNew\All.aspx.designer.cs">
+      <DependentUpon>All.aspx</DependentUpon>
     </Compile>
     <Compile Include="WhatsNew\ComingSoon.aspx.cs">
       <DependentUpon>ComingSoon.aspx</DependentUpon>

@@ -10,13 +10,13 @@ using System.Web.UI.WebControls;
 
 namespace movies.WhatsNew
 {
-    public partial class ComingSoon : System.Web.UI.Page
+    public partial class All : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-            populateListView();
+                populateListView();
 
             }
         }
@@ -29,9 +29,8 @@ namespace movies.WhatsNew
                              genre on genre.genreId = movie.genreId inner join
                              language on movie.languageId = language.languageId inner join
                              movieStatus on movie.movieStatusId = movieStatus.movieStatusId inner join
-                             rating on movie.ratingId = rating.ratingId
-                             where movie.movieStatusId=2;";
-            DataTable dt = myCrud.getDT(mySql); 
+                             rating on movie.ratingId = rating.ratingId;";
+            DataTable dt = myCrud.getDT(mySql);
             moviesLv.DataSource = dt;
             moviesLv.DataBind();
         }

@@ -10,7 +10,7 @@
 namespace movies.WhatsNew {
     
     
-    public partial class NowShowing {
+    public partial class All {
         
         /// <summary>
         /// moviesLv control.

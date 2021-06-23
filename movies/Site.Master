@@ -79,6 +79,7 @@
                            <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false" href="~/WhatsNew/default">Whats New<span class ="caret"></span> </a>
                             <ul class ="dropdown-menu">
+                                <li><a href="~/WhatsNew/All.aspx" runat="server">All</a></li>
                                 <li><a href="~/WhatsNew/NowShowing.aspx" runat="server">Now Showing</a></li>
                                 <li><a href="~/WhatsNew/ComingSoon.aspx" runat="server">Coming Soon</a></li>
                             </ul>

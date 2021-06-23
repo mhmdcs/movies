@@ -85,6 +85,37 @@
                 </td>
             </tr>
             <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">Movie Id</td>
+                <td style="height: 20px">
+                    <asp:TextBox ID="txtMovieId" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="Export To Excel" />
+                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="Export To Word" />
+                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="Export To PDF" />
+                </td>
+            </tr>
+            <tr>
                 <td style="height: 20px;" colspan="2">
 
                     <asp:GridView ID="moviesGv" runat="server"></asp:GridView>
@@ -124,15 +155,12 @@
             <tr>
                 <td style="width: 121px">Movie Id</td>
                 <td>
-                    <asp:TextBox ID="txtMovieId" runat="server"></asp:TextBox>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 121px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
-                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
-                </td>
+                    &nbsp;</td>
             </tr>
         </table>
     </p>
