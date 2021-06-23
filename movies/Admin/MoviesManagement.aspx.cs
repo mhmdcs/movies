@@ -245,7 +245,7 @@ namespace movies.Admin
 
         protected void btnExportToExcel_Click_Click(object sender, EventArgs e)
         {
-            ExportGridToExcel(moviesGvV);
+            ExportGridToExcel(moviesGv);
         }
         public void ExportGridToExcel(GridView grd)
         {
@@ -283,9 +283,9 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment;filename=GridViewExport.doc");
-            moviesGvV.GridLines = GridLines.Both;
-            moviesGvV.HeaderStyle.Font.Bold = true;
-            moviesGvV.RenderControl(htmltextwrtter);
+            moviesGv.GridLines = GridLines.Both;
+            moviesGv.HeaderStyle.Font.Bold = true;
+            moviesGv.RenderControl(htmltextwrtter);
             Response.Write(strwritter.ToString());
             Response.End();
         }
@@ -302,7 +302,7 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
-            moviesGvV.RenderControl(hw);
+            moviesGv.RenderControl(hw);
             StringReader sr = new StringReader(sw.ToString());
             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
             iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
@@ -312,8 +312,8 @@ namespace movies.Admin
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
-            moviesGvV.AllowPaging = true;
-            moviesGvV.DataBind();
+            moviesGv.AllowPaging = true;
+            moviesGv.DataBind();
         }
 
     }
