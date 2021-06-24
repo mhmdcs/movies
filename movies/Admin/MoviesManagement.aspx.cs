@@ -194,6 +194,7 @@ namespace movies.Admin
             myPara.Add("@movieDescription", txtMovieDesc.Text);
             myPara.Add("@moviePrice", decimal.Parse(txtMoviePrice.Text));
 
+            //condition to only accept uploaded images with .jpg, .png, .jpeg extensions and then reads the content of the file via inputStream
             if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".jpeg")
             {
                 Stream stream = postedFile.InputStream;

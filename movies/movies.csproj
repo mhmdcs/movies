@@ -136,6 +136,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Images\moviesLogo.png" />
+    <Content Include="Images\moviesLogo2.png" />
+    <Content Include="moviesLogo-favicon.ico" />
     <Content Include="OrderTicket\Ticket.aspx" />
     <Content Include="WhatsNew\All.aspx" />
     <Content Include="WhatsNew\ComingSoon.aspx" />
@@ -149,7 +152,6 @@
     <None Include="Properties\PublishProfiles\Default Settings1.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Images\moviesLogo2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

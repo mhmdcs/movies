@@ -18,6 +18,8 @@ namespace movies
 {
     public partial class Ticket : System.Web.UI.Page
     {
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +50,6 @@ namespace movies
             //base.VerifyRenderingInServerForm(control);
         }
 
-
         protected void populateMovie()
         {
             CRUD myCrud = new CRUD();
@@ -63,8 +64,6 @@ namespace movies
 
         }
 
-
-
         protected void populateTicket()
         {
             CRUD myCrud = new CRUD();
@@ -76,9 +75,6 @@ namespace movies
             ddlTicket.DataBind();
         }
 
-
-
-
         protected void populateCinema()
         {
             CRUD myCrud = new CRUD();
@@ -89,41 +85,6 @@ namespace movies
             ddlCinema.DataSource = dr;
             ddlCinema.DataBind();
         }
-
-
-        //action query with Dictionary object
-        protected void btnOrderTicket_Click(object sender, EventArgs e)
-        {
-            //Code to retrieve current logged-in username and UserId
-            // Get current logged-in user username
-            string uname = HttpContext.Current.User.Identity.Name.ToString();
-            // Get current user UserId in asp.net membership
-            MembershipUser user = Membership.GetUser(uname);
-            string userId = user.ProviderUserKey.ToString();
-
-            CRUD myCrud = new CRUD();
-            string mySql = @"insert into customerTicket(customerFullName,movieId,ticketId,cinemaId,UserId) 
-                            values(@customerFullName,@movieId,@ticketId,@cinemaId,CAST(@UserId AS UNIQUEIDENTIFIER))
-							SELECT CAST(scope_identity() AS int);";
-            Dictionary<string, object> myPara = new Dictionary<string, object>();
-            myPara.Add("@customerFullName", txtFullName.Text);
-            myPara.Add("@movieId", ddlMovie.SelectedValue);
-            myPara.Add("@ticketId", ddlTicket.SelectedValue);
-            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
-            myPara.Add("@UserId", userId);
-            int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
-            if (pk >= 1)
-            {
-                lblOutput.Text = "Succesfully Ordered Ticket";
-            }
-            else
-            {
-                lblOutput.Text = "Failed to Order Ticket";
-            }
-
-            showTicketsData(pk);
-        }//button submit boundery
-
 
         //populates gridview and display all customers tickets -- admnin only
         protected void showTicketsData()
@@ -156,13 +117,6 @@ namespace movies
             gvTicketData.DataBind();
         }
 
-        //show all customertickets for all users as admin
-        protected void btnShowAllTickets_Click(object sender, EventArgs e)
-        {
-            showTicketsData();
-        }
-
-
         //show user only customertickets linked to their respective user account
         protected void btnShowMyTickets_Click(object sender, EventArgs e)
         {
@@ -187,15 +141,61 @@ namespace movies
             gvTicketData.DataBind();
         }
 
-        //user can only update customertickets linked to their respective user account -- security on userbase data
-        protected void btnUpdateTicket_Click(object sender, EventArgs e)
+        //action query with Dictionary object
+        protected void btnOrderTicket_Click(object sender, EventArgs e)
         {
-            //Code to retrieve current logged-in username and UserId
+
+            //Code to retrieve current logged-in username and UserId to perform secured crud operations that check user integrity
             // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
             // Get current user UserId in asp.net membership
             MembershipUser user = Membership.GetUser(uname);
             string userId = user.ProviderUserKey.ToString();
+
+            //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
+            string userEmail = Membership.GetUser(uname).Email;
+
+            CRUD myCrud = new CRUD();
+            string mySql = @"insert into customerTicket(customerFullName,movieId,ticketId,cinemaId,UserId) 
+                            values(@customerFullName,@movieId,@ticketId,@cinemaId,CAST(@UserId AS UNIQUEIDENTIFIER))
+							SELECT CAST(scope_identity() AS int);";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@customerFullName", txtFullName.Text);
+            myPara.Add("@movieId", ddlMovie.SelectedValue);
+            myPara.Add("@ticketId", ddlTicket.SelectedValue);
+            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+            myPara.Add("@UserId", userId);
+            int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
+            if (pk >= 1)
+            {
+                lblOutput.Text = "Successfully Ordered Ticket";
+
+                string emailSubject = "Successfully Ordered Ticket " + pk.ToString();
+                string emailBody = "Your ticket " + pk.ToString() + " has been successfully ordered. Thank you for visiting our site!";
+
+                sendEmailViaGmail(userEmail, emailSubject, emailBody);
+
+            }
+            else
+            {
+                lblOutput.Text = "Failed to Order Ticket";
+            }
+
+            showTicketsData(pk);
+        }//button submit boundery
+
+        //user can only update customertickets linked to their respective user account -- security on userbase data
+        protected void btnUpdateTicket_Click(object sender, EventArgs e)
+        {
+            //Code to retrieve current logged-in username and UserId to perform secured crud operations that check user integrity
+            // Get current logged-in user username
+            string uname = HttpContext.Current.User.Identity.Name.ToString();
+            // Get current user UserId in asp.net membership
+            MembershipUser user = Membership.GetUser(uname);
+            string userId = user.ProviderUserKey.ToString();
+
+            //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
+            string userEmail = Membership.GetUser(uname).Email;
 
             string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
                            cinemaId =@cinemaId, ticketId = @ticketId
@@ -213,10 +213,16 @@ namespace movies
             int pk = int.Parse(txtTicketId.Text);
             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
 
-                if (rtn >= 1)
-                {
-                    lblOutput.Text = "Succesfully Updated Ticket";
-                }
+            if (rtn >= 1)
+            {
+                lblOutput.Text = "Succesfully Updated Ticket";
+
+                string emailSubject = "Successfully Updated Ticket "+ txtTicketId.Text;
+                string emailBody = "Your ticket" + txtTicketId.Text + "has been successfully updated. Thank you for visiting our site!";
+
+                sendEmailViaGmail(userEmail, emailSubject, emailBody);
+
+            }
                 else
                 {
                     lblOutput.Text = "Failed to Update Ticket";
@@ -228,12 +234,15 @@ namespace movies
         protected void btnDeleteTicket_Click(object sender, EventArgs e)
         {
 
-            //Code to retrieve current logged-in username and UserId
+            //Code to retrieve current logged-in username and UserId to perform secured crud operations that check user integrity
             // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
             // Get current user UserId in asp.net membership
             MembershipUser user = Membership.GetUser(uname);
             string userId = user.ProviderUserKey.ToString();
+
+            //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
+            string userEmail = Membership.GetUser(uname).Email;
 
             CRUD myCrud = new CRUD();
             string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
@@ -249,6 +258,10 @@ namespace movies
             if (rtn >= 1)
             {
                 lblOutput.Text = "Succesfully Deleted Ticket";
+                string emailSubject = "Successfully Deleted Ticket "+ txtTicketId.Text;
+                string emailBody = "Your ticket "+ txtTicketId.Text + " has been successfully deleted. Thank you for visiting our site!";
+
+                sendEmailViaGmail(userEmail, emailSubject, emailBody);
             }
             else
             {
@@ -256,9 +269,24 @@ namespace movies
             }
         }
 
+        //show all customertickets for all users as admin
+        protected void btnShowAllTickets_Click(object sender, EventArgs e)
+        {
+            showTicketsData();
+        }
+    
         //force update ticket for any user as admin
         protected void btnUpdateAdmin_Click(object sender, EventArgs e)
         {
+
+             CRUD MyCrudEmail = new CRUD();
+            //this crud operation recieves user email that's linked to the customer ticket id
+            string mySqlEmail = @"select aspnet_Membership.Email from customerTicket inner join aspnet_Membership on 
+	                    customerTicket.UserId = aspnet_Membership.UserId AND customerTicket.customerTicketId=@customerTicketId;";
+            Dictionary<string, object> myParaEmail = new Dictionary<string, object>();
+            myParaEmail.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+            string userEmail = MyCrudEmail.InsertUpdateDeleteViaSqlDicRtnString(mySqlEmail, myParaEmail);
+
             CRUD myCrud = new CRUD();
             string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
                            cinemaId =@cinemaId, ticketId = @ticketId
@@ -276,27 +304,46 @@ namespace movies
             if (rtn >= 1)
             {
                 lblOutput.Text = "Succesfully Updated Ticket";
+                string emailSubject = "Your ticket "+ txtTicketId.Text+" has been updated";
+                string emailBody = "Your ticket " + txtTicketId.Text + " has been updated. Thank you for visiting our site!";
+
+                sendEmailViaGmail(userEmail, emailSubject, emailBody);
             }
             else
             {
                 lblOutput.Text = "Failed to Update Ticket";
             }
-            showTicketsData(pk);
+            showTicketsData();
         }
 
         //force delete ticket for any user as admin
         protected void btnDeleteAdmin_Click(object sender, EventArgs e)
         {
-           CRUD myCrud = new CRUD();
+
+            CRUD MyCrudEmail = new CRUD();
+            //this crud operation recieves user email that's linked to the customer ticket id
+            string mySqlEmail = @"select aspnet_Membership.Email from customerTicket inner join aspnet_Membership on 
+	                    customerTicket.UserId = aspnet_Membership.UserId AND customerTicket.customerTicketId=@customerTicketId;";
+            Dictionary<string, object> myParaEmail = new Dictionary<string, object>();
+            myParaEmail.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+            string userEmail = MyCrudEmail.InsertUpdateDeleteViaSqlDicRtnString(mySqlEmail, myParaEmail);
+
+            CRUD myCrud = new CRUD();
             string mySql = @"delete customerTicket where customerTicketId = @customerTicketId";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
             myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
             int pk = int.Parse(txtTicketId.Text);
             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
-            showTicketsData(pk);
-              if (rtn >= 1)
+            showTicketsData();
+            if (rtn >= 1)
             {
                 lblOutput.Text = "Succesfully Deleted Ticket";
+
+                string emailSubject = "Your ticket " + txtTicketId.Text + " has been deleted";
+                string emailBody = "Your ticket " + txtTicketId.Text + " has been deleted. Thank you for visiting our site!";
+
+                sendEmailViaGmail(userEmail, emailSubject, emailBody);
+
             }
             else
             {
@@ -332,19 +379,19 @@ namespace movies
         }
 
         
-        public string sendEmailViaGmail() // worked 100%, this is a nice one use it with  properties
+        public string sendEmailViaGmail(string userEmail, string emailSubject, string emailBody) // worked 100%, this is a nice one use it with  properties
         {
-            string myFrom = "movieskfmca@gmail.com"; //Email: movieskfmca@gmail.com         Pass: summ2021
+            string myFrom = "movieskfmca@gmail.com"; //Email: movieskfmca@gmail.com Pass: summ2021
 
-            string myTo = "mohamedunknown@gmail.com";
-            string mySubject = "testing sending email";
-            string myBody = "email message content";
+            string myTo = userEmail;
+            string mySubject = emailSubject;
+            string myBody = emailBody;
 
             string myHostsmtpAddress = "smtp.gmail.com";//"smtp.mail.yahoo.com";  //mail.wdbcs.com 
             int myPortNumber = 587;
             bool myEnableSSL = true;
-            string myUserName = "movieskfmca@gmail.com";//"ajalzahrani1@gmail.com";
-            string myPassword = "summ2021";//"atheer@22";
+            string myUserName = "movieskfmca@gmail.com";//"movieskfmca@gmail.comm"
+            string myPassword = "summ2021";//"summ2021"
 
 
             //string visitorUserName = Page.User.Identity.Name;

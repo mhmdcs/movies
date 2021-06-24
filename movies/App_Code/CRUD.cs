@@ -247,6 +247,40 @@ namespace movies.App_Code
             //   return new List<Dictionary<string, object>>(); ////return new List<DataTable>();
             return newIdentityId;
         }
+
+        //new custom method in CRUD by mohammed to return a string.. later realized teacher ali already made one named getNameExecuteScalar lol
+        public string InsertUpdateDeleteViaSqlDicRtnString(string mySql, Dictionary<string, object> myPara) //9
+        {
+            string stringVariable = "";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(mySql, con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    foreach (KeyValuePair<string, object> p in myPara)
+                    {
+                        cmd.Parameters.AddWithValue(p.Key, p.Value);
+                    }
+                    using (con)
+                    {
+                        con.Open();
+                        stringVariable = cmd.ExecuteScalar().ToString();
+                    }
+                }
+            }
+
+            //catch (Exception ex)
+            //{
+            //    ex.Message.ToString();
+            //}
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                throw ex;
+            }
+            //   return new List<Dictionary<string, object>>(); ////return new List<DataTable>();
+            return stringVariable;
+        }
+
         public string getNameExecuteScalar(string mySql, Dictionary<string, object> myPara) //9
         {
             string newIdentityId ="";
