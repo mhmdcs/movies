@@ -40,15 +40,6 @@ namespace movies.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtMovieDesc;
         
         /// <summary>
-        /// txtMoviePrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMoviePrice;
-        
-        /// <summary>
         /// ddlGenre control.
         /// </summary>
         /// <remarks>
@@ -67,13 +58,13 @@ namespace movies.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlLang;
         
         /// <summary>
-        /// txtMovieDate control.
+        /// txtmovieRelease control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMovieDate;
+        protected global::System.Web.UI.WebControls.TextBox txtmovieRelease;
         
         /// <summary>
         /// rbtlStatus control.

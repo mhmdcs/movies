@@ -85,7 +85,7 @@ namespace movies.Admin
         {
 
             CRUD myCrud = new CRUD();
-            string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieImage, movie.movieDescription, movie.moviePrice, genre.genre, language.language, movie.movieDate, movieStatus.movieStatus, rating.rating
+            string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieImage, movie.movieDescription, genre.genre, language.language, movie.movieRelease, movieStatus.movieStatus, rating.rating
                              FROM movie inner join 
                              genre on genre.genreId = movie.genreId inner join
                              language on movie.languageId = language.languageId inner join
@@ -100,7 +100,7 @@ namespace movies.Admin
         {
 
             CRUD myCrud = new CRUD();
-            string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieDescription, movie.moviePrice, genre.genre, language.language, movie.movieDate, movieStatus.movieStatus, rating.rating
+            string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieDescription, genre.genre, language.language, movie.movieRelease, movieStatus.movieStatus, rating.rating
                              FROM movie inner join 
                              genre on genre.genreId = movie.genreId inner join
                              language on movie.languageId = language.languageId inner join
@@ -116,7 +116,7 @@ namespace movies.Admin
         //{
 
         //    CRUD myCrud = new CRUD();
-        //    string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieImage, movie.movieDescription, movie.moviePrice, genre.genre, language.language, movie.movieDate, movieStatus.movieStatus, rating.rating
+        //    string mySql = @"SELECT movie.movieId, movie.movieName, movie.movieImage, movie.movieDescription, genre.genre, language.language, movie.movieRelease, movieStatus.movieStatus, rating.rating
         //                     FROM movie inner join 
         //                     genre on genre.genreId = movie.genreId inner join
         //                     language on movie.languageId = language.languageId inner join
@@ -140,13 +140,12 @@ namespace movies.Admin
 
             CRUD myCrud = new CRUD();
             string mySql = @"INSERT INTO movie
-           (movieName, movieDescription, moviePrice, movieImage, genreId, languageId, movieDate, movieStatusId, ratingId) VALUES
-           (@movieName, @movieDescription, @moviePrice, @movieImage, @genreId, @languageId, @movieDate, @movieStatusId, @ratingId)
+           (movieName, movieDescription, movieImage, genreId, languageId, movieRelease, movieStatusId, ratingId) VALUES
+           (@movieName, @movieDescription, @movieImage, @genreId, @languageId, @movieRelease, @movieStatusId, @ratingId)
             SELECT CAST(scope_identity() AS int)";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
             myPara.Add("@movieName", txtMovieTitle.Text);
             myPara.Add("@movieDescription", txtMovieDesc.Text);
-            myPara.Add("@moviePrice", decimal.Parse(txtMoviePrice.Text));
 
             if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".jpeg")
             {
@@ -156,7 +155,7 @@ namespace movies.Admin
 ;
             myPara.Add("@genreId", ddlGenre.SelectedValue);
             myPara.Add("@languageId", ddlLang.SelectedValue);
-            myPara.Add("@movieDate", Convert.ToDateTime(txtMovieDate.Text));
+            myPara.Add("@movieRelease",txtmovieRelease.Text);
             myPara.Add("@movieStatusId", rbtlStatus.SelectedValue);
             myPara.Add("@ratingId", ddlRating.SelectedValue);
             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
@@ -184,15 +183,13 @@ namespace movies.Admin
             string fileExtension = Path.GetExtension(fileName);
 
             CRUD myCrud = new CRUD();
-            string mySql = @"update movie set movieName =@movieName, movieDescription=@movieDescription,
-                             moviePrice=@moviePrice, movieImage=@movieImage, genreId=@genreId, languageId=@languageId, movieDate=@movieDate,
+            string mySql = @"update movie set movieName =@movieName, movieDescription=@movieDescription, movieImage=@movieImage, genreId=@genreId, languageId=@languageId, movieDate=@movieRelease,
                              movieStatusId=@movieStatusId, ratingId=@ratingId
                              where movieId = @movieId
                              SELECT CAST(scope_identity() AS int);";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
             myPara.Add("@movieName", txtMovieTitle.Text);
             myPara.Add("@movieDescription", txtMovieDesc.Text);
-            myPara.Add("@moviePrice", decimal.Parse(txtMoviePrice.Text));
 
             //condition to only accept uploaded images with .jpg, .png, .jpeg extensions and then reads the content of the file via inputStream
             if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".jpeg")
@@ -203,7 +200,7 @@ namespace movies.Admin
 
             myPara.Add("@genreId", ddlGenre.SelectedValue);
             myPara.Add("@languageId", ddlLang.SelectedValue);
-            myPara.Add("@movieDate", Convert.ToDateTime(txtMovieDate.Text));
+            myPara.Add("@movieRelease", txtmovieRelease.Text);
             myPara.Add("@movieStatusId", rbtlStatus.SelectedValue);
             myPara.Add("@ratingId", ddlRating.SelectedValue);
             myPara.Add("@movieId", int.Parse(txtMovieId.Text));

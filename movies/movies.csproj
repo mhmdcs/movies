@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\CinemasManagement.aspx" />
     <Content Include="Admin\MoviesManagement.aspx" />
     <Content Include="Admin\web.config" />
     <Content Include="Cinemas.aspx" />
@@ -137,7 +138,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Images\moviesLogo.png" />
-    <Content Include="Images\moviesLogo2.png" />
+    <Content Include="Images\moviesLogo22.png" />
     <Content Include="moviesLogo-favicon.ico" />
     <Content Include="OrderTicket\Ticket.aspx" />
     <Content Include="WhatsNew\All.aspx" />
@@ -217,6 +218,13 @@
     </Compile>
     <Compile Include="Account\stop.aspx.designer.cs">
       <DependentUpon>stop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CinemasManagement.aspx.cs">
+      <DependentUpon>CinemasManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CinemasManagement.aspx.designer.cs">
+      <DependentUpon>CinemasManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

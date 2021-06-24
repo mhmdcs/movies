@@ -24,7 +24,7 @@ namespace movies.WhatsNew
         protected void populateListView()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"SELECT movie.movieName, movie.movieImage, movie.movieDescription, movie.moviePrice, genre.genre, language.language, movie.movieDate, movieStatus.movieStatus, rating.rating
+            string mySql = @"SELECT movie.movieName, movie.movieImage, movie.movieDescription, genre.genre, language.language, movieStatus.movieStatus, rating.rating
                              FROM movie inner join 
                              genre on genre.genreId = movie.genreId inner join
                              language on movie.languageId = language.languageId inner join

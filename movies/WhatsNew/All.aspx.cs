@@ -24,12 +24,12 @@ namespace movies.WhatsNew
         protected void populateListView()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"SELECT movie.movieName, movie.movieImage, movie.movieDescription, movie.moviePrice, genre.genre, language.language, movie.movieDate, movieStatus.movieStatus, rating.rating
+            string mySql = @"SELECT movie.movieName, movie.movieImage, movie.movieDescription, genre.genre, language.language, movieStatus.movieStatus, rating.rating
                              FROM movie inner join 
                              genre on genre.genreId = movie.genreId inner join
                              language on movie.languageId = language.languageId inner join
                              movieStatus on movie.movieStatusId = movieStatus.movieStatusId inner join
-                             rating on movie.ratingId = rating.ratingId;";
+                             rating on movie.ratingId = rating.ratingId";
             DataTable dt = myCrud.getDT(mySql);
             moviesLv.DataSource = dt;
             moviesLv.DataBind();

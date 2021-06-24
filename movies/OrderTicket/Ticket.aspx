@@ -17,8 +17,15 @@
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px; height: 20px" align="right">Movie Title:&nbsp; </td>
+        <td class="modal-sm" style="width: 211px; height: 20px" align="right">Cinema:&nbsp; </td>
         <td style="height: 20px">
+            <asp:DropDownList ID="ddlCinema" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCinema_SelectedIndexChanged">
+            </asp:DropDownList>
+        </td>
+    </tr>
+    <tr>
+        <td class="modal-sm" style="width: 211px" align="right">Movie Title:&nbsp; </td>
+        <td>
             <asp:DropDownList ID="ddlMovie" runat="server">
             </asp:DropDownList>
         </td>
@@ -27,13 +34,6 @@
         <td class="modal-sm" style="width: 211px" align="right">Ticket Type:&nbsp; </td>
         <td>
             <asp:DropDownList ID="ddlTicket" runat="server">
-            </asp:DropDownList>
-        </td>
-    </tr>
-    <tr>
-        <td class="modal-sm" style="width: 211px" align="right">Cinema:&nbsp; </td>
-        <td>
-            <asp:DropDownList ID="ddlCinema" runat="server">
             </asp:DropDownList>
         </td>
     </tr>
@@ -66,8 +66,8 @@
                             <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
                             <asp:BoundField DataField="ticket" HeaderText="Ticket Type" />
                             <asp:BoundField DataField="cinema" HeaderText="Cinema" />
-                            <asp:BoundField DataField="movieDate" HeaderText="Showing Date" />
-                            <asp:BoundField DataField="moviePrice" HeaderText="Ticket Price" />
+                            <asp:BoundField DataField="movieInCinemaDate" HeaderText="Showing Date" />
+                            <asp:BoundField DataField="movieInCinemaPrice" HeaderText="Ticket Price" />
 
                         </Columns>
                     </asp:GridView>
@@ -108,7 +108,7 @@
             <td> </td>
             <td>
             <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" />
-            <asp:Button ID="btnDeleteTicket" runat="server" OnClick="btnDeleteTicket_Click" Text="Delete Ticket" />
+            <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="Cancel Ticket" />
 
                 <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="Force Update Ticket" Visible="False" style="color: #FFFFFF; background-color: #FF0066" />
                 <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="Force Delete Ticket" Visible="False" style="color: #FFFFFF; background-color: #FF0066"/>
