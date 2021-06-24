@@ -8,9 +8,9 @@
             <%--<tr><td colspan="2">username = ali   & password = ali</td></tr>--%>
             <tr>
                 <td class="style2">
-                    <strong>Login</strong></td>
+                    &nbsp;</td>
                 <td>
-                    Welcome</td>
+                    Welcome back!</td>
             </tr>
             <tr>
                 <td class="style2">

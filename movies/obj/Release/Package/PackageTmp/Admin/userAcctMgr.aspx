@@ -92,10 +92,7 @@
         </table>
     </div>
     <div class="myContent">
-        <asp:Login ID="Login1" runat="server"></asp:Login>
-        change password
         <br />
-        ------------------------
        <asp:ChangePassword
            ID="ChangePassword1"
            DisplayUserName="true"
@@ -103,9 +100,7 @@
     </div>
     <div class="myContent">
         <p>
-            Thank you for enrolling to the training program. Please sign up for a new account so you can access your profile information and training resources.<br />
-            Then click continue to access your training program information.
-        </p>
+            &nbsp;</p>
         <p>
             &nbsp;
             <br />

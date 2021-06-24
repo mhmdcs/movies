@@ -5,9 +5,11 @@
     <h3>How to Reach Us</h3>
     <address>
         Hit Us Up on Our Email<br />
-        <a href="mailto:>Movies@movies.com">Movies@movies.com</a><br />
-        Or Give Us a Call at<br />
-        30405060
+        <a href="mailto:>movieskfmca@gmail.com">movieskfmca@gmail.com</a><br />
+        Or Give a Visit on Our Github!<br />
+        
+        <a href="https://github.com/mhmdcs/movies">github.com/mhmdcs/movies</a>
+        </p>
     </address>
 
 </asp:Content>

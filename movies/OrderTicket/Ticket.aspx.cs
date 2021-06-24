@@ -31,14 +31,18 @@ namespace movies
 
             }//post back boundery
 
+
+            //set authorization for displaying, updating, and deleting all user data
             if (Roles.IsUserInRole("admin"))
             {
                 btnShowAllTickets.Visible = true;
+                btnUpdateAdmin.Visible = true;
+                btnDeleteAdmin.Visible = true;
             }
 
         }//page load boundery
 
-
+        //this method is needed before page_load to run the other export methods
         public override void VerifyRenderingInServerForm(Control control)
         {
             //base.VerifyRenderingInServerForm(control);
@@ -58,7 +62,6 @@ namespace movies
 
 
         }
-
 
 
 
@@ -91,13 +94,12 @@ namespace movies
         //action query with Dictionary object
         protected void btnOrderTicket_Click(object sender, EventArgs e)
         {
-            //code to retrieve current logged in UserId
-            // Get current username
+            //Code to retrieve current logged-in username and UserId
+            // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
-            // Get current UserId
+            // Get current user UserId in asp.net membership
             MembershipUser user = Membership.GetUser(uname);
             string userId = user.ProviderUserKey.ToString();
-            //or try putting Membership.GetUser().ProviderUserKey in the myPara.Add method value parameter
 
             CRUD myCrud = new CRUD();
             string mySql = @"insert into customerTicket(customerFullName,movieId,ticketId,cinemaId,UserId) 
@@ -110,14 +112,14 @@ namespace movies
             myPara.Add("@cinemaId", ddlCinema.SelectedValue);
             myPara.Add("@UserId", userId);
             int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
-            //if (rtn >= 1)
-            //{
-            //    lblOutput.Text = "Succesfully Ordered Ticket";
-            //}
-            //else
-            //{
-            //    lblOutput.Text = "Failed to Order Ticket";
-            //}
+            if (pk >= 1)
+            {
+                lblOutput.Text = "Succesfully Ordered Ticket";
+            }
+            else
+            {
+                lblOutput.Text = "Failed to Order Ticket";
+            }
 
             showTicketsData(pk);
         }//button submit boundery
@@ -154,14 +156,20 @@ namespace movies
             gvTicketData.DataBind();
         }
 
+        //show all customertickets for all users as admin
         protected void btnShowAllTickets_Click(object sender, EventArgs e)
         {
             showTicketsData();
         }
 
+
+        //show user only customertickets linked to their respective user account
         protected void btnShowMyTickets_Click(object sender, EventArgs e)
         {
+            //Code to retrieve current logged-in username and UserId
+            // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
+            // Get current user UserId in asp.net membership
             MembershipUser user = Membership.GetUser(uname);
             string userId = user.ProviderUserKey.ToString();
 
@@ -179,10 +187,13 @@ namespace movies
             gvTicketData.DataBind();
         }
 
-
+        //user can only update customertickets linked to their respective user account -- security on userbase data
         protected void btnUpdateTicket_Click(object sender, EventArgs e)
         {
+            //Code to retrieve current logged-in username and UserId
+            // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
+            // Get current user UserId in asp.net membership
             MembershipUser user = Membership.GetUser(uname);
             string userId = user.ProviderUserKey.ToString();
 
@@ -200,9 +211,9 @@ namespace movies
             myPara.Add("@UserId", userId);
             myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
             int pk = int.Parse(txtTicketId.Text);
-            pk = myCrud.InsertUpdateDelete(mySql, myPara);
+            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
 
-                if (pk >= 1)
+                if (rtn >= 1)
                 {
                     lblOutput.Text = "Succesfully Updated Ticket";
                 }
@@ -213,13 +224,14 @@ namespace movies
             showTicketsData(pk);
         }
 
-
-
-        
+        //user can only delete customertickets linked to their respective user account -- security on userbase data
         protected void btnDeleteTicket_Click(object sender, EventArgs e)
         {
 
+            //Code to retrieve current logged-in username and UserId
+            // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
+            // Get current user UserId in asp.net membership
             MembershipUser user = Membership.GetUser(uname);
             string userId = user.ProviderUserKey.ToString();
 
@@ -230,11 +242,11 @@ namespace movies
             myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
             int pk = int.Parse(txtTicketId.Text);
             myPara.Add("UserId", userId);
-             pk = myCrud.InsertUpdateDelete(mySql, myPara);
+             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
             showTicketsData(pk);
 
 
-            if (pk >= 1)
+            if (rtn >= 1)
             {
                 lblOutput.Text = "Succesfully Deleted Ticket";
             }
@@ -244,12 +256,59 @@ namespace movies
             }
         }
 
+        //force update ticket for any user as admin
+        protected void btnUpdateAdmin_Click(object sender, EventArgs e)
+        {
+            CRUD myCrud = new CRUD();
+            string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
+                           cinemaId =@cinemaId, ticketId = @ticketId
+                           where customerTicketId = @customerTicketId
+                              SELECT CAST(scope_identity() AS int);";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@customerFullName", txtFullName.Text);
+            myPara.Add("@movieId", ddlMovie.SelectedValue);
+            myPara.Add("@ticketId", ddlTicket.SelectedValue);
+            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+            myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+            int pk = int.Parse(txtTicketId.Text);
+            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+
+            if (rtn >= 1)
+            {
+                lblOutput.Text = "Succesfully Updated Ticket";
+            }
+            else
+            {
+                lblOutput.Text = "Failed to Update Ticket";
+            }
+            showTicketsData(pk);
+        }
+
+        //force delete ticket for any user as admin
+        protected void btnDeleteAdmin_Click(object sender, EventArgs e)
+        {
+           CRUD myCrud = new CRUD();
+            string mySql = @"delete customerTicket where customerTicketId = @customerTicketId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
+            int pk = int.Parse(txtTicketId.Text);
+            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+            showTicketsData(pk);
+              if (rtn >= 1)
+            {
+                lblOutput.Text = "Succesfully Deleted Ticket";
+            }
+            else
+            {
+                lblOutput.Text = "Failed to Delete Ticket";
+            }
+        }
+        
+
         protected void btnExportPDF_Click(object sender, EventArgs e)
         {
             ExportGridToPDF();
         }
-
-
         protected void ExportGridToPDF()
         {
 
@@ -272,8 +331,7 @@ namespace movies
             gvTicketData.DataBind();
         }
 
-
-        //change to void?
+        
         public string sendEmailViaGmail() // worked 100%, this is a nice one use it with  properties
         {
             string myFrom = "movieskfmca@gmail.com"; //Email: movieskfmca@gmail.com         Pass: summ2021

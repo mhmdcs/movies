@@ -11,27 +11,27 @@
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px">Name</td>
+        <td class="modal-sm" style="width: 211px" align="right">Name:&nbsp; </td>
         <td>
             <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px; height: 20px">Movie Title</td>
+        <td class="modal-sm" style="width: 211px; height: 20px" align="right">Movie Title:&nbsp; </td>
         <td style="height: 20px">
             <asp:DropDownList ID="ddlMovie" runat="server">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px">Ticket Type</td>
+        <td class="modal-sm" style="width: 211px" align="right">Ticket Type:&nbsp; </td>
         <td>
             <asp:DropDownList ID="ddlTicket" runat="server">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 211px">Cinema</td>
+        <td class="modal-sm" style="width: 211px" align="right">Cinema:&nbsp; </td>
         <td>
             <asp:DropDownList ID="ddlCinema" runat="server">
             </asp:DropDownList>
@@ -47,7 +47,7 @@
     <tr>
         <td class="modal-sm" style="width: 211px">&nbsp;</td>
         <td>
-            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" />
+            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" style="color: #FFFFFF; background-color: #FF0066"/>
         </td>
     </tr>
     <tr>
@@ -58,6 +58,7 @@
     <tr>
         <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
 
+        <%-- This gridview is better, can assign header text instead of table names --%>
                             <asp:GridView ID="gvTicketData" runat="server" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
@@ -97,7 +98,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 194px">Ticket Number</td>
+            <td style="width: 194px" align="right">Ticket Number:&nbsp; </td>
             <td>
             <asp:TextBox ID="txtTicketId" runat="server"></asp:TextBox>
 
@@ -108,6 +109,9 @@
             <td>
             <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" />
             <asp:Button ID="btnDeleteTicket" runat="server" OnClick="btnDeleteTicket_Click" Text="Delete Ticket" />
+
+                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="Force Update Ticket" Visible="False" style="color: #FFFFFF; background-color: #FF0066" />
+                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="Force Delete Ticket" Visible="False" style="color: #FFFFFF; background-color: #FF0066"/>
 
             </td>
         </tr>

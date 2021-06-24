@@ -112,15 +112,6 @@ namespace movies.Admin {
         protected global::System.Web.UI.WebControls.Button btnAddMovie;
         
         /// <summary>
-        /// txtDisplayAllMovies control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button txtDisplayAllMovies;
-        
-        /// <summary>
         /// txtMovieId control.
         /// </summary>
         /// <remarks>
@@ -173,6 +164,15 @@ namespace movies.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExportToPdf_Click;
+        
+        /// <summary>
+        /// txtDisplayAllMovies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button txtDisplayAllMovies;
         
         /// <summary>
         /// moviesGv control.

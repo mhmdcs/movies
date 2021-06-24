@@ -97,7 +97,6 @@
                                 <li class="divider" role="separator"></li>
                                 <li><a href="~/Admin/ChangePassword.aspx" runat="server">Change Password</a></li>
                                 <li><a href="~/Admin/passwordRecovery.aspx" runat="server">Password Recovery</a></li>
-                                <li><a href="~/Admin/Register.aspx" runat="server">Register</a></li>
                                 <li><a href="~/Admin/showRoles.aspx" runat="server">Show Roles</a></li>
                                 <li><a href="~/Admin/userAcctMgr.aspx" runat="server">User Account Manager</a></li>
                             </ul>
@@ -217,5 +216,11 @@
 
     <script  type="text/javascript" src="/Scripts/clientSide.js"></script>
 
+
+    <p>
+        
+
+
 </body>
+
 </html>

@@ -118,7 +118,6 @@
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\default.aspx" />
     <Content Include="Admin\passwordRecovery.aspx" />
-    <Content Include="Admin\Register.aspx" />
     <Content Include="Admin\showRoles.aspx" />
     <Content Include="Admin\userAcctMgr.aspx" />
     <Content Include="Contact.aspx" />
@@ -237,13 +236,6 @@
     </Compile>
     <Compile Include="Admin\passwordRecovery.aspx.designer.cs">
       <DependentUpon>passwordRecovery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\showRoles.aspx.cs">
       <DependentUpon>showRoles.aspx</DependentUpon>

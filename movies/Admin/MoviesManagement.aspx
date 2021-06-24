@@ -9,45 +9,45 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Movie Title</td>
+                <td style="width: 121px" align="right">Movie Title:&nbsp; </td>
                 <td>
                     <asp:TextBox ID="txtMovieTitle" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Description</td>
+                <td style="width: 121px" align="right">Description:&nbsp; </td>
                 <td>
                     <asp:TextBox ID="txtMovieDesc" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Price</td>
+                <td style="width: 121px" align="right">Price:&nbsp; </td>
                 <td>
                     <asp:TextBox ID="txtMoviePrice" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Genre</td>
+                <td style="width: 121px" align="right">Genre:&nbsp; </td>
                 <td>
                     <asp:DropDownList ID="ddlGenre" runat="server">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Language</td>
+                <td style="width: 121px" align="right">Language:&nbsp; </td>
                 <td>
                     <asp:DropDownList ID="ddlLang" runat="server">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px; height: 20px">Date</td>
+                <td style="width: 121px; height: 20px" align="right">Date:&nbsp; </td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtMovieDate" runat="server"></asp:TextBox>
 &nbsp;Input datetime in YYYY-MM-DD HH:MM:SS format </td>
             </tr>
             <tr>
-                <td style="width: 121px">Status</td>
+                <td style="width: 121px" align="right">Status:&nbsp; </td>
                 <td>
                     <asp:RadioButtonList ID="rbtlStatus" runat="server">
                         <asp:ListItem Value="1"></asp:ListItem>
@@ -56,17 +56,22 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Rating</td>
+                <td style="width: 121px" align="right">Rating:&nbsp; </td>
                 <td>
                     <asp:DropDownList ID="ddlRating" runat="server">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">Cover</td>
+                <td style="width: 121px" align="right">Cover:&nbsp; </td>
                 <td>
                     <asp:FileUpload ID="fileupMovieCover" runat="server" />
                 </td>
+            </tr>
+            <tr>
+                <td style="width: 121px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 121px">&nbsp;</td>
@@ -79,18 +84,12 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 121px; height: 20px;"></td>
-                <td style="height: 20px">
-                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" />
-                </td>
-            </tr>
-            <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
                     &nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 121px; height: 20px;">Movie Id</td>
+                <td style="width: 121px; height: 20px;" align="right">Movie Id:&nbsp; </td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtMovieId" runat="server"></asp:TextBox>
                 </td>
@@ -113,6 +112,17 @@
                     <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="Export To Excel" />
                     <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="Export To Word" />
                     <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="Export To PDF" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" />
                 </td>
             </tr>
             <tr>
@@ -153,7 +163,7 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 121px">Movie Id</td>
+                <td style="width: 121px">&nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
