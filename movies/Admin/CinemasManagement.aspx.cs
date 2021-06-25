@@ -227,7 +227,7 @@ namespace movies.Admin
         protected void populateMoviesInCinemasGv()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select movieInCinema.movieInCinemaId, cinema.cinema, movie.movieName, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
+            string mySql = @"select movieInCinema.movieInCinemaId, movie.movieName, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
                               from movieInCinema inner join cinema
                               on movieInCinema.cinemaId = cinema.cinemaId inner join movie
                               on movieInCinema.movieId = movie.movieId";
