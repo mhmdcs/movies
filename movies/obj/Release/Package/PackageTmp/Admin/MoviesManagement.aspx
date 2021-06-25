@@ -21,12 +21,6 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Price:&nbsp; </td>
-                <td>
-                    <asp:TextBox ID="txtMoviePrice" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
                 <td style="width: 121px" align="right">Genre:&nbsp; </td>
                 <td>
                     <asp:DropDownList ID="ddlGenre" runat="server">
@@ -41,10 +35,10 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px; height: 20px" align="right">Date:&nbsp; </td>
+                <td style="width: 121px; height: 20px" align="right">Release Year:&nbsp; </td>
                 <td style="height: 20px">
-                    <asp:TextBox ID="txtMovieDate" runat="server"></asp:TextBox>
-&nbsp;Input datetime in YYYY-MM-DD HH:MM:SS format </td>
+                    <asp:TextBox ID="txtmovieRelease" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td style="width: 121px" align="right">Status:&nbsp; </td>
@@ -146,10 +140,9 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="movieDescription" HeaderText="Description" />
-                            <asp:BoundField DataField="moviePrice" HeaderText="Price" />
                             <asp:BoundField DataField="genre" HeaderText="Genre" />
-                            <asp:BoundField DataField="language" HeaderText="language" />
-                            <asp:BoundField DataField="movieDate" HeaderText="Date" />
+                            <asp:BoundField DataField="language" HeaderText="Language" />
+                            <asp:BoundField DataField="movieRelease" HeaderText="Movie Year" />
                             <asp:BoundField DataField="movieStatus" HeaderText="Status" />
                             <asp:BoundField DataField="rating" HeaderText="Rating" />
 
