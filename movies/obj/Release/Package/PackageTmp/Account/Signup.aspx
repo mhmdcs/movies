@@ -80,8 +80,8 @@
                 <asp:CompleteWizardStep runat="server" >
                     <ContentTemplate>
                         <table>
-                            <tr>
-                                <td align="center" colspan="2">Complete</td>
+                            <tr>Please confirm and authorize your registration by pressing the Continue button.
+                                <br />
                             </tr>
                             <tr>
                                 <td>Your account has been successfully created.</td>

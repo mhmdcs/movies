@@ -44,7 +44,7 @@
                         <tr><td><p>Language: <%#Eval("language") %></p></td></tr>
                         <tr><td><p>Rating: <%#Eval("rating") %></p></td></tr>
                         <tr><td><p>Showing Times: <%#Eval("movieInCinemaDate") %></p></td></tr>
-                        <tr><td><p>Ticket Price <%#Eval("movieInCinemaPrice") %>$</p></td></tr>
+                        <tr><td><p>Ticket Price: <%#Eval("movieInCinemaPrice") %>$</p></td></tr>
 
                         <br />
                         <br />

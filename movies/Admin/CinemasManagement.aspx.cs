@@ -62,16 +62,17 @@ namespace movies.Admin
                 lblOutput.Text = "Failed to Add Cinema";
             }
 
+            populateCinemasGv();
+
         }
 
 
-        //fix this
         protected void btnDeleteCinema_Click(object sender, EventArgs e)
         {
             CRUD myCrud = new CRUD();
             string mySql = @"delete cinema from cinema where cinemaId = @cinemaId;";
             Dictionary<string, object> myPara = new Dictionary<string, object>();
-            myPara.Add("@cinemaId", int.Parse(txtAddCinema.Text));
+            myPara.Add("@cinemaId", int.Parse(txtDeleteCinema.Text));
             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
 
             if (rtn >= 1)
@@ -82,6 +83,9 @@ namespace movies.Admin
             {
                 lblOutput.Text = "Failed to Delete Cinema";
             }
+
+            populateCinemasGv();
+
         }
 
         protected void btnShowAllCinema_Click(object sender, EventArgs e)
@@ -90,12 +94,10 @@ namespace movies.Admin
 
         }
 
-        //fix this
         protected void populateCinemasGv()
         {
             CRUD myCrud = new CRUD();
             string mySql = @"select cinemaId, cinema from cinema;";
-            int rtn = myCrud.InsertUpdateDelete(mySql);
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             cinemasGv.DataSource = dr;
             cinemasGv.DataBind();
