@@ -61,6 +61,8 @@ namespace movies
             ddlCinema.DataValueField = "cinemaId";
             ddlCinema.DataSource = dr;
             ddlCinema.DataBind();
+            ddlCinema.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select Cinema", "0")); //this adds default "select cinema" text when choosing cinema from drop down list, good fix for dll not posting back the first time
+
         }
 
         protected void populateMovie()

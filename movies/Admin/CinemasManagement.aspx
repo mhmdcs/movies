@@ -25,6 +25,11 @@
             <tr>
                 <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
                 <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
                     <asp:Button ID="btnExportToExcelCinemas" runat="server" OnClick="btnExportToExcelCinemas_Click" Text="Export To Excel" />
                     <asp:Button ID="btnExportToWordCinemas" runat="server" OnClick="btnExportToWordCinemas_Click" Text="Export To Word" />
                     <asp:Button ID="btnExportToPDFCinemas" runat="server" OnClick="btnExportToPDFCinemas_Click" Text="Export To PDF" />
@@ -39,8 +44,16 @@
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
-                    <asp:GridView ID="cinemasGv" runat="server">
+
+                  <asp:GridView ID="cinemasGv" runat="server" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="cinemaId" HeaderText="Cinema ID" />
+                            <asp:BoundField DataField="cinema" HeaderText="Cinema Name" />
+
+                        </Columns>
                     </asp:GridView>
+
+
                 </td>
             </tr>
             <tr>
@@ -68,8 +81,8 @@
                 </td>
             </tr>
             <tr>
-                <td class="modal-sm" style="width: 253px" align="right">Date and Time:&nbsp; </td>
-                <td>
+                <td class="modal-sm" style="width: 253px; height: 26px;" align="right">Date and Time:&nbsp; </td>
+                <td style="height: 26px">
                     <asp:TextBox ID="txtDateTime" runat="server">1990-01-01 00:00:00</asp:TextBox>
 &nbsp;Insert in YY-MM-DD HH:MM:SS format</td>
             </tr>
@@ -88,6 +101,23 @@
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">Remove Movie in Cinema By ID: </td>
+                <td>
+                    <asp:TextBox ID="txtMovieInCinemaId" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnRemoveMovieInCinema" runat="server" OnClick="btnRemoveMovieInCinema_Click" Text="Remove Movie In Cinema" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
                     <asp:Button ID="btnExportExcelMoviesInCinemas" runat="server" OnClick="btnExportExcelMoviesInCinemas_Click" Text="Export To Excel" />
                     <asp:Button ID="btnExportWordMoviesInCinemas" runat="server" OnClick="btnExportWordMoviesInCinemas_Click" Text="Export To Word" />
                     <asp:Button ID="btnExportPDFMoviesInCinemas" runat="server" OnClick="btnExportPDFMoviesInCinemas_Click" Text="Export To PDF" />
@@ -102,8 +132,18 @@
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
-                    <asp:GridView ID="MoviesInCinemasGv" runat="server">
+
+              <asp:GridView ID="MoviesInCinemasGv" runat="server" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="movieInCinemaId" HeaderText="Movie In Cinema ID" />
+                            <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
+                            <asp:BoundField DataField="cinema" HeaderText="Cinema Name" />
+                            <asp:BoundField DataField="movieInCinemaDate" HeaderText="Movie In Cinema Date" />
+                            <asp:BoundField DataField="movieInCinemaPrice" HeaderText="Movie In Cinema Price" />
+
+                        </Columns>
                     </asp:GridView>
+
                 </td>
             </tr>
         </table>

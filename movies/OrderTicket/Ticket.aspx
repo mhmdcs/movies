@@ -45,6 +45,11 @@
         </td>
     </tr>
     <tr>
+        <td class="modal-sm" style="width: 211px; height: 27px;">&nbsp;</td>
+        <td style="height: 27px">
+            &nbsp;</td>
+    </tr>
+    <tr>
         <td class="modal-sm" style="width: 211px">&nbsp;</td>
         <td>
             <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" style="color: #FFFFFF; background-color: #FF0066"/>

@@ -219,6 +219,27 @@ namespace movies.Admin
 
         }
 
+        protected void btnRemoveMovieInCinema_Click(object sender, EventArgs e)
+        {
+
+            CRUD myCrud = new CRUD();
+            string mySql = @"delete movieInCinema where movieInCinemaId = @movieInCinemaId;";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@movieInCinemaId", int.Parse(txtMovieInCinemaId.Text));
+            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+
+            if (rtn >= 1)
+            {
+                lblOutput.Text = "Succesfully Deleted Movie In Cinema";
+            }
+            else
+            {
+                lblOutput.Text = "Failed to Delete Movie In Cinema";
+            }
+
+            populateMoviesInCinemasGv();
+        }
+
         protected void btnShowAllMoviesInCinemas_Click(object sender, EventArgs e)
         {
             populateMoviesInCinemasGv();
@@ -308,5 +329,7 @@ namespace movies.Admin
             MoviesInCinemasGv.AllowPaging = true;
             MoviesInCinemasGv.DataBind();
         }
+
+
     }// class boundery
 }//namespace boundery
