@@ -25,6 +25,14 @@
             <tr>
                 <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
                 <td>
+                    <asp:Button ID="btnExportToExcelCinemas" runat="server" OnClick="btnExportToExcelCinemas_Click" Text="Export To Excel" />
+                    <asp:Button ID="btnExportToWordCinemas" runat="server" OnClick="btnExportToWordCinemas_Click" Text="Export To Word" />
+                    <asp:Button ID="btnExportToPDFCinemas" runat="server" OnClick="btnExportToPDFCinemas_Click" Text="Export To PDF" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
                     <asp:Button ID="btnShowAllCinema" runat="server" Text="Show All Cinema" OnClick="btnShowAllCinema_Click" />
                 </td>
             </tr>
@@ -75,6 +83,27 @@
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
                     <asp:Button ID="btnAddMovieToCinema" runat="server" Text="Add Movie to Cinema" OnClick="btnAddMovieToCinema_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnExportExcelMoviesInCinemas" runat="server" OnClick="btnExportExcelMoviesInCinemas_Click" Text="Export To Excel" />
+                    <asp:Button ID="btnExportWordMoviesInCinemas" runat="server" OnClick="btnExportWordMoviesInCinemas_Click" Text="Export To Word" />
+                    <asp:Button ID="btnExportPDFMoviesInCinemas" runat="server" OnClick="btnExportPDFMoviesInCinemas_Click" Text="Export To PDF" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnShowAllMoviesInCinemas" runat="server" OnClick="btnShowAllMoviesInCinemas_Click" Text="Show All Movies In Each Cinema" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    <asp:GridView ID="MoviesInCinemasGv" runat="server">
+                    </asp:GridView>
                 </td>
             </tr>
         </table>

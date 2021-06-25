@@ -58,6 +58,33 @@ namespace movies.Admin {
         protected global::System.Web.UI.WebControls.Button btnDeleteCinema;
         
         /// <summary>
+        /// btnExportToExcelCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportToExcelCinemas;
+        
+        /// <summary>
+        /// btnExportToWordCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportToWordCinemas;
+        
+        /// <summary>
+        /// btnExportToPDFCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportToPDFCinemas;
+        
+        /// <summary>
         /// btnShowAllCinema control.
         /// </summary>
         /// <remarks>
@@ -119,5 +146,50 @@ namespace movies.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddMovieToCinema;
+        
+        /// <summary>
+        /// btnExportExcelMoviesInCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportExcelMoviesInCinemas;
+        
+        /// <summary>
+        /// btnExportWordMoviesInCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportWordMoviesInCinemas;
+        
+        /// <summary>
+        /// btnExportPDFMoviesInCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportPDFMoviesInCinemas;
+        
+        /// <summary>
+        /// btnShowAllMoviesInCinemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowAllMoviesInCinemas;
+        
+        /// <summary>
+        /// MoviesInCinemasGv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView MoviesInCinemasGv;
     }
 }

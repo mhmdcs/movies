@@ -30,7 +30,7 @@ namespace movies.Admin
             }
         }
 
-        //fixes error when exporting pdf, word, excel, etc
+        // put this immediately after page_load method, fixes error when exporting pdf, word, excel, etc
         public override void VerifyRenderingInServerForm(Control control)
         {
             //base.VerifyRenderingInServerForm(control);
