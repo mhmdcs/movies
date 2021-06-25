@@ -40,9 +40,9 @@
 
                         <tr><td><hd1><b style = "font-size: large; font-style: normal"><%#Eval("movieName") %></hd1></td></tr>
                         <tr><td><p><%#Eval("movieDescription") %></p></td></tr>
-                        <tr><td><p>Language: <%#Eval("language") %></p></td></tr>
                         <tr><td><p>Genre: <%#Eval("genre") %></p></td></tr>
-                        <tr><td><p><%#Eval("rating") %></p></td></tr>
+                        <tr><td><p>Language: <%#Eval("language") %></p></td></tr>
+                        <tr><td><p>Rating: <%#Eval("rating") %></p></td></tr>
                         <tr><td><p>Showing Times: <%#Eval("movieInCinemaDate") %></p></td></tr>
                         <tr><td><p>Ticket Price <%#Eval("movieInCinemaPrice") %>$</p></td></tr>
 
