@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CinemasManagement.aspx.cs" Inherits="movies.Admin.CinemasManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
     <p class="text-center">
         <table class="nav-justified">
             <tr>

@@ -138,7 +138,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Images\moviesLogo.png" />
-    <Content Include="Images\moviesLogo22.png" />
+    <Content Include="Images\moviesLogo33.png" />
+    <Content Include="Images\moviesLogo44.png" />
+    <Content Include="Images\moviesLogo55.png" />
+    <Content Include="Images\moviesLogo66.png" />
     <Content Include="moviesLogo-favicon.ico" />
     <Content Include="OrderTicket\Ticket.aspx" />
     <Content Include="WhatsNew\All.aspx" />

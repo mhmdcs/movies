@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Password Recovery" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="passwordRecovery.aspx.cs" Inherits="movies.Admin.passwordRecovery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
         <div class="myContent">
 
     <asp:PasswordRecovery ID="PasswordRecovery1" runat="server">

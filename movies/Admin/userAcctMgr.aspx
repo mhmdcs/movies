@@ -2,6 +2,9 @@
     CodeBehind="userAcctMgr.aspx.cs" Inherits="movies.Admin.userAcctMgr" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
 
     <div>
         <table border="2">

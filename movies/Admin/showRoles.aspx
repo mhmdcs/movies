@@ -2,6 +2,9 @@
     CodeBehind="showRoles.aspx.cs" 
     Inherits="movies.Admin.showRoles" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
     <div class="myContent">
     <h3> User Role Management Console</h3>
        <table  border="2">
