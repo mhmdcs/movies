@@ -52,16 +52,7 @@ namespace movies
         }
 
 
-            //if (ddlCinema.SelectedIndex != 0)
-            //    {
-            //    }//end if (ddlCinema.SelectedIndex != 0) condition
-            //    else
-            //{
-            //    lblOutput.Text = "Please Choose a Cinema";
-            //}//end else (ddlCinema.SelectedIndex != 0) condition
-
-
-    protected void populateCinema()
+        protected void populateCinema()
         {
             CRUD myCrud = new CRUD();
             string mySql = @"select cinemaId, cinema from cinema";
@@ -184,53 +175,62 @@ namespace movies
             //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
             string userEmail = Membership.GetUser(uname).Email;
 
-            if (ddlCinema.SelectedIndex != 0)
+            if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
             {
 
-                CRUD myCrud2 = new CRUD();
-                string mySql2 = @"select movieInCinemaId from movieInCinema where cinemaId = @cinemaId and movieId = @movieId;";
-                Dictionary<string, object> myPara2 = new Dictionary<string, object>();
-                myPara2.Add("@movieId", ddlMovie.SelectedValue);
-                myPara2.Add("@cinemaId", ddlCinema.SelectedValue);
-                int movieInCinemaId_pk = myCrud2.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql2, myPara2);
+                if (ddlCinema.SelectedIndex != 0)
+                {
 
-                CRUD myCrud = new CRUD();
-                string mySql = @"insert into customerTicket(customerFullName,movieId,ticketId,cinemaId,movieInCinemaId,UserId) 
+                    CRUD myCrud2 = new CRUD();
+                    string mySql2 = @"select movieInCinemaId from movieInCinema where cinemaId = @cinemaId and movieId = @movieId;";
+                    Dictionary<string, object> myPara2 = new Dictionary<string, object>();
+                    myPara2.Add("@movieId", ddlMovie.SelectedValue);
+                    myPara2.Add("@cinemaId", ddlCinema.SelectedValue);
+                    int movieInCinemaId_pk = myCrud2.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql2, myPara2);
+
+                    CRUD myCrud = new CRUD();
+                    string mySql = @"insert into customerTicket(customerFullName,movieId,ticketId,cinemaId,movieInCinemaId,UserId) 
                             values(@customerFullName,@movieId,@ticketId,@cinemaId,@movieInCinemaId,CAST(@UserId AS UNIQUEIDENTIFIER))
 							SELECT CAST(scope_identity() AS int);";
-                Dictionary<string, object> myPara = new Dictionary<string, object>();
-                myPara.Add("@customerFullName", txtFullName.Text);
-                myPara.Add("@movieId", ddlMovie.SelectedValue);
-                myPara.Add("@ticketId", ddlTicket.SelectedValue);
-                myPara.Add("@cinemaId", ddlCinema.SelectedValue);
-                myPara.Add("@UserId", userId);
-                myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
-                int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
+                    Dictionary<string, object> myPara = new Dictionary<string, object>();
+                    myPara.Add("@customerFullName", txtFullName.Text);
+                    myPara.Add("@movieId", ddlMovie.SelectedValue);
+                    myPara.Add("@ticketId", ddlTicket.SelectedValue);
+                    myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+                    myPara.Add("@UserId", userId);
+                    myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
+                    int pk = myCrud.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql, myPara);
 
-                string ticketNumber = pk.ToString();
+                    string ticketNumber = pk.ToString();
 
-                if (pk >= 1)
-                {
-                    lblOutput.Text = "Successfully Ordered Ticket";
+                    if (pk >= 1)
+                    {
+                        lblOutput.Text = "Successfully Ordered Ticket";
 
-                    string emailSubject = "Successfully Ordered Ticket " + ticketNumber;
-                    string emailBody = "Your ticket " + ticketNumber + " has been successfully ordered. Thank you for visiting our site!";
+                        string emailSubject = "Successfully Ordered Ticket " + ticketNumber;
+                        string emailBody = "Your ticket " + ticketNumber + " has been successfully ordered. Thank you for visiting our site!";
 
-                    sendEmailViaGmail(userEmail, emailSubject, emailBody);
+                        sendEmailViaGmail(userEmail, emailSubject, emailBody);
 
-                }
-                else
-                {
-                    lblOutput.Text = "Failed to Order Ticket";
-                }
+                    }
+                    else
+                    {
+                        lblOutput.Text = "Failed to Order Ticket";
+                    }
 
-                showTicketsData(pk);
+                    showTicketsData(pk);
 
                 }//end if (ddlCinema.SelectedIndex != 0) condition
                 else
+                {
+                    lblOutput.Text = "Please Choose a Cinema";
+                }//end else (ddlCinema.SelectedIndex != 0) condition
+
+            }//end of if txtFullName is not empty condition
+            else
             {
-                lblOutput.Text = "Please Choose a Cinema";
-            }//end else (ddlCinema.SelectedIndex != 0) condition
+                lblOutput.Text = "Please Enter a Name";
+            }//end of else txtFullName is not empty condition
 
 
         }//button submit boundery
@@ -249,58 +249,67 @@ namespace movies
             string userEmail = Membership.GetUser(uname).Email;
 
 
-            if (ddlCinema.SelectedIndex != 0)
+            if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
             {
 
-                CRUD myCrud2 = new CRUD();
-            string mySql2 = @"select movieInCinemaId from movieInCinema where cinemaId = @cinemaId and movieId = @movieId;";
-            Dictionary<string, object> myPara2 = new Dictionary<string, object>();
-            myPara2.Add("@movieId", ddlMovie.SelectedValue);
-            myPara2.Add("@cinemaId", ddlCinema.SelectedValue);
-            int movieInCinemaId_pk = myCrud2.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql2, myPara2);
+                if (ddlCinema.SelectedIndex != 0)
+                {
 
-            string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
+                    CRUD myCrud2 = new CRUD();
+                    string mySql2 = @"select movieInCinemaId from movieInCinema where cinemaId = @cinemaId and movieId = @movieId;";
+                    Dictionary<string, object> myPara2 = new Dictionary<string, object>();
+                    myPara2.Add("@movieId", ddlMovie.SelectedValue);
+                    myPara2.Add("@cinemaId", ddlCinema.SelectedValue);
+                    int movieInCinemaId_pk = myCrud2.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql2, myPara2);
+
+                    string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
                            cinemaId =@cinemaId, ticketId = @ticketId, movieInCinemaId=@movieInCinemaId
                            where customerTicketId = @customerTicketId
                               AND  UserId = CAST(@UserId AS UNIQUEIDENTIFIER)
                               SELECT CAST(scope_identity() AS int)";
-            Dictionary<string, object> myPara = new Dictionary<string, object>();
-            CRUD myCrud = new CRUD();
-            myPara.Add("@customerFullName", txtFullName.Text);
-            myPara.Add("@movieId", ddlMovie.SelectedValue);
-            myPara.Add("@ticketId", ddlTicket.SelectedValue);
-            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
-            myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
-            myPara.Add("@UserId", userId);
-            myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
-            int pk = int.Parse(txtTicketId.Text);
-            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+                    Dictionary<string, object> myPara = new Dictionary<string, object>();
+                    CRUD myCrud = new CRUD();
+                    myPara.Add("@customerFullName", txtFullName.Text);
+                    myPara.Add("@movieId", ddlMovie.SelectedValue);
+                    myPara.Add("@ticketId", ddlTicket.SelectedValue);
+                    myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+                    myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
+                    myPara.Add("@UserId", userId);
+                    myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+                    int pk = int.Parse(txtTicketId.Text);
+                    int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
 
-            string ticketNumber = pk.ToString();
+                    string ticketNumber = pk.ToString();
 
-            if (rtn >= 1)
-            {
-                lblOutput.Text = "Successfully Updated Ticket";
+                    if (rtn >= 1)
+                    {
+                        lblOutput.Text = "Successfully Updated Ticket";
 
-                string emailSubject = "Successfully Updated Ticket " + ticketNumber;
-                string emailBody = "Your ticket " + ticketNumber + " has been successfully updated. Thank you for visiting our site!";
+                        string emailSubject = "Successfully Updated Ticket " + ticketNumber;
+                        string emailBody = "Your ticket " + ticketNumber + " has been successfully updated. Thank you for visiting our site!";
 
-                sendEmailViaGmail(userEmail, emailSubject, emailBody);
+                        sendEmailViaGmail(userEmail, emailSubject, emailBody);
 
-            }
+                    }
+                    else
+                    {
+                        lblOutput.Text = "Failed to Update Ticket";
+                    }
+                    showTicketsData(pk);
+
+
+
+                }//end if (ddlCinema.SelectedIndex != 0) condition
+                else
+                {
+                    lblOutput.Text = "Please Choose a Cinema";
+                }//end else (ddlCinema.SelectedIndex != 0) condition
+
+            }//end of if txtFullName is not empty condition
             else
             {
-                lblOutput.Text = "Failed to Update Ticket";
-            }
-            showTicketsData(pk);
-
-
-
-            }//end if (ddlCinema.SelectedIndex != 0) condition
-            else
-            {
-                lblOutput.Text = "Please Choose a Cinema";
-            }//end else (ddlCinema.SelectedIndex != 0) condition
+                lblOutput.Text = "Please Enter a Name";
+            }//end of else txtFullName is not empty condition
 
         }
 
@@ -318,41 +327,31 @@ namespace movies
             //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
             string userEmail = Membership.GetUser(uname).Email;
 
-            if (ddlCinema.SelectedIndex != 0)
-            {
 
-                CRUD myCrud = new CRUD();
-            string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
+                    CRUD myCrud = new CRUD();
+                    string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
                              AND  UserId = CAST(@UserId AS UNIQUEIDENTIFIER)";
-            Dictionary<string, object> myPara = new Dictionary<string, object>();
-            myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
-            int pk = int.Parse(txtTicketId.Text);
-            myPara.Add("UserId", userId);
-            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
-            showTicketsData(pk);
+                    Dictionary<string, object> myPara = new Dictionary<string, object>();
+                    myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
+                    int pk = int.Parse(txtTicketId.Text);
+                    myPara.Add("UserId", userId);
+                    int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+                    showTicketsData(pk);
 
-            string ticketNumber = pk.ToString();
+                    string ticketNumber = pk.ToString();
 
-            if (rtn >= 1)
-            {
-                lblOutput.Text = "Successfully Cancelled Ticket";
-                string emailSubject = "Successfully Cancelled Ticket " + ticketNumber;
-                string emailBody = "Your ticket " + ticketNumber + " has been successfully cancelled. Thank you for visiting our site!";
+                    if (rtn >= 1)
+                    {
+                        lblOutput.Text = "Successfully Cancelled Ticket";
+                        string emailSubject = "Successfully Cancelled Ticket " + ticketNumber;
+                        string emailBody = "Your ticket " + ticketNumber + " has been successfully cancelled. Thank you for visiting our site!";
 
-                sendEmailViaGmail(userEmail, emailSubject, emailBody);
-            }
-            else
-            {
-                lblOutput.Text = "Failed to Cancel Ticket";
-            }
-
-
-
-            }//end if (ddlCinema.SelectedIndex != 0) condition
-            else
-            {
-                lblOutput.Text = "Please Choose a Cinema";
-            }//end else (ddlCinema.SelectedIndex != 0) condition
+                        sendEmailViaGmail(userEmail, emailSubject, emailBody);
+                    }
+                    else
+                    {
+                        lblOutput.Text = "Failed to Cancel Ticket";
+                    }
 
         }
 
@@ -366,79 +365,82 @@ namespace movies
         protected void btnUpdateAdmin_Click(object sender, EventArgs e)
         {
 
-
-            if (ddlCinema.SelectedIndex != 0)
+            if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
             {
 
+                if (ddlCinema.SelectedIndex != 0)
+                {
 
-                CRUD MyCrudEmail = new CRUD();
-            //this crud operation recieves user email that's linked to the customer ticket id
-            string mySqlEmail = @"select aspnet_Membership.Email from customerTicket inner join aspnet_Membership on 
+
+                    CRUD MyCrudEmail = new CRUD();
+                    //this crud operation recieves user email that's linked to the customer ticket id
+                    string mySqlEmail = @"select aspnet_Membership.Email from customerTicket inner join aspnet_Membership on 
 	                    customerTicket.UserId = aspnet_Membership.UserId AND customerTicket.customerTicketId=@customerTicketId;";
-            Dictionary<string, object> myParaEmail = new Dictionary<string, object>();
-            myParaEmail.Add("@customerTicketId", int.Parse(txtTicketId.Text));
-            string userEmail = MyCrudEmail.InsertUpdateDeleteViaSqlDicRtnString(mySqlEmail, myParaEmail);
+                    Dictionary<string, object> myParaEmail = new Dictionary<string, object>();
+                    myParaEmail.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+                    string userEmail = MyCrudEmail.InsertUpdateDeleteViaSqlDicRtnString(mySqlEmail, myParaEmail);
 
 
-            CRUD myCrud2 = new CRUD();
-            string mySql2 = @"select movieInCinemaId from movieInCinema where cinemaId = @cinemaId and movieId = @movieId;";
-            Dictionary<string, object> myPara2 = new Dictionary<string, object>();
-            myPara2.Add("@movieId", ddlMovie.SelectedValue);
-            myPara2.Add("@cinemaId", ddlCinema.SelectedValue);
-            int movieInCinemaId_pk = myCrud2.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql2, myPara2);
+                    CRUD myCrud2 = new CRUD();
+                    string mySql2 = @"select movieInCinemaId from movieInCinema where cinemaId = @cinemaId and movieId = @movieId;";
+                    Dictionary<string, object> myPara2 = new Dictionary<string, object>();
+                    myPara2.Add("@movieId", ddlMovie.SelectedValue);
+                    myPara2.Add("@cinemaId", ddlCinema.SelectedValue);
+                    int movieInCinemaId_pk = myCrud2.InsertUpdateDeleteViaSqlDicRtnIdentity(mySql2, myPara2);
 
 
-            CRUD myCrud = new CRUD();
-            string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
+                    CRUD myCrud = new CRUD();
+                    string mySql = @"update customerTicket set customerFullName =@customerFullName, movieId = @movieId,
                            cinemaId =@cinemaId, ticketId = @ticketId, movieInCinemaId=@movieInCinemaId
                            where customerTicketId = @customerTicketId
                               SELECT CAST(scope_identity() AS int)";
-            Dictionary<string, object> myPara = new Dictionary<string, object>();
-            myPara.Add("@customerFullName", txtFullName.Text);
-            myPara.Add("@movieId", ddlMovie.SelectedValue);
-            myPara.Add("@ticketId", ddlTicket.SelectedValue);
-            myPara.Add("@cinemaId", ddlCinema.SelectedValue);
-            myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
-            myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
-            int pk = int.Parse(txtTicketId.Text);
-            int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
+                    Dictionary<string, object> myPara = new Dictionary<string, object>();
+                    myPara.Add("@customerFullName", txtFullName.Text);
+                    myPara.Add("@movieId", ddlMovie.SelectedValue);
+                    myPara.Add("@ticketId", ddlTicket.SelectedValue);
+                    myPara.Add("@cinemaId", ddlCinema.SelectedValue);
+                    myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
+                    myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));
+                    int pk = int.Parse(txtTicketId.Text);
+                    int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
 
-            string ticketNumber = pk.ToString();
+                    string ticketNumber = pk.ToString();
 
-            if (rtn >= 1)
-            {
-                lblOutput.Text = "Successfully Updated Ticket";
+                    if (rtn >= 1)
+                    {
+                        lblOutput.Text = "Successfully Updated Ticket";
 
 
-                string emailSubject = "Your ticket " + ticketNumber + " has been updated";
-                string emailBody = "Your ticket " + ticketNumber + " has been updated. Thank you for visiting our site!";
+                        string emailSubject = "Your ticket " + ticketNumber + " has been updated";
+                        string emailBody = "Your ticket " + ticketNumber + " has been updated. Thank you for visiting our site!";
 
-                sendEmailViaGmail(userEmail, emailSubject, emailBody);
-            }
+                        sendEmailViaGmail(userEmail, emailSubject, emailBody);
+                    }
+                    else
+                    {
+                        lblOutput.Text = "Failed to Update Ticket";
+                    }
+                    showTicketsData();
+
+
+                }//end if (ddlCinema.SelectedIndex != 0) condition
+                else
+                {
+                    lblOutput.Text = "Please Choose a Cinema";
+                }//end else (ddlCinema.SelectedIndex != 0) condition
+
+            }//end of if txtFullName is not empty condition
             else
             {
-                lblOutput.Text = "Failed to Update Ticket";
-            }
-            showTicketsData();
-
-
-            }//end if (ddlCinema.SelectedIndex != 0) condition
-            else
-            {
-                lblOutput.Text = "Please Choose a Cinema";
-            }//end else (ddlCinema.SelectedIndex != 0) condition
+                lblOutput.Text = "Please Enter a Name";
+            }//end of else txtFullName is not empty condition
 
         }
 
         //force delete ticket for any user as admin
         protected void btnDeleteAdmin_Click(object sender, EventArgs e)
         {
-
-
-
-            if (ddlCinema.SelectedIndex != 0)
-            {
-
+           
 
                 CRUD MyCrudEmail = new CRUD();
                 //this crud operation recieves user email that's linked to the customer ticket id
@@ -474,12 +476,6 @@ namespace movies
                 }
 
                 showTicketsData();
-
-            }//end if (ddlCinema.SelectedIndex != 0) condition
-            else
-            {
-                lblOutput.Text = "Please Choose a Cinema";
-            }//end else (ddlCinema.SelectedIndex != 0) condition
 
         }
 

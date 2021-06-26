@@ -61,13 +61,30 @@
             &nbsp;</td>
     </tr>
     <tr>
+        <td colspan="2">
+                            <asp:GridView ID="gvTicketDataAdmin" runat="server" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
+                            <asp:BoundField DataField="UserName" HeaderText="Account Name" />
+                            <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
+                            <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
+                            <asp:BoundField DataField="ticket" HeaderText="Ticket Type" />
+                            <asp:BoundField DataField="cinema" HeaderText="Cinema" />
+                            <asp:BoundField DataField="movieInCinemaDate" HeaderText="Showing Date" />
+                            <asp:BoundField DataField="movieInCinemaPrice" HeaderText="Ticket Price" />
+
+                        </Columns>
+                    </asp:GridView>
+        </td>
+    </tr>
+    <tr>
         <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
 
         <%-- This gridview is better, can assign header text instead of table names --%>
                             <asp:GridView ID="gvTicketData" runat="server" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
-                            <asp:BoundField DataField="customerFullName" HeaderText="Name" />
+                            <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
                             <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
                             <asp:BoundField DataField="ticket" HeaderText="Ticket Type" />
                             <asp:BoundField DataField="cinema" HeaderText="Cinema" />
