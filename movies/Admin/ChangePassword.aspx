@@ -7,7 +7,11 @@
         &nbsp;<asp:ChangePassword
            ID="ChangePassword1"
            DisplayUserName="true"
-           runat="server" />
+           runat="server" >
+            <CancelButtonStyle BackColor="#77395A" />
+            <ChangePasswordButtonStyle BackColor="#77395A" />
+            <TextBoxStyle BackColor="#333333" />
+        </asp:ChangePassword>
     </div>
 
 

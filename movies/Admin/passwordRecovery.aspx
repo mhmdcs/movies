@@ -21,11 +21,11 @@
                     <h3>Forgot Password </h3>
                     UserName:
                         <asp:TextBox ID="UserName" runat="server" 
-                        Width="236px"></asp:TextBox>&nbsp;
+                        Width="236px" style="background-color: #333333"></asp:TextBox>&nbsp;
 
                         
                         <asp:Button ID="SubmitButton" runat="server" 
-                        Text="SEND" CommandName="Submit" /><br />
+                        Text="SEND" CommandName="Submit" style="background-color: #77395A" /><br />
                     <span  style="color: #FF0000">
                     <asp:Literal ID="FailureText" runat="server"></asp:Literal>
                     </span>

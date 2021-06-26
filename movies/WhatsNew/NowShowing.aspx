@@ -8,8 +8,7 @@
             </a>
                          <br />
             <br />  
-                         <br />
-        </div>
+                         <span style="font-size: xx-large"><span style="font-weight: bold">Now Showing</span></span></div>
 
 
 

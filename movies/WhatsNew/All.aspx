@@ -7,7 +7,7 @@
             </a>
                          <br />
             <br />  
-                         <br />
+                         <span style="font-size: xx-large"><strong>All Movies</strong></span><br />
         </div>
 
     <p>

@@ -18,7 +18,7 @@
         <tr>
             <td style="width: 224px" align="right">Choose a Cinema:&nbsp; </td>
             <td>
-                <asp:DropDownList ID="ddlCinema" runat="server" style="background-color: #9E4B77">
+                <asp:DropDownList ID="ddlCinema" runat="server" style="background-color: #666666">
                 </asp:DropDownList>
             </td>
         </tr>

@@ -24,14 +24,14 @@
                 <td class="style2">
                     <strong>User Name:</strong></td>
                 <td>
-                    <asp:TextBox ID="txtUserName" runat="server" style="background-color: #000000"></asp:TextBox>
+                    <asp:TextBox ID="txtUserName" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
                     <strong>Password:</strong></td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" style="background-color: #000000"></asp:TextBox> 
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox> 
                 </td>
             </tr>
             <tr>

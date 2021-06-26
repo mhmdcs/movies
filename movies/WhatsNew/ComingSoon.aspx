@@ -8,7 +8,7 @@
             </a>
                          <br />
             <br />  
-                         <br />
+                         <span style="font-size: xx-large"><span style="font-weight: bold">Coming Soon</span></span><br />
         </div>
 
 
