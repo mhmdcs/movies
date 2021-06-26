@@ -84,7 +84,7 @@
                                 <br />
                             </tr>
                             <tr>
-                                <td>Your account has been successfully created.</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td align="right" colspan="2">
