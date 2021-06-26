@@ -91,7 +91,11 @@
                     <ContentTemplate>
                         <table>
                             <caption>
+<<<<<<< HEAD
                                 
+=======
+                               
+>>>>>>> master
                                 <br />
                                 </tr>
                                 <tr>
@@ -99,7 +103,11 @@
                                 </tr>
                                 <tr>
                                     <td align="right">
+<<<<<<< HEAD
                                         <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" style="background-color: #77395A" Text="Continue" ValidationGroup="CreateUserWizard" />
+=======
+                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Text="Continue" ValidationGroup="CreateUserWizard" />
+>>>>>>> master
                                     </td>
                                 </tr>
                             </caption>
