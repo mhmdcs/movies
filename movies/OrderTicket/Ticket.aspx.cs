@@ -115,15 +115,16 @@ namespace movies
         protected void showTicketsData()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
+            string mySql = @"select customerTicket.customerTicketId, aspnet_Users.UserName, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
                             from movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
 		                    cinema on customerTicket.cinemaId = cinema.cinemaId inner join
-							movieInCinema on movieInCinema.movieInCinemaId = customerTicket.movieInCinemaId;";
+							movieInCinema on movieInCinema.movieInCinemaId = customerTicket.movieInCinemaId inner join
+							aspnet_Users on aspnet_Users.UserId = customerTicket.UserId;";
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
-            gvTicketData.DataSource = dr;
-            gvTicketData.DataBind();
+            gvTicketDataAdmin.DataSource = dr;
+            gvTicketDataAdmin.DataBind();
         }
 
         //populates gridview and only display current customer name and their most recent order
