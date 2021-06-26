@@ -115,7 +115,6 @@
     <Content Include="Account\default.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Signup.aspx" />
-    <Content Include="Account\stop.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\default.aspx" />
     <Content Include="Admin\passwordRecovery.aspx" />
@@ -138,6 +137,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Images\moviesLogo.png" />
+    <Content Include="Images\moviesLogo11.png" />
     <Content Include="Images\moviesLogo33.png" />
     <Content Include="Images\moviesLogo44.png" />
     <Content Include="Images\moviesLogo55.png" />
@@ -219,13 +219,6 @@
     </Compile>
     <Compile Include="Account\Signup.aspx.designer.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\stop.aspx.cs">
-      <DependentUpon>stop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\stop.aspx.designer.cs">
-      <DependentUpon>stop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\CinemasManagement.aspx.cs">
       <DependentUpon>CinemasManagement.aspx</DependentUpon>
@@ -357,8 +350,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="demoMohammed\" />
-    <Folder Include="demoSattam\" />
+    <Folder Include="demo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

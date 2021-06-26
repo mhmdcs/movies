@@ -18,14 +18,19 @@
         <tr>
             <td style="width: 224px" align="right">Choose a Cinema:&nbsp; </td>
             <td>
-                <asp:DropDownList ID="ddlCinema" runat="server">
+                <asp:DropDownList ID="ddlCinema" runat="server" style="background-color: #9E4B77">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
+            <td style="width: 224px" align="right">&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td style="width: 224px">&nbsp;</td>
             <td>
-                <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="Show Movies Availaible" />
+                <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="Show Movies Availaible" style="background-color: #77395A" />
             </td>
         </tr>
         <tr>

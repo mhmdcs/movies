@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
                          <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
-                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo.png" alt="logo" BorderStyle="None" />
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo11.png" alt="logo" BorderStyle="None" />
             </a>
                          <br />
             <br />  
@@ -24,14 +24,14 @@
                 <td class="style2">
                     <strong>User Name:</strong></td>
                 <td>
-                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtUserName" runat="server" style="background-color: #000000"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
                     <strong>Password:</strong></td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox> 
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" style="background-color: #000000"></asp:TextBox> 
                 </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@
                     &nbsp;</td>
                 <td>
                     <asp:Button ID="btnLogin" runat="server" onclick="btnLogin_Click" 
-                        Text="Login" />
+                        Text="Login" style="background-color: #77395A" />
 <%--                    <asp:Button ID="btnCreateAdmin" runat="server" OnClick="btnCreateAdmin_Click" Text="Admin" Visible="False" />--%>
                 </td>
             </tr>
