@@ -2,6 +2,9 @@
     CodeBehind="showRoles.aspx.cs" 
     Inherits="movies.Admin.showRoles" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
     <div class="myContent">
     <h3> User Role Management Console</h3>
        <table  border="2">
@@ -15,17 +18,17 @@
                    User
                </td>
                <td align="center" class="style4">
-                   <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtUser" runat="server" style="background-color: #333333"></asp:TextBox>
                </td>
                <td align="center" class="style4" style="width: 42px">
                    Role
                </td>
                <td align="center" class="style4" style="width: 61px">
-                   <asp:TextBox ID="txtRole" runat="server" TabIndex="4"></asp:TextBox>
+                   <asp:TextBox ID="txtRole" runat="server" TabIndex="4" style="background-color: #333333"></asp:TextBox>
                </td>
                <td style="width: 177px">
                    <asp:Button ID="btnLinkUserRole" runat="server" OnClick="btnLinkUserRole_Click" Text="Link User Role"
-                       Width="124px" style="margin-left: 0px" TabIndex="6" />
+                       Width="124px" style="margin-left: 0px; background-color: #77395A;" TabIndex="6" />
                </td>
                </tr>
                <tr>
@@ -33,7 +36,7 @@
                        Password
                    </td>
                    <td>
-                       <asp:TextBox ID="txtPassword" runat="server" TabIndex="1"></asp:TextBox>
+                       <asp:TextBox ID="txtPassword" runat="server" TabIndex="1" style="background-color: #333333"></asp:TextBox>
                    </td>
                    <td>
                    </td>
@@ -41,14 +44,14 @@
                    </td>
                    <td style="width: 177px">
                        <asp:Button ID="btnUnLinkUserToRole" runat="server" OnClick="btnUnLinkUserToRole_Click"
-                           Text="UnlinkUsertoRole" Width="124px" />
+                           Text="UnlinkUsertoRole" Width="124px" style="background-color: #77395A" />
                    </td>
                </tr>
                <tr>
                    <td class="style3" style="width: 68px">
                        Email</td>
                    <td align="center" class="style4">
-                       <asp:TextBox ID="txtEmail" runat="server" TabIndex="2"></asp:TextBox>
+                       <asp:TextBox ID="txtEmail" runat="server" TabIndex="2" style="background-color: #333333"></asp:TextBox>
                    </td>
                    <td align="center" class="style4" style="width: 42px">
                        &nbsp;</td>
@@ -56,7 +59,7 @@
                        &nbsp;</td>
                    <td >
                        <asp:Button ID="btnShowAllUser" runat="server" OnClick="btnShowAllUser_Click" Text="Show All Users"
-                           Width="124px" />
+                           Width="124px" style="background-color: #77395A" />
                    </td>
                </tr>
                <tr>
@@ -64,18 +67,18 @@
                        &nbsp;
                    </td>
                    <td align="center" class="style4">
-                       <asp:Button ID="btnCreateUser0" runat="server" OnClick="btnCreateUser_Click" Style="margin-left: 0px"
+                       <asp:Button ID="btnCreateUser0" runat="server" OnClick="btnCreateUser_Click" Style="margin-left: 0px; background-color: #77395A;"
                            Text="Create User" TabIndex="3" />
                    </td>
                    <td align="center" class="style4" style="width: 42px">
                        &nbsp;</td>
                    <td align="center" >
                        <asp:Button ID="btnCreateRole0" runat="server" OnClick="btnCreateRole_Click" 
-                           Text="Create Role" Width="98px" TabIndex="5" />
+                           Text="Create Role" Width="98px" TabIndex="5" style="background-color: #77395A" />
                        </td>
                    <td >
                        <asp:Button ID="btnShowAllRoles" runat="server" OnClick="btnShowAllRoles_Click" 
-                           Text="Show All Roles" Width="124px"
+                           Text="Show All Roles" Width="124px" style="background-color: #77395A"
                            />
                    </td>
                </tr>
@@ -84,16 +87,16 @@
                        &nbsp;
                    </td>
                    <td align="center" class="style4">
-                       <asp:Button ID="btnDeleteUser0" runat="server" OnClick="btnDeleteUser_Click" Text="Delete User" Width="105px" />
+                       <asp:Button ID="btnDeleteUser0" runat="server" OnClick="btnDeleteUser_Click" Text="Delete User" Width="105px" style="background-color: #77395A" />
                    </td>
                    <td align="center" class="style4" style="width: 42px">
                        </td>
                    <td align="center">
                        
-                       <asp:Button ID="btnDeleteRole1" runat="server" OnClick="btnDeleteRole_Click" Text="Delete Role" />
+                       <asp:Button ID="btnDeleteRole1" runat="server" OnClick="btnDeleteRole_Click" Text="Delete Role" style="background-color: #77395A" />
                    </td>
                    <td style="width: 177px">
-                       <asp:Button ID="btnUpdateUser" runat="server" OnClick="btnUpdateUser_Click" Text="Update User" Width="125px" />
+                       <asp:Button ID="btnUpdateUser" runat="server" OnClick="btnUpdateUser_Click" Text="Update User" Width="125px" style="background-color: #77395A" />
                    </td>
            </tr>
        </table>
@@ -120,10 +123,10 @@
                     </asp:CheckBoxList>
                 </td>
                  <td valign="top">
-                   <asp:Button ID="btnUserRoleAssign" runat="server"  Text="Link User Role" OnClick="btnUserRoleAssign_Click" Width="120px" /><br />
-                   <asp:Button ID="btnUnlinkUserRoles" runat="server" OnClick="btnUnlinkUserRoles_Click" Text="Unlink User Role" Width="120px" /><br />
-                  <asp:Button ID="btnDeleteRoles" runat="server" OnClick="btnDeleteRoles_Click" Text="Delete Roles" Width="120px" /><br />
-                  <asp:Button ID="btnDeleteUsers" runat="server" OnClick="btnDeleteUsers_Click" Text="Delete Users" Width="120px" />  
+                   <asp:Button ID="btnUserRoleAssign" runat="server"  Text="Link User Role" OnClick="btnUserRoleAssign_Click" Width="120px" style="background-color: #77395A" /><br />
+                   <asp:Button ID="btnUnlinkUserRoles" runat="server" OnClick="btnUnlinkUserRoles_Click" Text="Unlink User Role" Width="120px" style="background-color: #77395A" /><br />
+                  <asp:Button ID="btnDeleteRoles" runat="server" OnClick="btnDeleteRoles_Click" Text="Delete Roles" Width="120px" style="background-color: #77395A" /><br />
+                  <asp:Button ID="btnDeleteUsers" runat="server" OnClick="btnDeleteUsers_Click" Text="Delete Users" Width="120px" style="background-color: #77395A" />  
                 </td>
             </tr>
             <tr>

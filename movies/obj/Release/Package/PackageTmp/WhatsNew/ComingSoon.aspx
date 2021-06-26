@@ -1,5 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ComingSoon.aspx.cs" Inherits="movies.WhatsNew.ComingSoon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+
+                 <div id="TitleContent" style="text-align: center">
+            <a runat="server" href="~/">
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo55.png" alt="logo" BorderStyle="None" />
+            </a>
+                         <br />
+            <br />  
+                         <span style="font-size: xx-large"><span style="font-weight: bold">Coming Soon</span></span><br />
+        </div>
+
+
     <p>
     </p>
     <table class="nav-justified">

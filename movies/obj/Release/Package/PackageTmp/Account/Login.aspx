@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="movies.Account.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+                         <div id="TitleContent" style="text-align: center">
+            <a runat="server" href="~/">
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo11.png" alt="logo" BorderStyle="None" />
+            </a>
+                         <br />
+            <br />  
+                         <br />
+        </div>
     <p>
     <br />
       <div>
@@ -16,14 +24,14 @@
                 <td class="style2">
                     <strong>User Name:</strong></td>
                 <td>
-                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtUserName" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
                     <strong>Password:</strong></td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox> 
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox> 
                 </td>
             </tr>
             <tr>
@@ -31,7 +39,7 @@
                     &nbsp;</td>
                 <td>
                     <asp:Button ID="btnLogin" runat="server" onclick="btnLogin_Click" 
-                        Text="Login" />
+                        Text="Login" style="background-color: #77395A" />
 <%--                    <asp:Button ID="btnCreateAdmin" runat="server" OnClick="btnCreateAdmin_Click" Text="Admin" Visible="False" />--%>
                 </td>
             </tr>

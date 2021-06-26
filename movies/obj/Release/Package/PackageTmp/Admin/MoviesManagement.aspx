@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MoviesManagement.aspx.cs" Inherits="movies.Admin.MoviesManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
     <p>
         <br />
         <table class="nav-justified">
@@ -11,33 +14,33 @@
             <tr>
                 <td style="width: 121px" align="right">Movie Title:&nbsp; </td>
                 <td>
-                    <asp:TextBox ID="txtMovieTitle" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMovieTitle" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td style="width: 121px" align="right">Description:&nbsp; </td>
                 <td>
-                    <asp:TextBox ID="txtMovieDesc" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMovieDesc" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td style="width: 121px" align="right">Genre:&nbsp; </td>
                 <td>
-                    <asp:DropDownList ID="ddlGenre" runat="server">
+                    <asp:DropDownList ID="ddlGenre" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td style="width: 121px" align="right">Language:&nbsp; </td>
                 <td>
-                    <asp:DropDownList ID="ddlLang" runat="server">
+                    <asp:DropDownList ID="ddlLang" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td style="width: 121px; height: 20px" align="right">Release Year:&nbsp; </td>
                 <td style="height: 20px">
-                    <asp:TextBox ID="txtmovieRelease" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtmovieRelease" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -52,7 +55,7 @@
             <tr>
                 <td style="width: 121px" align="right">Rating:&nbsp; </td>
                 <td>
-                    <asp:DropDownList ID="ddlRating" runat="server">
+                    <asp:DropDownList ID="ddlRating" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -70,7 +73,7 @@
             <tr>
                 <td style="width: 121px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnAddMovie" runat="server" OnClick="btnAddMovie_Click" Text="Add Movie" />
+                    <asp:Button ID="btnAddMovie" runat="server" OnClick="btnAddMovie_Click" Text="Add Movie" style="background-color: #77395A" />
                 </td>
             </tr>
             <tr>
@@ -85,27 +88,14 @@
             <tr>
                 <td style="width: 121px; height: 20px;" align="right">Movie Id:&nbsp; </td>
                 <td style="height: 20px">
-                    <asp:TextBox ID="txtMovieId" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMovieId" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
-                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 121px; height: 20px;">&nbsp;</td>
-                <td style="height: 20px">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td style="width: 121px; height: 20px;">&nbsp;</td>
-                <td style="height: 20px">
-                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="Export To Excel" />
-                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="Export To Word" />
-                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="Export To PDF" />
+                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" style="background-color: #77395A" />
+                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" style="background-color: #77395A" />
                 </td>
             </tr>
             <tr>
@@ -116,7 +106,20 @@
             <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" />
+                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="Export To Excel" style="background-color: #77395A" />
+                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="Export To Word" style="background-color: #77395A" />
+                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="Export To PDF" style="background-color: #77395A" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 121px; height: 20px;">&nbsp;</td>
+                <td style="height: 20px">
+                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" style="background-color: #77395A" />
                 </td>
             </tr>
             <tr>

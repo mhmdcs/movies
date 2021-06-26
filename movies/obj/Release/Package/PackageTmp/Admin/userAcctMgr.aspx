@@ -2,6 +2,9 @@
     CodeBehind="userAcctMgr.aspx.cs" Inherits="movies.Admin.userAcctMgr" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <br />
+            <br />  
+                         <br />
 
     <div>
         <table border="2">
@@ -18,75 +21,75 @@
                 <td>User
                 </td>
                 <td align="center" class="style4">
-                    <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtUser" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
                 <td align="center" class="style4" style="width: 42px">Role
                 </td>
                 <td align="center" class="style4" style="width: 61px">
-                    <asp:TextBox ID="txtRole" runat="server" TabIndex="4"></asp:TextBox>
+                    <asp:TextBox ID="txtRole" runat="server" TabIndex="4" style="background-color: #333333"></asp:TextBox>
                 </td>
                 <td style="width: 177px">
                     <asp:Button ID="btnLinkUserRole" runat="server" OnClick="btnLinkUserRole_Click" Text="Link User Role"
-                        Width="124px" Style="margin-left: 0px" TabIndex="5" />
+                        Width="124px" Style="margin-left: 0px; background-color: #77395A;" TabIndex="5" />
                 </td>
             </tr>
             <tr>
                 <td>Password
                 </td>
                 <td style="text-align: center">
-                    <asp:TextBox ID="txtPassword" runat="server" TabIndex="1"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TabIndex="1" style="background-color: #333333"></asp:TextBox>
                 </td>
                 <td></td>
                 <td></td>
                 <td style="width: 177px">
                     <asp:Button ID="btnUnLinkUserToRole" runat="server" OnClick="btnUnLinkUserToRole_Click"
-                        Text="UnlinkUsertoRole" Width="124px" TabIndex="6" />
+                        Text="UnlinkUsertoRole" Width="124px" TabIndex="6" style="background-color: #77395A" />
                 </td>
             </tr>
             <tr>
                 <td class="style3" style="width: 68px">Email</td>
                 <td align="center" class="style4">
-                    <asp:TextBox ID="txtEmail" runat="server" TabIndex="2"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" TabIndex="2" style="background-color: #333333"></asp:TextBox>
                 </td>
                 <td align="center" class="style4" style="width: 42px">&nbsp;</td>
                 <td align="center">&nbsp;</td>
                 <td>
                     <asp:Button ID="btnShowAllUser" runat="server" OnClick="btnShowAllUser_Click" Text="Show All Users"
-                        Width="124px" TabIndex="7" />
+                        Width="124px" TabIndex="7" style="background-color: #77395A" />
                 </td>
             </tr>
             <tr>
                 <td class="style3" style="width: 68px">&nbsp;
                 </td>
                 <td align="center" class="style4">
-                    <asp:Button ID="btnCheckFileNo" runat="server" OnClick="btnCheckFileNo_Click" Text="Check File No" />
-                    <asp:Button ID="btnCheckUserRole" runat="server" OnClick="btnCheckUserRole_Click" Text="Check  Role" />
+                    <asp:Button ID="btnCheckFileNo" runat="server" OnClick="btnCheckFileNo_Click" Text="Check File No" style="background-color: #77395A" />
+                    <asp:Button ID="btnCheckUserRole" runat="server" OnClick="btnCheckUserRole_Click" Text="Check  Role" style="background-color: #77395A" />
                 </td>
                 <td align="center" class="style4" style="width: 42px">&nbsp;</td>
                 <td align="center">
                     <asp:Button ID="btnCreateRole0" runat="server" OnClick="btnCreateRole_Click"
-                        Text="Create Role" Width="98px" TabIndex="10" />
+                        Text="Create Role" Width="98px" TabIndex="10" style="background-color: #77395A" />
                 </td>
                 <td>
                     <asp:Button ID="btnShowAllRoles" runat="server" OnClick="btnShowAllRoles_Click"
-                        Text="Show All Roles" Width="124px" TabIndex="8" />
+                        Text="Show All Roles" Width="124px" TabIndex="8" style="background-color: #77395A" />
                 </td>
             </tr>
             <tr>
                 <td class="style3">&nbsp;
                 </td>
                 <td align="center" class="style4">
-                    <asp:Button ID="btnCreateUser0" runat="server" OnClick="btnCreateUser_Click" Style="margin-left: 0px"
+                    <asp:Button ID="btnCreateUser0" runat="server" OnClick="btnCreateUser_Click" Style="margin-left: 0px; background-color: #77395A;"
                         Text="Create User" TabIndex="3" />
-                    <asp:Button ID="btnDeleteUser0" runat="server" OnClick="btnDeleteUser_Click" Text="Delete User" Width="105px" />
+                    <asp:Button ID="btnDeleteUser0" runat="server" OnClick="btnDeleteUser_Click" Text="Delete User" Width="105px" style="background-color: #77395A" />
                 </td>
                 <td align="center" class="style4" style="width: 42px"></td>
                 <td align="center">
 
-                    <asp:Button ID="btnDeleteRole1" runat="server" OnClick="btnDeleteRole_Click" Text="Delete Role" TabIndex="11" />
+                    <asp:Button ID="btnDeleteRole1" runat="server" OnClick="btnDeleteRole_Click" Text="Delete Role" TabIndex="11" style="background-color: #77395A" />
                 </td>
                 <td style="width: 177px">
-                    <asp:Button ID="btnUpdateUser" runat="server" OnClick="btnUpdateUser_Click" Text="Update User" Width="125px" TabIndex="9" />
+                    <asp:Button ID="btnUpdateUser" runat="server" OnClick="btnUpdateUser_Click" Text="Update User" Width="125px" TabIndex="9" style="background-color: #77395A" />
                 </td>
             </tr>
         </table>
@@ -96,7 +99,11 @@
        <asp:ChangePassword
            ID="ChangePassword1"
            DisplayUserName="true"
-           runat="server" />
+           runat="server" >
+           <CancelButtonStyle BackColor="#77395A" />
+           <ChangePasswordButtonStyle BackColor="#77395A" />
+           <TextBoxStyle BackColor="#333333" />
+        </asp:ChangePassword>
     </div>
     <div class="myContent">
         <p>
@@ -110,6 +117,7 @@
         <asp:CreateUserWizard
             ID="CreateUserWizard1"
             runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
+            <CreateUserButtonStyle BackColor="#77395A" />
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server">
                     <ContentTemplate>
@@ -122,7 +130,7 @@
                                     <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="UserName" runat="server" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required."
                                         ToolTip="User Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
@@ -132,7 +140,7 @@
                                     <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox ID="Password" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required."
                                         ToolTip="Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
@@ -142,7 +150,7 @@
                                     <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm Password:</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirm Password is required."
                                         ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
@@ -152,7 +160,7 @@
                                     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="Email" runat="server" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -161,7 +169,7 @@
                                     <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question">Security Question:</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="Question" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="Question" runat="server" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="Security question is required."
                                         ToolTip="Security question is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
@@ -171,7 +179,7 @@
                                     <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="Answer" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="Answer" runat="server" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Security answer is required."
                                         ToolTip="Security answer is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                 </td>
@@ -209,6 +217,7 @@
                     </ContentTemplate>
                 </asp:CompleteWizardStep>
             </WizardSteps>
+            <FinishCompleteButtonStyle BackColor="#77395A" />
         </asp:CreateUserWizard>
     </div>
 

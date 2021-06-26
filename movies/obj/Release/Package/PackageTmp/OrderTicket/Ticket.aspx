@@ -1,7 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticket.aspx.cs" Inherits="movies.Ticket" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-
+                     <div id="TitleContent" style="text-align: center">
+            <a runat="server" href="~/">
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo11.png" alt="logo" BorderStyle="None" />
+            </a>
+                         <br />
+            <br />  
+                         <br />
+        </div>
 
 
     <table class="nav-justified">
@@ -13,35 +20,35 @@
     <tr>
         <td class="modal-sm" style="width: 211px" align="right">Name:&nbsp; </td>
         <td>
-            <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtFullName" runat="server" style="background-color: #333333"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 211px; height: 20px" align="right">Cinema:&nbsp; </td>
         <td style="height: 20px">
-            <asp:DropDownList ID="ddlCinema" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCinema_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlCinema" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCinema_SelectedIndexChanged" style="background-color: #666666">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 211px" align="right">Movie Title:&nbsp; </td>
         <td>
-            <asp:DropDownList ID="ddlMovie" runat="server">
+            <asp:DropDownList ID="ddlMovie" runat="server" style="background-color: #666666">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 211px" align="right">Ticket Type:&nbsp; </td>
         <td>
-            <asp:DropDownList ID="ddlTicket" runat="server">
+            <asp:DropDownList ID="ddlTicket" runat="server" style="background-color: #666666">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 211px; height: 27px;"></td>
         <td style="height: 27px">
-            <asp:Button ID="btnOrderTicket" runat="server" Text="Order Ticket" OnClick="btnOrderTicket_Click" />
-            <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="Show All My Tickets" />
+            <asp:Button ID="btnOrderTicket" runat="server" Text="Order Ticket" OnClick="btnOrderTicket_Click" style="background-color: #77395A" />
+            <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="Show All My Tickets" style="background-color: #77395A" />
         </td>
     </tr>
     <tr>
@@ -52,7 +59,7 @@
     <tr>
         <td class="modal-sm" style="width: 211px">&nbsp;</td>
         <td>
-            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" style="color: #FFFFFF; background-color: #FF0066"/>
+            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" style="color: #FFFFFF; background-color: #9E4B77"/>
         </td>
     </tr>
     <tr>
@@ -108,32 +115,37 @@
 
     <table class="nav-justified">
         <tr>
-            <td style="width: 194px">&nbsp;</td>
-            <td>
-                <asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" OnClick="btnExportPDF_Click" />
-
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 194px">&nbsp;</td>
+            <td style="width: 208px" class="modal-sm">&nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 194px" align="right">Ticket Number:&nbsp; </td>
+            <td style="width: 208px" class="modal-sm">&nbsp;</td>
             <td>
-            <asp:TextBox ID="txtTicketId" runat="server"></asp:TextBox>
+                <asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" OnClick="btnExportPDF_Click" style="background-color: #77395A" />
 
             </td>
         </tr>
         <tr>
-            <td> </td>
+            <td style="width: 208px" class="modal-sm">&nbsp;</td>
             <td>
-            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" />
-            <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="Cancel Ticket" />
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 208px" align="right" class="modal-sm">Ticket Number:&nbsp; </td>
+            <td>
+            <asp:TextBox ID="txtTicketId" runat="server" style="background-color: #333333"></asp:TextBox>
 
-                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="Force Update Ticket" Visible="False" style="color: #FFFFFF; background-color: #FF0066" />
-                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="Force Delete Ticket" Visible="False" style="color: #FFFFFF; background-color: #FF0066"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="modal-sm" style="width: 208px"> </td>
+            <td>
+            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" style="background-color: #77395A" />
+            <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="Cancel Ticket" style="background-color: #77395A" />
+
+                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="Force Update Ticket" Visible="False" style="color: #FFFFFF; background-color: #9E4B77" />
+                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="Force Delete Ticket" Visible="False" style="color: #FFFFFF; background-color: #9E4B77"/>
 
             </td>
         </tr>

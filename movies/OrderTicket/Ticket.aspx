@@ -48,18 +48,39 @@
         <td class="modal-sm" style="width: 211px; height: 27px;"></td>
         <td style="height: 27px">
             <asp:Button ID="btnOrderTicket" runat="server" Text="Order Ticket" OnClick="btnOrderTicket_Click" style="background-color: #77395A" />
-            <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="Show All My Tickets" style="background-color: #77395A" />
         </td>
+    </tr>
+    <tr>
+        <td class="modal-sm" style="width: 211px; height: 27px;" align="right">Ticket Number:&nbsp; </td>
+        <td style="height: 27px">
+            <asp:TextBox ID="txtTicketId" runat="server" style="background-color: #333333"></asp:TextBox>
+
+            </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 211px; height: 27px;">&nbsp;</td>
         <td style="height: 27px">
-            &nbsp;</td>
+            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" style="background-color: #77395A" />
+            <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="Cancel Ticket" style="background-color: #77395A" />
+
+                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="Force Update Ticket" Visible="False" style="color: #FFFFFF; background-color: #9E4B77" />
+                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="Force Delete Ticket" Visible="False" style="color: #FFFFFF; background-color: #9E4B77"/>
+
+            </td>
+    </tr>
+    <tr>
+        <td class="modal-sm" style="width: 211px; height: 27px;">&nbsp;</td>
+        <td style="height: 27px">
+            <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="Show All My Tickets" style="background-color: #77395A" />
+            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" style="color: #FFFFFF; background-color: #9E4B77"/>
+
+            </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 211px">&nbsp;</td>
         <td>
-            <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="Show All Customers Tickets" Visible="False" style="color: #FFFFFF; background-color: #9E4B77"/>
+                <asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" OnClick="btnExportPDF_Click" style="background-color: #77395A" />
+
         </td>
     </tr>
     <tr>
@@ -122,9 +143,7 @@
         <tr>
             <td style="width: 208px" class="modal-sm">&nbsp;</td>
             <td>
-                <asp:Button ID="btnExportPDF" runat="server" Text="Export Ticket as PDF" OnClick="btnExportPDF_Click" style="background-color: #77395A" />
-
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 208px" class="modal-sm">&nbsp;</td>
@@ -132,22 +151,14 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 208px" align="right" class="modal-sm">Ticket Number:&nbsp; </td>
+            <td style="width: 208px" align="right" class="modal-sm">&nbsp;</td>
             <td>
-            <asp:TextBox ID="txtTicketId" runat="server" style="background-color: #333333"></asp:TextBox>
-
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 208px"> </td>
             <td>
-            <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="Update Ticket" style="background-color: #77395A" />
-            <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="Cancel Ticket" style="background-color: #77395A" />
-
-                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="Force Update Ticket" Visible="False" style="color: #FFFFFF; background-color: #9E4B77" />
-                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="Force Delete Ticket" Visible="False" style="color: #FFFFFF; background-color: #9E4B77"/>
-
-            </td>
+                &nbsp;</td>
         </tr>
     </table>
 

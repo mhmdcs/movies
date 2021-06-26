@@ -1,5 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="All.aspx.cs" Inherits="movies.WhatsNew.All" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+                 <div id="TitleContent" style="text-align: center">
+            <a runat="server" href="~/">
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo44.png" alt="logo" BorderStyle="None" />
+            </a>
+                         <br />
+            <br />  
+                         <span style="font-size: xx-large"><strong>All Movies</strong></span><br />
+        </div>
+
     <p>
     </p>
     <table class="nav-justified">

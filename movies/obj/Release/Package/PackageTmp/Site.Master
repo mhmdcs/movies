@@ -55,14 +55,14 @@
 
  <!--   ******************************************************    one  way to show menue  start   ********************************* -->
 
-         <div id="TitleContent" style="text-align: center">
+<%--         <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
                 <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo.png" alt="logo" BorderStyle="None" />
             </a>
                          <br />
             <br />  
                          <br />
-        </div>
+        </div>--%>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
 
