@@ -11,7 +11,7 @@
 
     <p>
         <br />
-        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" >
+        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" ActiveStepIndex="1" >
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server" >
                     <ContentTemplate>
@@ -89,17 +89,19 @@
                 <asp:CompleteWizardStep runat="server" >
                     <ContentTemplate>
                         <table>
-                            <tr>Please confirm and authorize your registration by pressing the Continue button.
+                            <caption>
+                               
                                 <br />
-                            </tr>
-                            <tr>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td align="right" colspan="2">
-                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Text="Continue" ValidationGroup="CreateUserWizard" />
-                                </td>
-                            </tr>
+                                </tr>
+                                <tr>
+                                    <td>Please confirm and authorize your registration by pressing the Continue button.</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Text="Continue" ValidationGroup="CreateUserWizard" />
+                                    </td>
+                                </tr>
+                            </caption>
                         </table>
                     </ContentTemplate>
                 </asp:CompleteWizardStep>
