@@ -11,7 +11,7 @@
 
     <p>
         <br />
-        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" ActiveStepIndex="1" >
+        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" >
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server" >
                     <ContentTemplate>
