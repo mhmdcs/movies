@@ -12,7 +12,7 @@
     <p>
         <br />
         <asp:CreateUserWizard ID="CreateUserWizard" runat="server">
-            <CreateUserButtonStyle BackColor="#77395A" />
+            <CreateUserButtonStyle BackColor="#9E4B77" />
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server" >
                     <ContentTemplate>
@@ -91,7 +91,11 @@
                     <ContentTemplate>
                         <table>
                             <caption>
+
                                 
+
+                               
+
                                 <br />
                                 </tr>
                                 <tr>
@@ -99,7 +103,10 @@
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" style="background-color: #77395A" Text="Continue" ValidationGroup="CreateUserWizard" />
+
+                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" style="background-color: #9E4B77" Text="Continue" ValidationGroup="CreateUserWizard" />
+
+
                                     </td>
                                 </tr>
                             </caption>

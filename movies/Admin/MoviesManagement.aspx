@@ -12,39 +12,39 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Movie Title:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Movie Title:&nbsp; </strong> </td>
                 <td>
                     <asp:TextBox ID="txtMovieTitle" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Description:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Description:&nbsp; </strong> </td>
                 <td>
-                    <asp:TextBox ID="txtMovieDesc" runat="server" style="background-color: #333333"></asp:TextBox>
+                    <asp:TextBox ID="txtMovieDesc" runat="server" style="background-color: #333333" Height="131px" TextMode="MultiLine" Width="265px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Genre:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Genre:&nbsp; </strong> </td>
                 <td>
                     <asp:DropDownList ID="ddlGenre" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Language:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Language:&nbsp; </strong> </td>
                 <td>
                     <asp:DropDownList ID="ddlLang" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px; height: 20px" align="right">Release Year:&nbsp; </td>
+                <td style="width: 121px; height: 20px" align="right"><strong>Release Year:&nbsp; </strong> </td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtmovieRelease" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Status:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Status:&nbsp; </strong> </td>
                 <td>
                     <asp:RadioButtonList ID="rbtlStatus" runat="server">
                         <asp:ListItem Value="1"></asp:ListItem>
@@ -53,14 +53,14 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Rating:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Rating:&nbsp; </strong> </td>
                 <td>
                     <asp:DropDownList ID="ddlRating" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px" align="right">Cover:&nbsp; </td>
+                <td style="width: 121px" align="right"><strong>Cover:&nbsp; </strong> </td>
                 <td>
                     <asp:FileUpload ID="fileupMovieCover" runat="server" />
                 </td>
@@ -73,7 +73,7 @@
             <tr>
                 <td style="width: 121px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnAddMovie" runat="server" OnClick="btnAddMovie_Click" Text="Add Movie" style="background-color: #77395A" />
+                    <asp:Button ID="btnAddMovie" runat="server" OnClick="btnAddMovie_Click" Text="Add Movie" style="background-color: #9E4B77" />
                 </td>
             </tr>
             <tr>
@@ -86,7 +86,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 121px; height: 20px;" align="right">Movie Id:&nbsp; </td>
+                <td style="width: 121px; height: 20px;" align="right"><strong>Movie Id:&nbsp; </strong> </td>
                 <td style="height: 20px">
                     <asp:TextBox ID="txtMovieId" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
@@ -94,8 +94,8 @@
             <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" style="background-color: #77395A" />
-                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" style="background-color: #77395A" />
+                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" style="background-color: #9E4B77" />
                 </td>
             </tr>
             <tr>
@@ -106,9 +106,9 @@
             <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="Export To Excel" style="background-color: #77395A" />
-                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="Export To Word" style="background-color: #77395A" />
-                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="Export To PDF" style="background-color: #77395A" />
+                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="Export To Excel" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="Export To Word" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="Export To PDF" style="background-color: #9E4B77" />
                 </td>
             </tr>
             <tr>
@@ -119,20 +119,22 @@
             <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" style="background-color: #77395A" />
+                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" style="background-color: #9E4B77" />
                 </td>
             </tr>
             <tr>
                 <td style="height: 20px;" colspan="2">
 
-                    <asp:GridView ID="moviesGv" runat="server"></asp:GridView>
+                    <asp:GridView ID="moviesGv" runat="server" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                        <HeaderStyle BackColor="#77395A" />
+                    </asp:GridView>
 
                 </td>
             </tr>
             <tr>
                 <td style="height: 20px;" colspan="2">
 
-                    <asp:GridView ID="moviesGvV2" runat="server" AutoGenerateColumns="false">
+                    <asp:GridView ID="moviesGvV2" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="movieId" HeaderText="Id" />
                             <asp:BoundField DataField="movieName" HeaderText="Title" />
@@ -150,6 +152,7 @@
                             <asp:BoundField DataField="rating" HeaderText="Rating" />
 
                         </Columns>
+                           <HeaderStyle BackColor="#77395A" />
                     </asp:GridView>
 
                 </td>

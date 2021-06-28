@@ -106,7 +106,7 @@ namespace movies
         protected void showTicketsData()
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, aspnet_Users.UserName, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
+            string mySql = @"select customerTicket.customerTicketId, aspnet_Users.UserName, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice, Sum(movieInCinemaPrice) OVER (order by customerTicketId) as totalTicketsPrice
                             from movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
@@ -122,7 +122,7 @@ namespace movies
         protected void showTicketsData(int pk)
         {
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice, Sum(movieInCinemaPrice) OVER (order by customerTicketId) as totalTicketsPrice
                             from movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
@@ -136,9 +136,10 @@ namespace movies
             gvTicketData.DataBind();
         }
 
-        //show user only customertickets linked to their respective user account
-        protected void btnShowMyTickets_Click(object sender, EventArgs e)
+        //populates griudview and display current customer name and all of their acccount orders
+        protected void showAllMyTicketsData()
         {
+
             //Code to retrieve current logged-in username and UserId
             // Get current logged-in user username
             string uname = HttpContext.Current.User.Identity.Name.ToString();
@@ -147,7 +148,7 @@ namespace movies
             string userId = user.ProviderUserKey.ToString();
 
             CRUD myCrud = new CRUD();
-            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice, Sum(movieInCinemaPrice) OVER (order by customerTicketId) as totalTicketsPrice
                             from movie inner join
 		                    customerTicket on movie.movieId = customerTicket.movieId inner join
 		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
@@ -159,6 +160,12 @@ namespace movies
             SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
+        }
+
+        //show user only customertickets linked to their respective user account
+        protected void btnShowMyTickets_Click(object sender, EventArgs e)
+        {
+            showAllMyTicketsData();
         }
 
         //action query with Dictionary object
@@ -174,6 +181,8 @@ namespace movies
 
             //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
             string userEmail = Membership.GetUser(uname).Email;
+
+            
 
             if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
             {
@@ -205,6 +214,7 @@ namespace movies
 
                     if (pk >= 1)
                     {
+                        showTicketsData(pk);
                         lblOutput.Text = "Successfully Ordered Ticket";
 
                         string emailSubject = "Successfully Ordered Ticket " + ticketNumber;
@@ -218,7 +228,7 @@ namespace movies
                         lblOutput.Text = "Failed to Order Ticket";
                     }
 
-                    showTicketsData(pk);
+                    
 
                 }//end if (ddlCinema.SelectedIndex != 0) condition
                 else
@@ -249,7 +259,12 @@ namespace movies
             string userEmail = Membership.GetUser(uname).Email;
 
 
-            if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
+            //int.TryParse(txtTicketId.Text, out int n) checks whether or not string is a number in C#
+            if (!String.IsNullOrEmpty(txtTicketId.Text) && int.TryParse(txtTicketId.Text, out int n)) //check if txtTicketId is NOT empty
+
+            {
+
+                if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
             {
 
                 if (ddlCinema.SelectedIndex != 0)
@@ -283,7 +298,9 @@ namespace movies
 
                     if (rtn >= 1)
                     {
-                        lblOutput.Text = "Successfully Updated Ticket";
+
+                            showTicketsData(pk);
+                            lblOutput.Text = "Successfully Updated Ticket";
 
                         string emailSubject = "Successfully Updated Ticket " + ticketNumber;
                         string emailBody = "Your ticket " + ticketNumber + " has been successfully updated. Thank you for visiting our site!";
@@ -295,7 +312,7 @@ namespace movies
                     {
                         lblOutput.Text = "Failed to Update Ticket";
                     }
-                    showTicketsData(pk);
+                    
 
 
 
@@ -310,6 +327,15 @@ namespace movies
             {
                 lblOutput.Text = "Please Enter a Name";
             }//end of else txtFullName is not empty condition
+
+
+
+
+            }//end of if txtTicketId is NOT empty condition
+            else
+            {
+                lblOutput.Text = "Please Enter Ticket Number";
+            }//end of else txtTicketId is NOT empty condition
 
         }
 
@@ -327,31 +353,42 @@ namespace movies
             //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
             string userEmail = Membership.GetUser(uname).Email;
 
+            //int.TryParse(txtTicketId.Text, out int n) checks whether or not string is a number in C#
+            if (!String.IsNullOrEmpty(txtTicketId.Text)&& int.TryParse(txtTicketId.Text, out int n)) //check if txtTicketId is NOT empty
 
-                    CRUD myCrud = new CRUD();
-                    string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
+            {
+
+                CRUD myCrud = new CRUD();
+                string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
                              AND  UserId = CAST(@UserId AS UNIQUEIDENTIFIER)";
-                    Dictionary<string, object> myPara = new Dictionary<string, object>();
-                    myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
-                    int pk = int.Parse(txtTicketId.Text);
-                    myPara.Add("UserId", userId);
-                    int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
-                    showTicketsData(pk);
+                Dictionary<string, object> myPara = new Dictionary<string, object>();
+                myPara.Add("customerTicketId", int.Parse(txtTicketId.Text));
+                int pk = int.Parse(txtTicketId.Text);
+                myPara.Add("UserId", userId);
+                int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
 
-                    string ticketNumber = pk.ToString();
+                string ticketNumber = pk.ToString();
 
-                    if (rtn >= 1)
-                    {
-                        lblOutput.Text = "Successfully Cancelled Ticket";
-                        string emailSubject = "Successfully Cancelled Ticket " + ticketNumber;
-                        string emailBody = "Your ticket " + ticketNumber + " has been successfully cancelled. Thank you for visiting our site!";
+                if (rtn >= 1)
+                {
+                    showAllMyTicketsData();
+                    lblOutput.Text = "Successfully Cancelled Ticket";
+                    string emailSubject = "Successfully Cancelled Ticket " + ticketNumber;
+                    string emailBody = "Your ticket " + ticketNumber + " has been successfully cancelled. Thank you for visiting our site!";
 
-                        sendEmailViaGmail(userEmail, emailSubject, emailBody);
-                    }
-                    else
-                    {
-                        lblOutput.Text = "Failed to Cancel Ticket";
-                    }
+                    sendEmailViaGmail(userEmail, emailSubject, emailBody);
+                }
+                else
+                {
+                    lblOutput.Text = "Failed to Cancel Ticket";
+                }
+
+
+            }//end of if txtTicketId is NOT empty condition
+            else
+            {
+                lblOutput.Text = "Please Enter Ticket Number";
+            }//end of else txtTicketId is NOT empty condition
 
         }
 

@@ -19,23 +19,21 @@ namespace movies.Account
 
             if (this.User != null && this.User.Identity.IsAuthenticated)
             {
+                //auto assign role to recently registered user
                 var userName = HttpContext.Current.User.Identity.Name;
                 Roles.AddUserToRole(userName, "user");
 
-                //var userName = HttpContext.Current.User.Identity.Name;
-                //Roles.AddUserToRole(userName, "user");
 
 
-                //Code to retrieve current logged-in username and UserId to perform secured crud operations that check user integrity
+
+                //codes for sending recently registered user email notification after registration
                 // Get current logged-in user username
                 string uname = HttpContext.Current.User.Identity.Name.ToString();
                 // Get current user UserId in asp.net membership
                 MembershipUser user = Membership.GetUser(uname);
                 string userId = user.ProviderUserKey.ToString();
-
                 //this will be used to get ther currently logged in user email address to send SMTP email relays to user email after every sucessful ticket operation
                 string userEmail = Membership.GetUser(uname).Email;
-
                 string emailSubject = "Thank you for signing up on movies!";
                 string emailBody = "Your account has been registered and authenticated. Thank you for signing up!";
                 sendEmailViaGmail(userEmail, emailSubject, emailBody);
@@ -47,33 +45,6 @@ namespace movies.Account
         {
             Response.Redirect("~/Default.aspx");
         }
-
-        //          if (this.User != null && this.User.Identity.IsAuthenticated)
-        //    {
-        //    var userName = HttpContext.Current.User.Identity.Name;
-        //    Roles.AddUserToRole(userName, "user");
-
-        //    //var userName = HttpContext.Current.User.Identity.Name;
-        //    //Roles.AddUserToRole(userName, "user");
-        //}
-
-
-        // try fixing issue not being able to set default roles for registered users
-
-        //protected void RegisterUser_CreatedUser(object sender, EventArgs e)
-        //{
-        //    Roles.AddUserToRole(Membership.GetUser().UserName, "user"); //Use the newly created username here
-        //    Roles.AddUserToRole(HttpContext.Current.User.Identity.Name, "user");
-
-        //    if (this.User != null && this.User.Identity.IsAuthenticated)
-        //    {
-        //        var userName = HttpContext.Current.User.Identity.Name;
-        //        Roles.AddUserToRole(userName, "user");
-        //    }
-
-        //}
-
-
 
         public string sendEmailViaGmail(string userEmail, string emailSubject, string emailBody) // worked 100%, this is a nice one use it with  properties
         {

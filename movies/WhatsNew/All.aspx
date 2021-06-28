@@ -29,6 +29,7 @@
                 <asp:ListView ID="moviesLv" runat="server">
             <ItemTemplate>
                     <table>
+
                         <tr><td>
                             <ItemTemplate>
 
@@ -45,6 +46,7 @@
                         <tr><td><p>Genre: <%#Eval("genre") %></p></td></tr>
                         <tr><td><p>Language: <%#Eval("language") %></p></td></tr>
                         <tr><td><p>Rating: <%#Eval("rating") %></p></td></tr>
+
 
                         <br />
                         <br />

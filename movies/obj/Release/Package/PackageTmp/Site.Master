@@ -122,8 +122,8 @@
                         </li>
 
                        
-
-                          <li><a runat="server" href="~/Contact">Contact Us</a></li>
+                        
+                          <li><a runat="server" href="~/About">About Us</a></li>
                     </ul>
 
                     <div class="loginDisplay">

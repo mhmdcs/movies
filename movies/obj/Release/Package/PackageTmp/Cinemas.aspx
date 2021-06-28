@@ -16,7 +16,7 @@
     <h3>Cinemas Near Your Location</h3>
     <table class="nav-justified">
         <tr>
-            <td style="width: 224px" align="right">Choose a Cinema:&nbsp; </td>
+            <td style="width: 224px" align="right"><strong>Choose a Cinema:&nbsp; </strong> </td>
             <td>
                 <asp:DropDownList ID="ddlCinema" runat="server" style="background-color: #666666">
                 </asp:DropDownList>
@@ -30,7 +30,7 @@
         <tr>
             <td style="width: 224px">&nbsp;</td>
             <td>
-                <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="Show Movies Availaible" style="background-color: #77395A" />
+                <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="Show Movies Availaible" style="background-color: #9E4B77" />
             </td>
         </tr>
         <tr>

@@ -203,7 +203,9 @@ namespace movies.Admin
             Dictionary<string, object> myPara = new Dictionary<string, object>();
             myPara.Add("@cinemaId", ddlCinema.SelectedValue);
             myPara.Add("@movieId", ddlMovie.SelectedValue);
-            myPara.Add("@movieInCinemaDate", Convert.ToDateTime(txtDateTime.Text));
+
+            string dateTime = txtDate.Text + " " + txtTime.Text;
+            myPara.Add("@movieInCinemaDate", Convert.ToDateTime(dateTime));
             myPara.Add("@movieInCinemaPrice", decimal.Parse(txtTicketPrice.Text));
             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);
             if (rtn >= 1)

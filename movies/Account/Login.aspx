@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td class="style2">
-                    <strong>User Name:</strong></td>
+                    <strong>User Name:&nbsp;&nbsp;&nbsp; </strong></td>
                 <td>
                     <asp:TextBox ID="txtUserName" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
@@ -39,7 +39,7 @@
                     &nbsp;</td>
                 <td>
                     <asp:Button ID="btnLogin" runat="server" onclick="btnLogin_Click" 
-                        Text="Login" style="background-color: #77395A" />
+                        Text="Login" style="background-color: #9E4B77" />
 <%--                    <asp:Button ID="btnCreateAdmin" runat="server" OnClick="btnCreateAdmin_Click" Text="Admin" Visible="False" />--%>
                 </td>
             </tr>
