@@ -155,7 +155,27 @@
 
     <table class="nav-justified">
         <tr>
-            <td style="width: 208px" class="modal-sm">&nbsp;</td>
+            <td style="width: 208px" class="modal-sm">
+
+
+
+            <asp:GridView ID="gvNoColors" runat="server" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
+                            <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
+                            <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
+                            <asp:BoundField DataField="ticket" HeaderText="Ticket Type" />
+                            <asp:BoundField DataField="cinema" HeaderText="Cinema" />
+                            <asp:BoundField DataField="movieInCinemaDate" HeaderText="Showing Date" />
+                            <asp:BoundField DataField="movieInCinemaPrice" HeaderText="Ticket Price" />
+                            <asp:BoundField DataField="totalTicketsPrice" HeaderText="Total Tickets Price" />
+                            
+                        </Columns>
+                    </asp:GridView>
+
+
+
+            </td>
             <td>
                 &nbsp;</td>
         </tr>

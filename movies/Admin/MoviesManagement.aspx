@@ -119,14 +119,14 @@
             <tr>
                 <td style="width: 121px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="txtDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="txtDisplayAllMovies_Click" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnDisplayAllMovies" runat="server" Text="Display All Movies" OnClick="btnDisplayAllMovies_Click" style="background-color: #9E4B77" />
                 </td>
             </tr>
             <tr>
                 <td style="height: 20px;" colspan="2">
 
-                    <asp:GridView ID="moviesGv" runat="server" BackColor="#333333" BorderColor="Black" ForeColor="White">
-                        <HeaderStyle BackColor="#77395A" />
+                    <asp:GridView ID="moviesGv" runat="server">
+                       
                     </asp:GridView>
 
                 </td>
@@ -158,7 +158,10 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 121px">&nbsp;</td>
+                <td style="width: 121px">
+                    <asp:GridView ID="moviesGvNoColors" runat="server">
+                    </asp:GridView>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>

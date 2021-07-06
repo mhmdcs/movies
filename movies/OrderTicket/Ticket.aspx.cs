@@ -76,7 +76,6 @@ namespace movies
             ddlMovie.DataBind();
         }
 
-
         protected void ddlCinema_SelectedIndexChanged(object sender, EventArgs e)
         {
             CRUD myCrud = new CRUD();
@@ -134,6 +133,7 @@ namespace movies
             SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
+
         }
 
         //populates griudview and display current customer name and all of their acccount orders
@@ -161,6 +161,32 @@ namespace movies
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
         }
+
+        protected void showAllMyTicketsDataNoColors()
+        {
+
+            //Code to retrieve current logged-in username and UserId
+            // Get current logged-in user username
+            string uname = HttpContext.Current.User.Identity.Name.ToString();
+            // Get current user UserId in asp.net membership
+            MembershipUser user = Membership.GetUser(uname);
+            string userId = user.ProviderUserKey.ToString();
+
+            CRUD myCrud = new CRUD();
+            string mySql = @"select customerTicket.customerTicketId, customerTicket.customerFullName, movie.movieName, ticket.ticket, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice, Sum(movieInCinemaPrice) OVER (order by customerTicketId) as totalTicketsPrice
+                            from movie inner join
+		                    customerTicket on movie.movieId = customerTicket.movieId inner join
+		                    ticket on customerTicket.ticketId = ticket.ticketId inner join
+		                    cinema on customerTicket.cinemaId = cinema.cinemaId inner join
+							movieInCinema on movieInCinema.movieInCinemaId = customerTicket.movieInCinemaId
+                            where customerTicket.UserId = @UserId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@UserId", userId);
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            gvNoColors.DataSource = dr;
+            gvNoColors.DataBind();
+        }
+
 
         //show user only customertickets linked to their respective user account
         protected void btnShowMyTickets_Click(object sender, EventArgs e)
@@ -357,6 +383,7 @@ namespace movies
             if (!String.IsNullOrEmpty(txtTicketId.Text)&& int.TryParse(txtTicketId.Text, out int n)) //check if txtTicketId is NOT empty
 
             {
+                try {
 
                 CRUD myCrud = new CRUD();
                 string mySql = @"delete customerTicket where customerTicketId = @customerTicketId
@@ -384,7 +411,14 @@ namespace movies
                 }
 
 
-            }//end of if txtTicketId is NOT empty condition
+            }
+                catch (NullReferenceException err)
+            {
+                lblOutput.Text = "Please Enter Correct Ticket Number";
+            }
+
+
+        }//end of if txtTicketId is NOT empty condition
             else
             {
                 lblOutput.Text = "Please Enter Ticket Number";
@@ -402,14 +436,19 @@ namespace movies
         protected void btnUpdateAdmin_Click(object sender, EventArgs e)
         {
 
-            if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
+            //int.TryParse(txtTicketId.Text, out int n) checks whether or not string is a number in C#
+            if (!String.IsNullOrEmpty(txtTicketId.Text) && int.TryParse(txtTicketId.Text, out int n)) //check if txtTicketId is NOT empty
+
             {
 
-                if (ddlCinema.SelectedIndex != 0)
+                if (!String.IsNullOrEmpty(txtFullName.Text)) //check if txtFullName is NOT empty
                 {
 
+                    if (ddlCinema.SelectedIndex != 0)
+                    {
 
-                    CRUD MyCrudEmail = new CRUD();
+
+                        CRUD MyCrudEmail = new CRUD();
                     //this crud operation recieves user email that's linked to the customer ticket id
                     string mySqlEmail = @"select aspnet_Membership.Email from customerTicket inner join aspnet_Membership on 
 	                    customerTicket.UserId = aspnet_Membership.UserId AND customerTicket.customerTicketId=@customerTicketId;";
@@ -460,24 +499,39 @@ namespace movies
                     showTicketsData();
 
 
-                }//end if (ddlCinema.SelectedIndex != 0) condition
+                    }//end if (ddlCinema.SelectedIndex != 0) condition
+                    else
+                    {
+                        lblOutput.Text = "Please Choose a Cinema";
+                    }//end else (ddlCinema.SelectedIndex != 0) condition
+
+                }//end of if txtFullName is not empty condition
                 else
                 {
-                    lblOutput.Text = "Please Choose a Cinema";
-                }//end else (ddlCinema.SelectedIndex != 0) condition
+                    lblOutput.Text = "Please Enter a Name";
+                }//end of else txtFullName is not empty condition
 
-            }//end of if txtFullName is not empty condition
+
+
+
+            }//end of if txtTicketId is NOT empty condition
             else
             {
-                lblOutput.Text = "Please Enter a Name";
-            }//end of else txtFullName is not empty condition
+                lblOutput.Text = "Please Enter Ticket Number";
+            }//end of else txtTicketId is NOT empty condition
 
         }
 
         //force delete ticket for any user as admin
         protected void btnDeleteAdmin_Click(object sender, EventArgs e)
         {
-           
+
+            //int.TryParse(txtTicketId.Text, out int n) checks whether or not string is a number in C#
+            if (!String.IsNullOrEmpty(txtTicketId.Text) && int.TryParse(txtTicketId.Text, out int n)) //check if txtTicketId is NOT empty
+
+            {
+
+                try {
 
                 CRUD MyCrudEmail = new CRUD();
                 //this crud operation recieves user email that's linked to the customer ticket id
@@ -514,11 +568,25 @@ namespace movies
 
                 showTicketsData();
 
+                }
+                catch(NullReferenceException err)
+                {
+                    lblOutput.Text = "Please Enter Correct Ticket Number";
+                }
+
+
+            }//end of if txtTicketId is NOT empty condition
+            else
+            {
+                lblOutput.Text = "Please Enter Ticket Number";
+            }//end of else txtTicketId is NOT empty condition
+
         }
 
 
         protected void btnExportPDF_Click(object sender, EventArgs e)
         {
+            showAllMyTicketsDataNoColors();
             ExportGridToPDF();
         }
         protected void ExportGridToPDF()
@@ -529,7 +597,7 @@ namespace movies
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
-            gvTicketData.RenderControl(hw);
+            gvNoColors.RenderControl(hw);
             StringReader sr = new StringReader(sw.ToString());
             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
             HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
@@ -539,8 +607,8 @@ namespace movies
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
-            gvTicketData.AllowPaging = true;
-            gvTicketData.DataBind();
+            gvNoColors.AllowPaging = true;
+            gvNoColors.DataBind();
         }
 
         

@@ -26,7 +26,6 @@ namespace movies.Admin
                 populateLanguage();
                 populateStatus();
                 populateRating();
-                //    populateMoviesGv();
             }
         }
 
@@ -236,13 +235,14 @@ namespace movies.Admin
             //  populateMoviesGv();
         }
 
-        protected void txtDisplayAllMovies_Click(object sender, EventArgs e)
+        protected void btnDisplayAllMovies_Click(object sender, EventArgs e)
         {
             populateMoviesGv();
         }
 
         protected void btnExportToExcel_Click_Click(object sender, EventArgs e)
         {
+            populateMoviesGvNoImages();
             ExportGridToExcel(moviesGv);
         }
         public void ExportGridToExcel(GridView grd)
@@ -266,6 +266,7 @@ namespace movies.Admin
 
         protected void btnExportToWord_Click_Click(object sender, EventArgs e)
         {
+            populateMoviesGvNoImages();
             ExportGridToword();
         }
         public void ExportGridToword()
@@ -290,6 +291,7 @@ namespace movies.Admin
 
         protected void btnExportToPdf_Click_Click(object sender, EventArgs e)
         {
+            populateMoviesGvNoImages();
             ExportGridToPDF();
         }
         public void ExportGridToPDF()
