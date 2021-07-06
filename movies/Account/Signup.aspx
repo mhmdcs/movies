@@ -11,14 +11,17 @@
 
     <p>
         <br />
-        <asp:CreateUserWizard ID="CreateUserWizard" runat="server">
-            <CreateUserButtonStyle BackColor="#9E4B77" />
+        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" CreateUserButtonText="SIGN UP">
+            <CreateUserButtonStyle BackColor="#9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server" >
                     <ContentTemplate>
                         <table>
                             <tr>
-                                <td align="center" colspan="2">Sign Up for Your New Account</td>
+                                <td align="center" colspan="2"><strong>Sign Up for Your New Account</strong></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td align="right">
@@ -30,6 +33,10 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
                                 <td align="right">
                                     <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
                                 </td>
@@ -37,6 +44,10 @@
                                     <asp:TextBox ID="Password" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td align="right">
@@ -48,6 +59,10 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
                                 <td align="right">
                                     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
                                 </td>
@@ -55,6 +70,10 @@
                                     <asp:TextBox ID="Email" runat="server" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td align="right">
@@ -66,6 +85,10 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
                                 <td align="right">
                                     <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label>
                                 </td>
@@ -73,6 +96,10 @@
                                     <asp:TextBox ID="Answer" runat="server" style="background-color: #333333"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Security answer is required." ToolTip="Security answer is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td align="center" colspan="2">
@@ -99,12 +126,15 @@
                                 <br />
                                 </tr>
                                 <tr>
-                                    <td>Please confirm and authorize your registration by pressing the Continue button.</td>
+                                    <td style="height: 20px"><strong>Please confirm and authorize your registration by pressing the <span style="color: #77395A">Confirm</span> button.</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td align="right">
 
-                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" style="background-color: #9E4B77" Text="Continue" ValidationGroup="CreateUserWizard" />
+                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" style="background-color: #9E4B77" Text="CONFIRM" ValidationGroup="CreateUserWizard" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
 
 
                                     </td>

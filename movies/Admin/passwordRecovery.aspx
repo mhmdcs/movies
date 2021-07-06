@@ -25,7 +25,7 @@
 
                         
                         <asp:Button ID="SubmitButton" runat="server" 
-                        Text="SEND" CommandName="Submit" style="background-color: #9E4B77" /><br />
+                        Text="SEND" CommandName="Submit" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" /><br />
                     <span  style="color: #FF0000">
                     <asp:Literal ID="FailureText" runat="server"></asp:Literal>
                     </span>

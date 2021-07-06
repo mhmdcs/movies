@@ -115,9 +115,19 @@ namespace movies.Admin
             cinemasGv.DataBind();
         }
 
+        protected void populateCinemasGvNoColors()
+        {
+            CRUD myCrud = new CRUD();
+            string mySql = @"select cinemaId, cinema from cinema;";
+            SqlDataReader dr = myCrud.getDrPassSql(mySql);
+            cinemasGvNoColors.DataSource = dr;
+            cinemasGvNoColors.DataBind();
+        }
+
         protected void btnExportToExcelCinemas_Click(object sender, EventArgs e)
         {
-            ExportGridToExcelCinemasGv(cinemasGv);
+            populateCinemasGvNoColors();
+            ExportGridToExcelCinemasGv(cinemasGvNoColors);
         }
         public void ExportGridToExcelCinemasGv(GridView grd)
         {
@@ -129,7 +139,7 @@ namespace movies.Admin
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
             grd.AllowPaging = false;
-            populateCinemasGv();
+            populateCinemasGvNoColors();
             grd.RenderControl(hw);
             string style = @"<style> .textmode { mso-number-format:\@; } </style>";
             Response.Write(style);
@@ -140,6 +150,7 @@ namespace movies.Admin
 
         protected void btnExportToWordCinemas_Click(object sender, EventArgs e)
         {
+            populateCinemasGvNoColors();
             ExportGridTowordCinemasGv();
         }
         public void ExportGridTowordCinemasGv()
@@ -155,15 +166,16 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment;filename=GridViewExport.doc");
-            cinemasGv.GridLines = GridLines.Both;
-            cinemasGv.HeaderStyle.Font.Bold = true;
-            cinemasGv.RenderControl(htmltextwrtter);
+            cinemasGvNoColors.GridLines = GridLines.Both;
+            cinemasGvNoColors.HeaderStyle.Font.Bold = true;
+            cinemasGvNoColors.RenderControl(htmltextwrtter);
             Response.Write(strwritter.ToString());
             Response.End();
         }
 
         protected void btnExportToPDFCinemas_Click(object sender, EventArgs e)
         {
+            populateCinemasGvNoColors();
             ExportGridToPDFCinemasGv();
         }
         public void ExportGridToPDFCinemasGv()
@@ -174,7 +186,7 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
-            cinemasGv.RenderControl(hw);
+            cinemasGvNoColors.RenderControl(hw);
             StringReader sr = new StringReader(sw.ToString());
             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
             iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
@@ -184,8 +196,8 @@ namespace movies.Admin
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
-            cinemasGv.AllowPaging = true;
-            cinemasGv.DataBind();
+            cinemasGvNoColors.AllowPaging = true;
+            cinemasGvNoColors.DataBind();
         }
 
 
@@ -258,10 +270,23 @@ namespace movies.Admin
             MoviesInCinemasGv.DataSource = dr;
             MoviesInCinemasGv.DataBind();
         }
-        
+
+        protected void populateMoviesInCinemasGvNoColors()
+        {
+            CRUD myCrud = new CRUD();
+            string mySql = @"select movieInCinema.movieInCinemaId, movie.movieName, cinema.cinema, movieInCinema.movieInCinemaDate, movieInCinema.movieInCinemaPrice
+                              from movieInCinema inner join cinema
+                              on movieInCinema.cinemaId = cinema.cinemaId inner join movie
+                              on movieInCinema.movieId = movie.movieId";
+            SqlDataReader dr = myCrud.getDrPassSql(mySql);
+            MoviesInCinemasGvNoColors.DataSource = dr;
+            MoviesInCinemasGvNoColors.DataBind();
+        }
+
         protected void btnExportExcelMoviesInCinemas_Click(object sender, EventArgs e)
         {
-            ExportGridToExcelMoviesInCinemasGv(MoviesInCinemasGv);
+            populateMoviesInCinemasGvNoColors();
+            ExportGridToExcelMoviesInCinemasGv(MoviesInCinemasGvNoColors);
         }
         public void ExportGridToExcelMoviesInCinemasGv(GridView grd)
         {
@@ -273,7 +298,7 @@ namespace movies.Admin
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
             grd.AllowPaging = false;
-            populateMoviesInCinemasGv();
+            populateMoviesInCinemasGvNoColors(); ();
             grd.RenderControl(hw);
             string style = @"<style> .textmode { mso-number-format:\@; } </style>";
             Response.Write(style);
@@ -284,6 +309,7 @@ namespace movies.Admin
         
         protected void btnExportWordMoviesInCinemas_Click(object sender, EventArgs e)
         {
+            populateMoviesInCinemasGvNoColors();
             ExportGridTowordMoviesInCinemasGv();
         }
         public void ExportGridTowordMoviesInCinemasGv()
@@ -299,15 +325,16 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.ContentType = "application/msword";
             Response.AddHeader("Content-Disposition", "attachment;filename=GridViewExport.doc");
-            MoviesInCinemasGv.GridLines = GridLines.Both;
-            MoviesInCinemasGv.HeaderStyle.Font.Bold = true;
-            MoviesInCinemasGv.RenderControl(htmltextwrtter);
+            MoviesInCinemasGvNoColors.GridLines = GridLines.Both;
+            MoviesInCinemasGvNoColors.HeaderStyle.Font.Bold = true;
+            MoviesInCinemasGvNoColors.RenderControl(htmltextwrtter);
             Response.Write(strwritter.ToString());
             Response.End();
         }
         
         protected void btnExportPDFMoviesInCinemas_Click(object sender, EventArgs e)
         {
+            populateMoviesInCinemasGvNoColors();
             ExportGridToPDFMoviesInCinemasGv();
         }
         public void ExportGridToPDFMoviesInCinemasGv()
@@ -318,7 +345,7 @@ namespace movies.Admin
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
-            MoviesInCinemasGv.RenderControl(hw);
+            MoviesInCinemasGvNoColors.RenderControl(hw);
             StringReader sr = new StringReader(sw.ToString());
             Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
             iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
@@ -328,8 +355,8 @@ namespace movies.Admin
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
-            MoviesInCinemasGv.AllowPaging = true;
-            MoviesInCinemasGv.DataBind();
+            MoviesInCinemasGvNoColors.AllowPaging = true;
+            MoviesInCinemasGvNoColors.DataBind();
         }
 
 
