@@ -213,7 +213,9 @@ namespace movies.Admin
             {
                 lblOutput.Text = "Failed to Update Movie";
             }
-            //  populateMoviesGv();
+
+            populateMoviesGv();
+
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
