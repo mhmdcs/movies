@@ -18,7 +18,13 @@
                 <td class="style2">
                     &nbsp;</td>
                 <td>
-                    Welcome back!</td>
+                    <strong>Welcome back!</strong></td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2">
@@ -26,6 +32,12 @@
                 <td>
                     <asp:TextBox ID="txtUserName" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2">
@@ -38,8 +50,14 @@
                 <td class="style2">
                     &nbsp;</td>
                 <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
                     <asp:Button ID="btnLogin" runat="server" onclick="btnLogin_Click" 
-                        Text="Login" style="background-color: #9E4B77" />
+                        Text="LOGIN" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
 <%--                    <asp:Button ID="btnCreateAdmin" runat="server" OnClick="btnCreateAdmin_Click" Text="Admin" Visible="False" />--%>
                 </td>
             </tr>

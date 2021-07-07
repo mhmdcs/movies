@@ -15,14 +15,19 @@
                 <td class="modal-sm" style="width: 253px" align="right"><strong>Add Cinema By Name:&nbsp; </strong> </td>
                 <td>
                     <asp:TextBox ID="txtAddCinema" runat="server" style="background-color: #333333"></asp:TextBox>
-                    <asp:Button ID="btnAddCinema" runat="server" Text="Add" OnClick="btnAddCinema_Click" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnAddCinema" runat="server" Text="ADD" OnClick="btnAddCinema_Click" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
                 </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px" align="right"><strong>Delete Cinema By ID:&nbsp; </strong> </td>
                 <td>
                     <asp:TextBox ID="txtDeleteCinema" runat="server" style="background-color: #333333"></asp:TextBox>
-                    <asp:Button ID="btnDeleteCinema" runat="server" Text="Delete" OnClick="btnDeleteCinema_Click" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnDeleteCinema" runat="server" Text="DELETE" OnClick="btnDeleteCinema_Click" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
                 </td>
             </tr>
             <tr>
@@ -33,16 +38,31 @@
             <tr>
                 <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnExportToExcelCinemas" runat="server" OnClick="btnExportToExcelCinemas_Click" Text="Export To Excel" style="background-color: #9E4B77" />
-                    <asp:Button ID="btnExportToWordCinemas" runat="server" OnClick="btnExportToWordCinemas_Click" Text="Export To Word" style="background-color: #9E4B77" />
-                    <asp:Button ID="btnExportToPDFCinemas" runat="server" OnClick="btnExportToPDFCinemas_Click" Text="Export To PDF" style="background-color: #9E4B77" />
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnExportToExcelCinemas" runat="server" OnClick="btnExportToExcelCinemas_Click" Text="EXPORT TO EXCEL" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
+                    <asp:Button ID="btnExportToWordCinemas" runat="server" OnClick="btnExportToWordCinemas_Click" Text="EXPORT TO WORD" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
+                    <asp:Button ID="btnExportToPDFCinemas" runat="server" OnClick="btnExportToPDFCinemas_Click" Text="EXPORT TO PDF" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
                 </td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnShowAllCinema" runat="server" Text="Show All Cinema" OnClick="btnShowAllCinema_Click" style="background-color: #9E4B77" />
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnShowAllCinema" runat="server" Text="SHOW ALL CINEMA" OnClick="btnShowAllCinema_Click" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
                 </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
@@ -61,13 +81,19 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="height: 20px">_____________________________________________________________________________________________</td>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>__________________________________________________________________________________________________________</td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px" align="right"><strong>Add Movie to Cinema</strong></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -78,11 +104,21 @@
                 </td>
             </tr>
             <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
                 <td class="modal-sm" style="width: 253px" align="right"><strong>Movie Title:&nbsp; </strong> </td>
                 <td>
                     <asp:DropDownList ID="ddlMovie" runat="server" style="background-color: #666666">
                     </asp:DropDownList>
                 </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px; height: 26px;" align="right"><strong>Date:&nbsp; </strong> </td>
@@ -91,33 +127,25 @@
 &nbsp;Insert in YY-MM-DD format</td>
             </tr>
             <tr>
+                <td class="modal-sm" style="width: 253px; height: 26px;" align="right">&nbsp;</td>
+                <td style="height: 26px">
+                    &nbsp;</td>
+            </tr>
+            <tr>
                 <td class="modal-sm" style="width: 253px; height: 26px;" align="right"><strong>Time:&nbsp; </strong> </td>
                 <td style="height: 26px">
                     <asp:TextBox ID="txtTime" runat="server" style="background-color: #333333">00:00:00</asp:TextBox>
 &nbsp;Insert in HH:MM:SS format</td>
             </tr>
             <tr>
-                <td class="modal-sm" style="width: 253px" align="right"><strong>Ticket Price:&nbsp; </strong> </td>
-                <td>
-                    <asp:TextBox ID="txtTicketPrice" runat="server" style="background-color: #333333"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 253px">&nbsp;</td>
-                <td>
-                    <asp:Button ID="btnAddMovieToCinema" runat="server" Text="Add Movie to Cinema" OnClick="btnAddMovieToCinema_Click" style="background-color: #9E4B77" />
-                </td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 253px">&nbsp;</td>
-                <td>
+                <td class="modal-sm" style="width: 253px; height: 26px;" align="right">&nbsp;</td>
+                <td style="height: 26px">
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="modal-sm" style="width: 253px" align="right"><strong>Remove Movie in Cinema By ID: </strong> </td>
+                <td class="modal-sm" style="width: 253px" align="right"><strong>Ticket Price:&nbsp; </strong> </td>
                 <td>
-                    <asp:TextBox ID="txtMovieInCinemaId" runat="server" style="background-color: #333333"></asp:TextBox>
-                    <asp:Button ID="btnRemoveMovieInCinema" runat="server" OnClick="btnRemoveMovieInCinema_Click" Text="Remove Movie In Cinema" style="background-color: #9E4B77" />
+                    <asp:TextBox ID="txtTicketPrice" runat="server" style="background-color: #333333"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -128,16 +156,59 @@
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnExportExcelMoviesInCinemas" runat="server" OnClick="btnExportExcelMoviesInCinemas_Click" Text="Export To Excel" style="background-color: #9E4B77" />
-                    <asp:Button ID="btnExportWordMoviesInCinemas" runat="server" OnClick="btnExportWordMoviesInCinemas_Click" Text="Export To Word" style="background-color: #9E4B77" />
-                    <asp:Button ID="btnExportPDFMoviesInCinemas" runat="server" OnClick="btnExportPDFMoviesInCinemas_Click" Text="Export To PDF" style="background-color: #9E4B77" />
+                    <asp:Button ID="btnAddMovieToCinema" runat="server" Text="ADD MOVIE TO CINEMA" OnClick="btnAddMovieToCinema_Click" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
                 </td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnShowAllMoviesInCinemas" runat="server" OnClick="btnShowAllMoviesInCinemas_Click" Text="Show All Movies In Each Cinema" style="background-color: #9E4B77" />
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    __________________________________________________________________________________________________________</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right"><strong>Remove Movie in Cinema By ID: </strong> </td>
+                <td>
+                    <asp:TextBox ID="txtMovieInCinemaId" runat="server" style="background-color: #333333"></asp:TextBox>
+                    <asp:Button ID="btnRemoveMovieInCinema" runat="server" OnClick="btnRemoveMovieInCinema_Click" Text="REMOVE MOVIE IN CINEMA" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
                 </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px" align="right">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnExportExcelMoviesInCinemas" runat="server" OnClick="btnExportExcelMoviesInCinemas_Click" Text="EXPORT TO EXCEL" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
+                    <asp:Button ID="btnExportWordMoviesInCinemas" runat="server" OnClick="btnExportWordMoviesInCinemas_Click" Text="EXPORT TO WORD" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
+                    <asp:Button ID="btnExportPDFMoviesInCinemas" runat="server" OnClick="btnExportPDFMoviesInCinemas_Click" Text="EXPORT TO PDF" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnShowAllMoviesInCinemas" runat="server" OnClick="btnShowAllMoviesInCinemas_Click" Text="SHOW ALL MOVIES IN EACH CINEMA" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
@@ -153,6 +224,24 @@
 
                         </Columns>
                      <HeaderStyle BackColor="#77395A" />
+                    </asp:GridView>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+
+                    <asp:GridView ID="MoviesInCinemasGvNoColors" runat="server">
+                    </asp:GridView>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 253px">&nbsp;</td>
+                <td>
+
+                    <asp:GridView ID="cinemasGvNoColors" runat="server">
                     </asp:GridView>
 
                 </td>

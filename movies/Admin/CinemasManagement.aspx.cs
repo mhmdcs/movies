@@ -298,7 +298,7 @@ namespace movies.Admin
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
             grd.AllowPaging = false;
-            populateMoviesInCinemasGvNoColors(); ();
+            populateMoviesInCinemasGvNoColors();
             grd.RenderControl(hw);
             string style = @"<style> .textmode { mso-number-format:\@; } </style>";
             Response.Write(style);

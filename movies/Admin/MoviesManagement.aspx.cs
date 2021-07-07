@@ -182,7 +182,7 @@ namespace movies.Admin
             string fileExtension = Path.GetExtension(fileName);
 
             CRUD myCrud = new CRUD();
-            string mySql = @"update movie set movieName =@movieName, movieDescription=@movieDescription, movieImage=@movieImage, genreId=@genreId, languageId=@languageId, movieDate=@movieRelease,
+            string mySql = @"update movie set movieName =@movieName, movieDescription=@movieDescription, movieImage=@movieImage, genreId=@genreId, languageId=@languageId, movieRelease=@movieRelease,
                              movieStatusId=@movieStatusId, ratingId=@ratingId
                              where movieId = @movieId
                              SELECT CAST(scope_identity() AS int);";
