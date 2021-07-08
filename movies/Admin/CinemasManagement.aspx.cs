@@ -366,5 +366,92 @@ namespace movies.Admin
         }
 
 
+        protected void populateCinemasGv_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "update")
+            {
+                Response.Write("test");
+                int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                int customerTicketId = Convert.ToInt32(e.CommandArgument);
+                lblOutput.Text = customerTicketId.ToString();
+
+
+                populateCinemasGv();
+            }
+            populateCinemasGv();
+        }
+
+
+        protected void gvAdminLinkButton1_Click(object sender, EventArgs e)
+        {
+            int PK = int.Parse((sender as LinkButton).CommandArgument);
+            //lblOuput.Text = PK.ToString();
+            string mySql = @"select cinemaId, cinema from cinema where cinemaId=@cinemaId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@cinemaId", PK);
+            CRUD myCrud = new CRUD();
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    String cinemaID = dr["cinemaId"].ToString();
+                    String cinemaName = dr["cinema"].ToString();
+                    txtDeleteCinema.Text = cinemaID;
+                    txtAddCinema.Text = cinemaName;
+                }
+            }
+        }
+
+
+        protected void populateMoviesInCinemasGv_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "update")
+            {
+                Response.Write("test");
+                int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                int customerTicketId = Convert.ToInt32(e.CommandArgument);
+                lblOutput.Text = customerTicketId.ToString();
+
+
+                populateMoviesInCinemasGv();
+            }
+            populateMoviesInCinemasGv();
+        }
+
+
+        protected void gvAdminLinkButton2_Click(object sender, EventArgs e)
+        {
+            int PK = int.Parse((sender as LinkButton).CommandArgument);
+            //lblOuput.Text = PK.ToString();
+            string mySql = @"SELECT movieInCinemaId
+                                  ,cinemaId
+                                  ,movieId
+                                  ,movieInCinemaDate
+                                  ,movieInCinemaPrice
+                                  FROM movieInCinema where movieInCinemaId =@movieInCinemaId ";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@movieInCinemaId", PK);
+            CRUD myCrud = new CRUD();
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    String movieInCinemaID = dr["movieInCinemaId"].ToString();
+                    String cinemaID = dr["cinemaId"].ToString();
+                    String movieID = dr["movieId"].ToString();
+                    String movieInCinemaDate = dr["movieInCinemaDate"].ToString();
+                    String movieInCinemaPrice = dr["movieInCinemaPrice"].ToString();
+                    txtMovieInCinemaId.Text = movieInCinemaID;
+                    ddlCinema.SelectedValue = cinemaID;
+                    ddlMovie.SelectedValue = movieID;
+                    txtDate.Text = movieInCinemaDate.Substring(0, 9);
+                    txtTime.Text = movieInCinemaDate.Substring(9, 8);
+                    txtTicketPrice.Text = movieInCinemaPrice;
+                }
+            }
+        }
+
     }// class boundery
 }//namespace boundery

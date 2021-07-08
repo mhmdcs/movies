@@ -321,5 +321,64 @@ namespace movies.Admin
             moviesGv.DataBind();
         }
 
+
+        protected void gvTicketDataAdmin_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "update")
+            {   // shows how to get column values from gv
+                Response.Write("test");
+                int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                int customerTicketId = Convert.ToInt32(e.CommandArgument);
+                lblOutput.Text = customerTicketId.ToString();
+
+
+                populateMoviesGv();
+            }
+            populateMoviesGv();
+        }
+
+
+        protected void gvAdminLinkButton_Click(object sender, EventArgs e)
+        {
+            int PK = int.Parse((sender as LinkButton).CommandArgument);
+            //lblOuput.Text = PK.ToString();
+            string mySql = @"SELECT movieId
+                              ,movieName
+                              ,movieDescription
+                              ,movieImage
+                              ,genreId
+                              ,languageId
+                              ,movieRelease
+                              ,movieStatusId
+                              ,ratingId
+                          FROM movie where movieId = @movieId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@movieId", PK);
+            CRUD myCrud = new CRUD();
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    String movieID = dr["movieId"].ToString();
+                    String movieTitle = dr["movieName"].ToString();
+                    String movieDesc = dr["movieDescription"].ToString();
+                    String movieGenre = dr["genreId"].ToString();
+                    String movieLang = dr["languageId"].ToString();
+                    String movieRelease = dr["movieRelease"].ToString();
+                    String movieStatus = dr["movieStatusId"].ToString();
+                    String movieRating = dr["ratingId"].ToString();
+                    txtMovieTitle.Text = movieTitle;
+                    txtMovieDesc.Text = movieDesc;
+                    ddlGenre.SelectedValue = movieGenre;
+                    ddlLang.SelectedValue = movieLang;
+                    txtmovieRelease.Text = movieRelease;
+                    rbtlStatus.SelectedValue = movieStatus;
+                    ddlRating.SelectedValue = movieRating;
+                    txtMovieId.Text = movieID;
+                }
+            }
+        }
+
     }
 }

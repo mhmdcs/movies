@@ -720,7 +720,7 @@ namespace movies
         protected void gvTicketDataAdmin_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "update")
-            {   // shows how to get column values from gv
+            {   
                 Response.Write("test");
                 int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
                 int customerTicketId = Convert.ToInt32(e.CommandArgument);
@@ -752,7 +752,6 @@ namespace movies
                     String movieName = dr["movieId"].ToString();
                     String ticketType = dr["ticketId"].ToString();
                     String cinemaName = dr["cinemaId"].ToString();
-                    //lblOuput.Text = empId + employee+ depId;
                     txtTicketId.Text = custmId;
                     txtFullName.Text = custmName;
                     ddlMovie.SelectedValue = movieName;
