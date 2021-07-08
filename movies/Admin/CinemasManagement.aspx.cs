@@ -113,6 +113,9 @@ namespace movies.Admin
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             cinemasGv.DataSource = dr;
             cinemasGv.DataBind();
+            cinemasGv.UseAccessibleHeader = true;
+            cinemasGv.HeaderRow.TableSection = TableRowSection.TableHeader;
+            cinemasGv.FooterRow.TableSection = TableRowSection.TableFooter;
         }
 
         protected void populateCinemasGvNoColors()
@@ -269,6 +272,9 @@ namespace movies.Admin
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             MoviesInCinemasGv.DataSource = dr;
             MoviesInCinemasGv.DataBind();
+            MoviesInCinemasGv.UseAccessibleHeader = true;
+            MoviesInCinemasGv.HeaderRow.TableSection = TableRowSection.TableHeader;
+            MoviesInCinemasGv.FooterRow.TableSection = TableRowSection.TableFooter;
         }
 
         protected void populateMoviesInCinemasGvNoColors()

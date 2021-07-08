@@ -136,10 +136,6 @@ namespace movies
             SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
-            gvTicketDataAdmin.UseAccessibleHeader = true;
-            gvTicketDataAdmin.HeaderRow.TableSection = TableRowSection.TableHeader;
-            gvTicketDataAdmin.FooterRow.TableSection = TableRowSection.TableFooter;
-
         }
 
         //populates griudview and display current customer name and all of their acccount orders
@@ -673,6 +669,100 @@ namespace movies
                 }
             }// end using 
         }
+
+        protected void gvTicketData_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "update")
+            {   // shows how to get column values from gv
+                Response.Write("test");
+                int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                int customerTicketId = Convert.ToInt32(e.CommandArgument);
+                lblOutput.Text = customerTicketId.ToString();
+
+
+                showAllMyTicketsData();
+            }
+            showAllMyTicketsData();
+        }
+
+
+        protected void gvLinkButton_Click(object sender, EventArgs e)
+        {
+            int PK = int.Parse((sender as LinkButton).CommandArgument);
+            //lblOuput.Text = PK.ToString();
+            string mySql = @"select customerticket.customerTicketId, customerticket.customerFullName, customerticket.movieId, customerticket.ticketId, customerticket.cinemaId
+                            from customerticket, movie, ticket, cinema where customerticket.customerTicketId = @customerTicketId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@customerTicketId", PK);
+            CRUD myCrud = new CRUD();
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    String custmId = dr["customerTicketId"].ToString();
+                    String custmName = dr["customerFullName"].ToString();
+                    String movieName = dr["movieId"].ToString();
+                    String ticketType = dr["ticketId"].ToString();
+                    String cinemaName = dr["cinemaId"].ToString();
+                    //lblOuput.Text = empId + employee+ depId;
+                    txtTicketId.Text = custmId;
+                    txtFullName.Text = custmName;
+                    ddlMovie.SelectedValue = movieName;
+                    rbtlTicket.SelectedValue = ticketType;
+                    ddlCinema.SelectedValue = cinemaName;
+                }
+            }
+        }
+
+
+
+        protected void gvTicketDataAdmin_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "update")
+            {   // shows how to get column values from gv
+                Response.Write("test");
+                int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+                int customerTicketId = Convert.ToInt32(e.CommandArgument);
+                lblOutput.Text = customerTicketId.ToString();
+
+
+                showTicketsData();
+            }
+            showTicketsData();
+        }
+
+
+        protected void gvAdminLinkButton_Click(object sender, EventArgs e)
+        {
+            int PK = int.Parse((sender as LinkButton).CommandArgument);
+            //lblOuput.Text = PK.ToString();
+            string mySql = @"select customerticket.customerTicketId, customerticket.customerFullName, customerticket.movieId, customerticket.ticketId, customerticket.cinemaId
+                            from customerticket, movie, ticket, cinema where customerticket.customerTicketId = @customerTicketId";
+            Dictionary<string, object> myPara = new Dictionary<string, object>();
+            myPara.Add("@customerTicketId", PK);
+            CRUD myCrud = new CRUD();
+            SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    String custmId = dr["customerTicketId"].ToString();
+                    String custmName = dr["customerFullName"].ToString();
+                    String movieName = dr["movieId"].ToString();
+                    String ticketType = dr["ticketId"].ToString();
+                    String cinemaName = dr["cinemaId"].ToString();
+                    //lblOuput.Text = empId + employee+ depId;
+                    txtTicketId.Text = custmId;
+                    txtFullName.Text = custmName;
+                    ddlMovie.SelectedValue = movieName;
+                    rbtlTicket.SelectedValue = ticketType;
+                    ddlCinema.SelectedValue = cinemaName;
+                }
+            }
+        }
+
+
 
     }//class boundery
 }//namespace boundery

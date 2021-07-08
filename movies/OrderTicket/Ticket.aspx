@@ -19,16 +19,17 @@
     <tr>
         <td class="modal-sm" style="width: 511px" align="right">&nbsp;</td>
         <td>
-            <asp:Label ID="lblOutput" runat="server"></asp:Label>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 511px" align="right">&nbsp;</td>
+        <td class="modal-sm" style="width: 511px" align="right">
+            <asp:Label ID="lblOutput" runat="server"></asp:Label>
+        </td>
         <td>
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 511px" align="right"><strong>Name:&nbsp; </strong> </td>
+        <td class="modal-sm" style="width: 511px" align="right"><strong>Name&nbsp; </strong> </td>
         <td>
             <asp:TextBox ID="txtFullName" runat="server" style="background-color: #333333"></asp:TextBox>
         </td>
@@ -39,7 +40,7 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 511px; height: 20px" align="right"><strong>Cinema:&nbsp; </strong> </td>
+        <td class="modal-sm" style="width: 511px; height: 20px" align="right"><strong>Cinema&nbsp; </strong> </td>
         <td style="height: 20px">
             <asp:DropDownList ID="ddlCinema" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCinema_SelectedIndexChanged" style="background-color: #666666">
             </asp:DropDownList>
@@ -51,7 +52,7 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 511px" align="right"><strong>Movie Title:&nbsp; </strong> </td>
+        <td class="modal-sm" style="width: 511px" align="right"><strong>Movie Title&nbsp; </strong> </td>
         <td>
             <asp:DropDownList ID="ddlMovie" runat="server" style="background-color: #666666">
             </asp:DropDownList>
@@ -63,7 +64,7 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 511px; height: 20px;" align="right"><strong>Ticket Type:&nbsp; </strong> </td>
+        <td class="modal-sm" style="width: 511px; height: 20px;" align="right"><strong>Ticket Type&nbsp; </strong> </td>
         <td rowspan="3">
             <asp:RadioButtonList ID="rbtlTicket" runat="server">
                 <asp:ListItem Value="1">Child Entry Ticket</asp:ListItem>
@@ -92,7 +93,12 @@
     <tr>
         <td class="modal-sm" style="width: 511px; height: 27px;">&nbsp;</td>
         <td style="height: 27px">
-            &nbsp;</td>
+            
+            
+            
+            
+            
+        </td>
     </tr>
     <tr>
         <td class="modal-sm" style="height: 27px;" colspan="2">__________________________________________________________________________________________________________________________________________________________________</td>
@@ -103,7 +109,7 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="modal-sm" style="width: 511px; height: 27px;" align="right"><strong>Ticket Number:&nbsp; </strong> </td>
+        <td class="modal-sm" style="width: 511px; height: 27px;" align="right"><strong>Ticket Number&nbsp; </strong> </td>
         <td style="height: 27px">
             <asp:TextBox ID="txtTicketId" runat="server" style="background-color: #333333"></asp:TextBox>
 
@@ -112,7 +118,8 @@
     <tr>
         <td class="modal-sm" style="width: 511px; height: 27px;" align="right">&nbsp;</td>
         <td style="height: 27px">
-            &nbsp;</td>
+            
+        </td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 511px; height: 27px;">&nbsp;</td>
@@ -167,6 +174,16 @@
         <td colspan="2">
                             <asp:GridView ID="gvTicketDataAdmin" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
+                                 <asp:TemplateField>
+                                  <ItemTemplate>
+                                     <asp:LinkButton ID="gvLinkButton" runat="server"
+                                     OnClick="gvAdminLinkButton_Click"
+                                     CommandArgument='<%# Bind("customerTicketId") %>'
+                                     Text='<%# Eval("customerTicketId")  %>'></asp:LinkButton>
+     
+                                  </ItemTemplate>
+                                </asp:TemplateField>
+
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="UserName" HeaderText="Account Name" />
                             <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
@@ -191,8 +208,19 @@
         <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
 
         <%-- This gridview is better, can assign header text instead of table names --%>
-                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" DataKeyNames="customerTicketId"
+                                AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White" OnRowCommand="gvTicketData_RowCommand">
                         <Columns>
+                                  <asp:TemplateField>
+                                  <ItemTemplate>
+
+                                     <asp:LinkButton ID="gvLinkButton" runat="server"
+                                     OnClick="gvLinkButton_Click"
+                                     CommandArgument='<%# Bind("customerTicketId") %>'
+                                     Text='<%# Eval("customerTicketId")  %>'></asp:LinkButton>
+     
+                                  </ItemTemplate>
+                                </asp:TemplateField>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
                             <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
@@ -201,10 +229,15 @@
                             <asp:BoundField DataField="movieInCinemaDate" HeaderText="Showing Date" />
                             <asp:BoundField DataField="movieInCinemaPrice" HeaderText="Ticket Price" />
                             <asp:BoundField DataField="totalTicketsPrice" HeaderText="Total Tickets Price" />
-                            
+
                         </Columns>
+
                                 <HeaderStyle BackColor="#9E4B77" />
                                 <RowStyle BackColor="#333333" />
+
+                               
+
+
                     </asp:GridView>
 
     </tr>

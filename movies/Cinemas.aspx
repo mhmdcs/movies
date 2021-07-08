@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Cinemas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cinemas.aspx.cs" Inherits="movies.About" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cinemas.aspx.cs" Inherits="movies.About" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -12,11 +12,20 @@
                          <br />
         </div>
 
-    <h2><%: Title %></h2>
-    <h3>Cinemas Near Your Location</h3>
+    <h2><%: Title %><span style="font-size: x-large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cinemas Near Your Location</span></h2>
+             <table class="nav-justified">
+                 <tr>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>
+                 <tr>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>
+             </table>
     <table class="nav-justified">
         <tr>
-            <td style="width: 492px" align="right" class="modal-sm"><strong>Choose a Cinema:&nbsp; </strong> </td>
+            <td style="width: 492px" align="right" class="modal-sm"><strong>Choose a Cinema &nbsp; </strong> </td>
             <td>
                 <asp:DropDownList ID="ddlCinema" runat="server" style="background-color: #666666">
                 </asp:DropDownList>

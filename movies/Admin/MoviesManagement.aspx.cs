@@ -93,6 +93,9 @@ namespace movies.Admin
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             moviesGvV2.DataSource = dr;
             moviesGvV2.DataBind();
+            moviesGvV2.UseAccessibleHeader = true;
+            moviesGvV2.HeaderRow.TableSection = TableRowSection.TableHeader;
+            moviesGvV2.FooterRow.TableSection = TableRowSection.TableFooter;
         }
 
         protected void populateMoviesGvNoImages()
