@@ -2,11 +2,13 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Movies</title>
+
     <%--<link href="/Styles/Site.css" rel="stylesheet" type="text/css" />--%> <%--use this if you're using ali's nav bar, else comment it out--%>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -235,6 +237,14 @@
 
     <script  type="text/javascript" src="/Scripts/clientSide.js"></script>
 
+            <script src="jquery-1.11.2.js"></script>
+            <link href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" ></script>
+            <script type="text/javascript">
+                    $(document).ready( function () {
+                      $("gvTicketData").prepend($("<thread></thread>").append($(this).find("tr:first"))).dataTable();
+                     } );
+            </script>
 
     <p>
         

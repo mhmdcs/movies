@@ -14,14 +14,15 @@
                 <td style="height: 20px; width: 407px"></td>
                 <td style="height: 20px; width: 101px"></td>
                 <td style="height: 20px; width: 266px">
-                    <strong>Welcome back!</strong></td>
+                    &nbsp;</td>
                 <td style="height: 20px"></td>
                 <td style="height: 20px"></td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 407px">&nbsp;</td>
                 <td style="width: 101px">&nbsp;</td>
-                <td class="modal-sm" style="width: 266px">&nbsp;</td>
+                <td class="modal-sm" style="width: 266px">
+                    <strong>Welcome back!</strong></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>

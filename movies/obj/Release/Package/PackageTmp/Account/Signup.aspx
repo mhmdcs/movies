@@ -10,7 +10,48 @@
         </div>
 
     <p>
-        <br />
+        <table class="nav-justified">
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>
         <asp:CreateUserWizard ID="CreateUserWizard" runat="server" CreateUserButtonText="SIGN UP">
             <CreateUserButtonStyle BackColor="#9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
             <WizardSteps>
@@ -18,7 +59,7 @@
                     <ContentTemplate>
                         <table>
                             <tr>
-                                <td align="center" colspan="2"><strong>Sign Up for Your New Account</strong></td>
+                                <td align="center" colspan="2"><strong>Sign Up for Your New Account!</strong></td>
                             </tr>
                             <tr>
                                 <td align="center" colspan="2">&nbsp;</td>
@@ -29,7 +70,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="UserName" runat="server" style="background-color: #333333"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -42,7 +82,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="Password" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -55,7 +94,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password" style="background-color: #333333"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -68,7 +106,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="Email" runat="server" style="background-color: #333333"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -81,7 +118,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="Question" runat="server" style="background-color: #333333"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="Security question is required." ToolTip="Security question is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -94,7 +130,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="Answer" runat="server" style="background-color: #333333"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Security answer is required." ToolTip="Security answer is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -145,6 +180,59 @@
                 </asp:CompleteWizardStep>
             </WizardSteps>
         </asp:CreateUserWizard>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="width: 375px">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <br />
     </p>
     <p>
     </p>
