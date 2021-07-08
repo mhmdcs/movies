@@ -192,6 +192,17 @@
 
                     <asp:GridView ID="moviesGvV2" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
+
+                                  <asp:TemplateField>
+                                  <ItemTemplate>
+                                     <asp:LinkButton ID="gvLinkButton" runat="server"
+                                     OnClick="gvAdminLinkButton_Click"
+                                     CommandArgument='<%# Bind("movieId") %>'
+                                     Text='<%# Eval("movieId")  %>'></asp:LinkButton>
+     
+                                  </ItemTemplate>
+                                </asp:TemplateField>
+
                             <asp:BoundField DataField="movieId" HeaderText="Id" />
                             <asp:BoundField DataField="movieName" HeaderText="Title" />
                             <asp:TemplateField HeaderText="Cover">

@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.Security;
@@ -30,7 +31,6 @@ namespace movies
                 populateCinema();
                 populateMovie();
                 populateTicket();
-
 
             }//post back boundery
 
@@ -761,7 +761,7 @@ namespace movies
             }
         }
 
-
+        
 
     }//class boundery
 }//namespace boundery

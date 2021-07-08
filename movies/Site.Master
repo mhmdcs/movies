@@ -52,6 +52,7 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
+
         </asp:ScriptManager>
 
 
@@ -245,6 +246,7 @@
                       $("gvTicketData").prepend($("<thread></thread>").append($(this).find("tr:first"))).dataTable();
                      } );
             </script>
+
 
     <p>
         

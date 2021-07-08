@@ -69,6 +69,18 @@
 
                   <asp:GridView ID="cinemasGv" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
+
+                                <asp:TemplateField>
+                                  <ItemTemplate>
+                                     <asp:LinkButton ID="gvLinkButton" runat="server"
+                                     OnClick="gvAdminLinkButton1_Click"
+                                     CommandArgument='<%# Bind("cinemaId") %>'
+                                     Text='<%# Eval("cinemaId")  %>'></asp:LinkButton>
+     
+                                  </ItemTemplate>
+                                </asp:TemplateField>
+
+
                             <asp:BoundField DataField="cinemaId" HeaderText="Cinema ID" />
                             <asp:BoundField DataField="cinema" HeaderText="Cinema Name" />
 
@@ -169,7 +181,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td colspan="2">_______________________________________________________________________________________________________________________________________________________________________________</td>
+                <td colspan="2">&nbsp;</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 512px">&nbsp;</td>
@@ -217,6 +229,17 @@
 
               <asp:GridView ID="MoviesInCinemasGv" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
+
+                                 <asp:TemplateField>
+                                  <ItemTemplate>
+                                     <asp:LinkButton ID="gvLinkButton" runat="server"
+                                     OnClick="gvAdminLinkButton2_Click"
+                                     CommandArgument='<%# Bind("movieInCinemaId") %>'
+                                     Text='<%# Eval("movieInCinemaId")  %>'></asp:LinkButton>
+     
+                                  </ItemTemplate>
+                                </asp:TemplateField>
+
                             <asp:BoundField DataField="movieInCinemaId" HeaderText="Movie In Cinema ID" />
                             <asp:BoundField DataField="movieName" HeaderText="Movie Title" />
                             <asp:BoundField DataField="cinema" HeaderText="Cinema Name" />

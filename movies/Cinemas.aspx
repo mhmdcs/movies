@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cinemas.aspx.cs" Inherits="movies.About" %>
-
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+        <div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
 
              <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
@@ -91,4 +93,14 @@
             </td>
         </tr>
     </table>
+
+
+             </ContentTemplate>
+                    <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="ddlCinema" />
+                    </Triggers>
+            </asp:UpdatePanel>
+       
+        </div>
+
 </asp:Content>

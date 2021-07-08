@@ -1,10 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticket.aspx.cs" Inherits="movies.Ticket" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div>
 
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
 
                      <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
@@ -263,8 +260,10 @@
                    <script type="text/javascript">
                     $(document).ready( function () {
                      $('#<%=gvTicketDataAdmin.ClientID%>').DataTable();
-                     } );
-            </script>
+                       });</script>
+
+
+
 
 
     <table class="nav-justified">
@@ -315,12 +314,6 @@
         </tr>
     </table>
 
-             </ContentTemplate>
-                    <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="ddlCinema" />
-                    </Triggers>
-            </asp:UpdatePanel>
 
-        </div>
 
 </asp:Content>
