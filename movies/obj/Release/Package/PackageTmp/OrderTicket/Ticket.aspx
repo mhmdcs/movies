@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticket.aspx.cs" Inherits="movies.Ticket" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div>
+
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
 
                      <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
@@ -44,6 +48,7 @@
         <td style="height: 20px">
             <asp:DropDownList ID="ddlCinema" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCinema_SelectedIndexChanged" style="background-color: #666666">
             </asp:DropDownList>
+
         </td>
     </tr>
     <tr>
@@ -98,11 +103,16 @@
             
             
             
+
+            
+            
+            
+            
+            
         </td>
     </tr>
     <tr>
-        <td class="modal-sm" style="height: 27px;" colspan="2">__________________________________________________________________________________________________________________________________________________________________</td>
-    </tr>
+        <td class="modal-sm" style="height: 27px;" colspan="2">__________________________________________________________________________________________________________________________________________________________________ </tr>
     <tr>
         <td class="modal-sm" style="width: 511px; height: 27px;">&nbsp;</td>
         <td style="height: 27px">
@@ -304,5 +314,13 @@
                 &nbsp;</td>
         </tr>
     </table>
+
+             </ContentTemplate>
+                    <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="ddlCinema" />
+                    </Triggers>
+            </asp:UpdatePanel>
+
+        </div>
 
 </asp:Content>
