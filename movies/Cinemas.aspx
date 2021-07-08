@@ -16,22 +16,27 @@
     <h3>Cinemas Near Your Location</h3>
     <table class="nav-justified">
         <tr>
-            <td style="width: 224px" align="right"><strong>Choose a Cinema:&nbsp; </strong> </td>
+            <td style="width: 492px" align="right" class="modal-sm"><strong>Choose a Cinema:&nbsp; </strong> </td>
             <td>
                 <asp:DropDownList ID="ddlCinema" runat="server" style="background-color: #666666">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td style="width: 224px" align="right">&nbsp;</td>
+            <td style="width: 492px" align="right" class="modal-sm">&nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 224px">&nbsp;</td>
+            <td style="width: 492px" class="modal-sm">&nbsp;</td>
             <td>
                 <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="SHOW ALL MOVIES AVAILABLE" style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="Calibri" />
             </td>
+        </tr>
+        <tr>
+            <td style="width: 492px" class="modal-sm">&nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
