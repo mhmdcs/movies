@@ -193,7 +193,7 @@
             <tr>
                 <td style="height: 20px;" colspan="2">
 
-                    <asp:GridView ID="moviesGvV2" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                    <asp:GridView ID="moviesGvV2" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="movieId" HeaderText="Id" />
                             <asp:BoundField DataField="movieName" HeaderText="Title" />

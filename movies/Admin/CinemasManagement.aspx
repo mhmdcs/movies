@@ -68,7 +68,7 @@
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
 
-                  <asp:GridView ID="cinemasGv" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                  <asp:GridView ID="cinemasGv" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="cinemaId" HeaderText="Cinema ID" />
                             <asp:BoundField DataField="cinema" HeaderText="Cinema Name" />
@@ -214,7 +214,7 @@
                 <td class="modal-sm" style="width: 253px">&nbsp;</td>
                 <td>
 
-              <asp:GridView ID="MoviesInCinemasGv" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+              <asp:GridView ID="MoviesInCinemasGv" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="movieInCinemaId" HeaderText="Movie In Cinema ID" />
                             <asp:BoundField DataField="movieName" HeaderText="Movie Title" />

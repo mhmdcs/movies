@@ -115,6 +115,9 @@ namespace movies
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             gvTicketDataAdmin.DataSource = dr;
             gvTicketDataAdmin.DataBind();
+            gvTicketDataAdmin.UseAccessibleHeader = true;
+            gvTicketDataAdmin.HeaderRow.TableSection = TableRowSection.TableHeader;
+            gvTicketDataAdmin.FooterRow.TableSection = TableRowSection.TableFooter;
         }
 
         //populates gridview and only display current customer name and their most recent order
@@ -160,6 +163,9 @@ namespace movies
             SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
+            gvTicketData.UseAccessibleHeader = true;
+            gvTicketData.HeaderRow.TableSection = TableRowSection.TableHeader;
+            gvTicketData.FooterRow.TableSection = TableRowSection.TableFooter;
         }
 
         protected void showAllMyTicketsDataNoColors()

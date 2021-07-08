@@ -127,6 +127,8 @@
     <Content Include="Content\bootstrap-lumen.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DataTablesDemo\Datatables.aspx" />
+    <Content Include="DataTablesDemo\datatablesdemo2.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -142,6 +144,8 @@
     <Content Include="Images\moviesLogo66.png" />
     <Content Include="moviesLogo-favicon.ico" />
     <Content Include="OrderTicket\Ticket.aspx" />
+    <Content Include="Scripts\WebForms\jquery.dataTables.min.css" />
+    <Content Include="Scripts\WebForms\jquery.dataTables.min.js" />
     <Content Include="WhatsNew\All.aspx" />
     <Content Include="WhatsNew\ComingSoon.aspx" />
     <Content Include="WhatsNew\default.aspx" />
@@ -279,6 +283,20 @@
       <DependentUpon>Cinemas.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DataTablesDemo\Datatables.aspx.cs">
+      <DependentUpon>Datatables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataTablesDemo\Datatables.aspx.designer.cs">
+      <DependentUpon>Datatables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataTablesDemo\datatablesdemo2.aspx.cs">
+      <DependentUpon>datatablesdemo2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataTablesDemo\datatablesdemo2.aspx.designer.cs">
+      <DependentUpon>datatablesdemo2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticket.aspx.cs" Inherits="movies.Ticket" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+
                      <div id="TitleContent" style="text-align: center">
             <a runat="server" href="~/">
                 <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo11.png" alt="logo" BorderStyle="None" />
@@ -11,11 +12,20 @@
         </div>
 
 
+
+
+
     <table class="nav-justified">
     <tr>
-        <td colspan="2">
+        <td class="modal-sm" style="width: 511px" align="right">&nbsp;</td>
+        <td>
             <asp:Label ID="lblOutput" runat="server"></asp:Label>
         </td>
+    </tr>
+    <tr>
+        <td class="modal-sm" style="width: 511px" align="right">&nbsp;</td>
+        <td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td class="modal-sm" style="width: 511px" align="right"><strong>Name:&nbsp; </strong> </td>
@@ -155,7 +165,7 @@
     </tr>
     <tr>
         <td colspan="2">
-                            <asp:GridView ID="gvTicketDataAdmin" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                            <asp:GridView ID="gvTicketDataAdmin" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="UserName" HeaderText="Account Name" />
@@ -180,7 +190,7 @@
         <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
 
         <%-- This gridview is better, can assign header text instead of table names --%>
-                            <asp:GridView ID="gvTicketData" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
@@ -198,14 +208,6 @@
     </tr>
     </table>
 
-
-
-
-
-
-
-
-    
 
     <table class="nav-justified">
         <tr>
@@ -254,7 +256,5 @@
                 &nbsp;</td>
         </tr>
     </table>
-
-
 
 </asp:Content>
