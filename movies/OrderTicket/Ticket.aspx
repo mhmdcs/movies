@@ -165,7 +165,7 @@
     </tr>
     <tr>
         <td colspan="2">
-                            <asp:GridView ID="gvTicketDataAdmin" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="Black">
+                            <asp:GridView ID="gvTicketDataAdmin" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="UserName" HeaderText="Account Name" />
@@ -179,6 +179,7 @@
 
                         </Columns>
                                 <HeaderStyle BackColor="#9E4B77" />
+                                <RowStyle BackColor="#333333" />
                     </asp:GridView>
         </td>
     </tr>
@@ -190,7 +191,7 @@
         <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
 
         <%-- This gridview is better, can assign header text instead of table names --%>
-                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="Black">
+                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
@@ -203,6 +204,7 @@
                             
                         </Columns>
                                 <HeaderStyle BackColor="#9E4B77" />
+                                <RowStyle BackColor="#333333" />
                     </asp:GridView>
 
     </tr>
