@@ -34,5 +34,10 @@ namespace movies.DataTablesDemo
             gvTicketDataAdmin.DataSource = dr;
             gvTicketDataAdmin.DataBind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            showTicketsDataTable();
+        }
     }
 }

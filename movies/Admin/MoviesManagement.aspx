@@ -193,7 +193,7 @@
             <tr>
                 <td style="height: 20px;" colspan="2">
 
-                    <asp:GridView ID="moviesGvV2" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                    <asp:GridView ID="moviesGvV2" runat="server"  CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="Black">
                         <Columns>
                             <asp:BoundField DataField="movieId" HeaderText="Id" />
                             <asp:BoundField DataField="movieName" HeaderText="Title" />
@@ -213,6 +213,14 @@
                         </Columns>
                            <HeaderStyle BackColor="#77395A" />
                     </asp:GridView>
+
+
+                                    <script type="text/javascript">
+                    $(document).ready( function () {
+                     $('#<%=moviesGvV2.ClientID%>').DataTable();
+                     } );
+            </script>
+
 
                 </td>
             </tr>

@@ -136,6 +136,9 @@ namespace movies
             SqlDataReader dr = myCrud.getDrPassSql(mySql, myPara);
             gvTicketData.DataSource = dr;
             gvTicketData.DataBind();
+            gvTicketDataAdmin.UseAccessibleHeader = true;
+            gvTicketDataAdmin.HeaderRow.TableSection = TableRowSection.TableHeader;
+            gvTicketDataAdmin.FooterRow.TableSection = TableRowSection.TableFooter;
 
         }
 

@@ -165,7 +165,7 @@
     </tr>
     <tr>
         <td colspan="2">
-                            <asp:GridView ID="gvTicketDataAdmin" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                            <asp:GridView ID="gvTicketDataAdmin" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="Black">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="UserName" HeaderText="Account Name" />
@@ -190,7 +190,7 @@
         <%--<td colspan="2"><asp:GridView ID="gvTicketData" runat="server"></asp:GridView></td>--%>
 
         <%-- This gridview is better, can assign header text instead of table names --%>
-                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
+                            <asp:GridView ID="gvTicketData" runat="server" CssClass="table table-boarded" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="Black">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
                             <asp:BoundField DataField="customerFullName" HeaderText="Name Under Ticket" />
@@ -207,6 +207,19 @@
 
     </tr>
     </table>
+
+
+                <script type="text/javascript">
+                    $(document).ready( function () {
+                     $('#<%=gvTicketData.ClientID%>').DataTable();
+                     } );
+            </script>
+
+                   <script type="text/javascript">
+                    $(document).ready( function () {
+                     $('#<%=gvTicketDataAdmin.ClientID%>').DataTable();
+                     } );
+            </script>
 
 
     <table class="nav-justified">

@@ -5,12 +5,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-                    <script src="../Scripts/WebForms/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-            <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet"/>
-    
+    <script  type="text/javascript" src="/Scripts/clientSide.js"></script>
+                <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+            <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
+            <%--<script src="../Scripts/WebForms/jquery.dataTables.min.js"></script>--%>
             <script>
-                    $("gvTicketData").prepend($("<thread></thread>").append($(this).find("tr:first"))).dataTable();
+                    $(document).ready( function () {
+                        $('#gvTicketDataAdmin').DataTable({
+                            columns: [
+                                { 'data': '' },
+
+                            ]
+                            
+
+                        });
+                    });
             </script>
 
 
@@ -19,6 +29,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
+                            <br />
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                            <br />
+                            asdasdasd<br />
                             <asp:GridView ID="gvTicketDataAdmin" runat="server" AutoGenerateColumns="false" BackColor="#333333" BorderColor="Black" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="customerTicketId" HeaderText="Ticket Number" />
