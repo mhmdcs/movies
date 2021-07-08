@@ -95,10 +95,10 @@ namespace movies
             CRUD myCrud = new CRUD();
             string mySql = @"select ticketId, ticket from ticket";
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
-            ddlTicket.DataTextField = "ticket";
-            ddlTicket.DataValueField = "ticketId";
-            ddlTicket.DataSource = dr;
-            ddlTicket.DataBind();
+            rbtlTicket.DataTextField = "ticket";
+            rbtlTicket.DataValueField = "ticketId";
+            rbtlTicket.DataSource = dr;
+            rbtlTicket.DataBind();
         }
 
         //populates gridview and display all customers tickets -- admnin only
@@ -230,7 +230,7 @@ namespace movies
                     Dictionary<string, object> myPara = new Dictionary<string, object>();
                     myPara.Add("@customerFullName", txtFullName.Text);
                     myPara.Add("@movieId", ddlMovie.SelectedValue);
-                    myPara.Add("@ticketId", ddlTicket.SelectedValue);
+                    myPara.Add("@ticketId", rbtlTicket.SelectedValue);
                     myPara.Add("@cinemaId", ddlCinema.SelectedValue);
                     myPara.Add("@UserId", userId);
                     myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
@@ -312,7 +312,7 @@ namespace movies
                     CRUD myCrud = new CRUD();
                     myPara.Add("@customerFullName", txtFullName.Text);
                     myPara.Add("@movieId", ddlMovie.SelectedValue);
-                    myPara.Add("@ticketId", ddlTicket.SelectedValue);
+                    myPara.Add("@ticketId", rbtlTicket.SelectedValue);
                     myPara.Add("@cinemaId", ddlCinema.SelectedValue);
                     myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
                     myPara.Add("@UserId", userId);
@@ -473,7 +473,7 @@ namespace movies
                     Dictionary<string, object> myPara = new Dictionary<string, object>();
                     myPara.Add("@customerFullName", txtFullName.Text);
                     myPara.Add("@movieId", ddlMovie.SelectedValue);
-                    myPara.Add("@ticketId", ddlTicket.SelectedValue);
+                    myPara.Add("@ticketId", rbtlTicket.SelectedValue);
                     myPara.Add("@cinemaId", ddlCinema.SelectedValue);
                     myPara.Add("@movieInCinemaId", movieInCinemaId_pk);
                     myPara.Add("@customerTicketId", int.Parse(txtTicketId.Text));

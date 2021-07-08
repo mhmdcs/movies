@@ -349,7 +349,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="demo\" />
+    <Folder Include="demoMohammed\" />
+    <Folder Include="demoSattam\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

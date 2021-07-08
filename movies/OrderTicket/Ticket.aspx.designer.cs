@@ -58,13 +58,13 @@ namespace movies {
         protected global::System.Web.UI.WebControls.DropDownList ddlMovie;
         
         /// <summary>
-        /// ddlTicket control.
+        /// rbtlTicket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTicket;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtlTicket;
         
         /// <summary>
         /// btnOrderTicket control.
