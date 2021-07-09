@@ -25,7 +25,7 @@ namespace movies.Admin
             }
         }//page load boundery
 
-         // put this immediately after page_load method, fixes error when exporting pdf, word, excel, etc
+        // put this immediately after page_load method, fixes error when exporting pdf, word, excel, etc
         public override void VerifyRenderingInServerForm(Control control)
         {
             //base.VerifyRenderingInServerForm(control);
@@ -78,7 +78,7 @@ namespace movies.Admin
             populateCinemasGv();
 
         }
-        
+
         protected void btnDeleteCinema_Click(object sender, EventArgs e)
         {
             CRUD myCrud = new CRUD();
@@ -312,7 +312,7 @@ namespace movies.Admin
             Response.Flush();
             Response.End();
         }
-        
+
         protected void btnExportWordMoviesInCinemas_Click(object sender, EventArgs e)
         {
             populateMoviesInCinemasGvNoColors();
@@ -337,7 +337,7 @@ namespace movies.Admin
             Response.Write(strwritter.ToString());
             Response.End();
         }
-        
+
         protected void btnExportPDFMoviesInCinemas_Click(object sender, EventArgs e)
         {
             populateMoviesInCinemasGvNoColors();

@@ -28,7 +28,7 @@
                </td>
                <td style="width: 177px">
                    <asp:Button ID="btnLinkUserRole" runat="server" OnClick="btnLinkUserRole_Click" Text="Link User Role"
-                       Width="124px" style="margin-left: 0px; background-color: #9E4B77;" TabIndex="6" />
+                       Width="124px" style="margin-left: 0px; background-color: #9E4B77;" TabIndex="6"  />
                </td>
                </tr>
                <tr>

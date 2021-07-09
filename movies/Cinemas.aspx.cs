@@ -17,7 +17,7 @@ namespace movies
             if (!Page.IsPostBack)
             {
                 populateCinema();
-               // populateListView();
+                // populateListView();
 
             }//post back boundery
         }

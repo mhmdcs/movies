@@ -157,7 +157,7 @@ namespace movies.Admin
 ;
             myPara.Add("@genreId", ddlGenre.SelectedValue);
             myPara.Add("@languageId", ddlLang.SelectedValue);
-            myPara.Add("@movieRelease",txtmovieRelease.Text);
+            myPara.Add("@movieRelease", txtmovieRelease.Text);
             myPara.Add("@movieStatusId", rbtlStatus.SelectedValue);
             myPara.Add("@ratingId", ddlRating.SelectedValue);
             int rtn = myCrud.InsertUpdateDelete(mySql, myPara);

@@ -154,6 +154,7 @@
     <Content Include="OrderTicket\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\_variables.scss" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings1.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings2.pubxml" />

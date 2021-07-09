@@ -16,7 +16,7 @@ namespace movies.WhatsNew
         {
             if (!IsPostBack)
             {
-            populateListView();
+                populateListView();
 
             }
         }
@@ -31,7 +31,7 @@ namespace movies.WhatsNew
                              movieStatus on movie.movieStatusId = movieStatus.movieStatusId inner join
                              rating on movie.ratingId = rating.ratingId
                              where movie.movieStatusId=2;";
-            DataTable dt = myCrud.getDT(mySql); 
+            DataTable dt = myCrud.getDT(mySql);
             moviesLv.DataSource = dt;
             moviesLv.DataBind();
         }

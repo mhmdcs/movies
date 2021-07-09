@@ -1,14 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NowShowing.aspx.cs" Inherits="movies.WhatsNew.NowShowing" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 
-                 <div id="TitleContent" style="text-align: center">
-            <a runat="server" href="~/">
-                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo66.png" alt="logo" BorderStyle="None" />
-            </a>
-                         <br />
-            <br />  
-                         <span style="font-size: xx-large"><span style="font-weight: bold">Now Showing</span></span></div>
+    <div id="TitleContent" style="text-align: center">
+        <a runat="server" href="~/">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo66.png" alt="logo" BorderStyle="None" />
+        </a>
+        <br />
+        <br />
+        <span style="font-size: xx-large"><span style="font-weight: bold">Now Showing</span></span>
+    </div>
 
 
 
@@ -28,31 +30,53 @@
     <div id="moviesMenu" style="text-align: center">
 
 
-                <asp:ListView ID="moviesLv" runat="server">
+        <asp:ListView ID="moviesLv" runat="server">
             <ItemTemplate>
-                    <table>
-                        <tr><td>
-                            <ItemTemplate>
+                <table>
+                    <tr>
+                        <td>
+                            <itemtemplate>
 
                                <asp:Image ID="Image2" runat="server" Height="300px" Width="200px"
                                  ImageUrl='<%#"data:Image/jpg;base64," + Convert.ToBase64String((byte[])Eval("movieImage")) %>' />
 
                             <%--<img src='<%#"data:Image/jpg;base64," + Convert.ToBase64String((byte[])Eval("movieImage")) %>'--%>
 
-                                </ItemTemplate>
-                            </td></tr>
+                                </itemtemplate>
+                        </td>
+                    </tr>
 
-                        <tr><td><hd1><b style = "font-size: large; font-style: normal"><%#Eval("movieName") %></hd1></td></tr>
-                        <tr><td><p><%#Eval("movieDescription") %></p></td></tr>
-                        <tr><td><p>Genre: <%#Eval("genre") %></p></td></tr>
-                        <tr><td><p>Language: <%#Eval("language") %></p></td></tr>
-                        <tr><td><p>Rating: <%#Eval("rating") %></p></td></tr>
+                    <tr>
+                        <td>
+                            <hd1><b style = "font-size: large; font-style: normal"><%#Eval("movieName") %></hd1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><%#Eval("movieDescription") %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Genre: <%#Eval("genre") %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Language: <%#Eval("language") %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Rating: <%#Eval("rating") %></p>
+                        </td>
+                    </tr>
 
-                        <br />
-                        <br />
-                    </table>
+                    <br />
+                    <br />
+                </table>
             </ItemTemplate>
-                    <ItemSeparatorTemplate> ________________________________________________________________________ </ItemSeparatorTemplate>
+            <ItemSeparatorTemplate>________________________________________________________________________ </ItemSeparatorTemplate>
         </asp:ListView>
 
 
@@ -60,7 +84,7 @@
 
 
 
-<%--        <asp:ListView ID="moviesLv" runat="server">
+    <%--        <asp:ListView ID="moviesLv" runat="server">
             <ItemTemplate>
                 <div class="list">
                     <table>
@@ -75,11 +99,19 @@
                                 </ItemTemplate>
                             </td></tr>
 
-                        <tr><td><hd1><%#Eval("movieName") %></hd1></td></tr>
-                        <tr><td><p><%#Eval("movieDescription") %></p></td></tr>
-                        <br />
-                        <br />
-                    </table>
+                        <tr>
+                            <td>
+                                <hd1><%#Eval("movieName") %></hd1>
+                            </td>
+                        </tr>
+    <tr>
+        <td>
+            <p><%#Eval("movieDescription") %></p>
+        </td>
+    </tr>
+    <br />
+    <br />
+    </table>
 
                 </div>
             </ItemTemplate>
