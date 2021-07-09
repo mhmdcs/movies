@@ -84,7 +84,7 @@
         <tr>
             <td class="modal-sm" style="width: 511px; height: 27px;"></td>
             <td style="height: 27px">
-                <asp:Button ID="btnOrderTicket" runat="server" Text="ORDER TICKET" OnClick="btnOrderTicket_Click" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnOrderTicket" runat="server" Text="ORDER TICKET" OnClick="btnOrderTicket_Click" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
             </td>
         </tr>
         <tr>
@@ -113,8 +113,8 @@
         <tr>
             <td class="modal-sm" style="width: 511px; height: 27px;">&nbsp;</td>
             <td style="height: 27px">
-                <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="UPDATE TICKET" Style="background-color: #9E4B77;" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
-                <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="CANCEL TICKET" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnUpdateTicket" runat="server" OnClick="btnUpdateTicket_Click" Text="UPDATE TICKET" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnCancelTicket" runat="server" OnClick="btnCancelTicket_Click" Text="CANCEL TICKET" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
 
             </td>
         </tr>
@@ -126,8 +126,8 @@
             <td class="modal-sm" style="width: 511px; height: 27px;"></td>
             <td style="height: 27px">
 
-                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="FORCE UPDATE TICKET" Visible="False" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
-                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="FORCE DELETE TICKET" Visible="False" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnUpdateAdmin" runat="server" OnClick="btnUpdateAdmin_Click" Text="FORCE UPDATE TICKET" Visible="False" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnDeleteAdmin" runat="server" OnClick="btnDeleteAdmin_Click" Text="FORCE DELETE TICKET" Visible="False" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
 
             </td>
         </tr>
@@ -141,8 +141,8 @@
         <tr>
             <td class="modal-sm" style="width: 511px; height: 27px;"></td>
             <td style="height: 27px">
-                <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="SHOW ALL MY TICKETS" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
-                <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="SHOW ALL CUSTOMERS TICKETS" Visible="False" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnShowMyTickets" runat="server" OnClick="btnShowMyTickets_Click" Text="SHOW ALL MY TICKETS" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnShowAllTickets" runat="server" OnClick="btnShowAllTickets_Click" Text="SHOW ALL CUSTOMERS TICKETS" Visible="False" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
 
             </td>
         </tr>
@@ -153,7 +153,7 @@
         <tr>
             <td class="modal-sm" style="width: 511px">&nbsp;</td>
             <td>
-                <asp:Button ID="btnExportPDF" runat="server" Text="EXPORT TICKET AS PDF" OnClick="btnExportPDF_Click" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                <asp:Button ID="btnExportPDF" runat="server" Text="EXPORT TICKET AS PDF" OnClick="btnExportPDF_Click" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
 
             </td>
         </tr>
@@ -186,7 +186,7 @@
                         <asp:BoundField DataField="totalTicketsPrice" HeaderText="Total Tickets Price" />
 
                     </Columns>
-                    <HeaderStyle BackColor="#9E4B77" />
+                    <HeaderStyle BackColor="#8F1A1A" />
                     <RowStyle BackColor="#333333" />
                 </asp:GridView>
             </td>
@@ -222,7 +222,7 @@
 
                 </Columns>
 
-                <HeaderStyle BackColor="#9E4B77" />
+                <HeaderStyle BackColor="#8F1A1A" />
                 <RowStyle BackColor="#333333" />
 
 

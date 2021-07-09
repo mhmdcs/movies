@@ -42,7 +42,7 @@
                     <tr>
                         <td style="width: 492px" class="modal-sm">&nbsp;</td>
                         <td>
-                            <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="SHOW ALL MOVIES AVAILABLE" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                            <asp:Button ID="btnMoviesAvailable" runat="server" OnClick="btnMoviesAvailable_Click" Text="SHOW ALL MOVIES AVAILABLE" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                         </td>
                     </tr>
                     <tr>

@@ -23,7 +23,7 @@
                 <td style="width: 375px">&nbsp;</td>
                 <td>
                     <asp:CreateUserWizard ID="CreateUserWizard" runat="server" CreateUserButtonText="SIGN UP">
-                        <CreateUserButtonStyle BackColor="#9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                        <CreateUserButtonStyle BackColor="#B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                         <WizardSteps>
                             <asp:CreateUserWizardStep runat="server">
                                 <ContentTemplate>
@@ -131,7 +131,7 @@
                                             <br />
                                             </tr>
                                 <tr>
-                                    <td style="height: 20px"><strong>Please confirm and authorize your registration by pressing the <span style="color: #77395A">Confirm</span> button.</strong></td>
+                                    <td style="height: 20px"><strong>Please confirm and authorize your registration by pressing the <span style="color: #8A2D2D">Confirm</span> button.</strong></td>
                                 </tr>
                                             <tr>
                                                 <td>&nbsp;</td>
@@ -139,7 +139,7 @@
                                             <tr>
                                                 <td align="right">
 
-                                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Style="background-color: #9E4B77" Text="CONFIRM" ValidationGroup="CreateUserWizard" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Style="background-color: #B03939" Text="CONFIRM" ValidationGroup="CreateUserWizard" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
 
 
                                                 </td>

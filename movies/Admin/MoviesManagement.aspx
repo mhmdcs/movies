@@ -101,7 +101,7 @@
             <tr>
                 <td style="width: 521px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnAddMovie" runat="server" OnClick="btnAddMovie_Click" Text="ADD MOVIE" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnAddMovie" runat="server" OnClick="btnAddMovie_Click" Text="ADD MOVIE" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                 </td>
             </tr>
             <tr>
@@ -128,8 +128,8 @@
             <tr>
                 <td style="width: 521px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="UPDATE" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
-                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="DELETE" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="UPDATE" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="DELETE" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                 </td>
             </tr>
             <tr>
@@ -146,9 +146,9 @@
             <tr>
                 <td style="width: 521px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="EXPORT TO EXCEL" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
-                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="EXPORT TO WORD" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
-                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="EXPORT TO PDF" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnExportToExcel_Click" runat="server" OnClick="btnExportToExcel_Click_Click" Text="EXPORT TO EXCEL" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnExportToWord_Click" runat="server" OnClick="btnExportToWord_Click_Click" Text="EXPORT TO WORD" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnExportToPdf_Click" runat="server" OnClick="btnExportToPdf_Click_Click" Text="EXPORT TO PDF" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                 </td>
             </tr>
             <tr>
@@ -158,7 +158,7 @@
             <tr>
                 <td style="width: 521px; height: 20px;">&nbsp;</td>
                 <td style="height: 20px">
-                    <asp:Button ID="btnDisplayAllMovies" runat="server" Text="DISPLAY ALL MOVIES" OnClick="btnDisplayAllMovies_Click" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
+                    <asp:Button ID="btnDisplayAllMovies" runat="server" Text="DISPLAY ALL MOVIES" OnClick="btnDisplayAllMovies_Click" Style="background-color: #B03939" BorderColor="#8F1A1A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                 </td>
             </tr>
             <tr>
@@ -205,7 +205,7 @@
                             <asp:BoundField DataField="rating" HeaderText="Rating" />
 
                         </Columns>
-                        <HeaderStyle BackColor="#77395A" />
+                        <HeaderStyle BackColor="#8F1A1A" />
                         <RowStyle BackColor="#333333" />
                     </asp:GridView>
 
