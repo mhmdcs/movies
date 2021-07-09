@@ -672,6 +672,7 @@ namespace movies
             }// end using 
         }
 
+        //DataTables Methods for Customer Gridview
         protected void gvTicketData_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "update")
@@ -718,7 +719,7 @@ namespace movies
         }
 
 
-
+        //DataTables Methods for Admin Gridview
         protected void gvTicketDataAdmin_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "update")

@@ -93,11 +93,14 @@ namespace movies.Admin
             SqlDataReader dr = myCrud.getDrPassSql(mySql);
             moviesGvV2.DataSource = dr;
             moviesGvV2.DataBind();
+
+            //these three methods are essential for getting DataTables to work on gridview
             moviesGvV2.UseAccessibleHeader = true;
             moviesGvV2.HeaderRow.TableSection = TableRowSection.TableHeader;
             moviesGvV2.FooterRow.TableSection = TableRowSection.TableFooter;
         }
 
+        //this colorlesss gridview is for export buttons
         protected void populateMoviesGvNoImages()
         {
 
@@ -336,8 +339,6 @@ namespace movies.Admin
             }
             populateMoviesGv();
         }
-
-
         protected void gvAdminLinkButton_Click(object sender, EventArgs e)
         {
             int PK = int.Parse((sender as LinkButton).CommandArgument);

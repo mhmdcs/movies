@@ -15,8 +15,6 @@
 
 
 
-
-
     <table class="nav-justified">
         <tr>
             <td class="modal-sm" style="width: 511px" align="right">&nbsp;</td>
@@ -246,7 +244,7 @@
             $('#<%=gvTicketDataAdmin.ClientID%>').DataTable();
                     });</script>
 
-
+    
     <!--DataTables implementation-->
 
 

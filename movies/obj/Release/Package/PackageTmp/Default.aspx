@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
                  <div id="TitleContent" style="text-align: center">
+                     <!--href="~/" on images points to the root page, for example if you want to point to All pages change to href="~/WhatsNew/All.aspx"-->
             <a runat="server" href="~/">
                 <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo11.png" alt="logo" BorderStyle="None" />
             </a>

@@ -4,7 +4,7 @@
 
 
 <!--This xlmns is important for DataTables implementation on master page-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
     <meta charset="utf-8" />
@@ -143,6 +143,7 @@
 
     </form>
 
+    <!--script from party project-->
     <script type="text/javascript" src="/Scripts/clientSide.js"></script>
 
     <!--DataTables implementation on master page-->

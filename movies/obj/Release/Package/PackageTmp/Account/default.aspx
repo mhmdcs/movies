@@ -13,8 +13,6 @@
     </p>
     <p>
         <ul >
-                        <li><a runat="server" href="~/Account/Login">Login</a></li>
-                        <li><a runat="server" href="~/Account/Register">Register</a></li>
                     </ul>
     </p>
 </asp:Content>

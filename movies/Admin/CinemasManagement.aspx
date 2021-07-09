@@ -134,8 +134,8 @@
             <tr>
                 <td class="modal-sm" style="width: 512px; height: 26px;" align="right"><strong>Date&nbsp; </strong></td>
                 <td style="height: 26px">
-                    <asp:TextBox ID="txtDate" runat="server" Style="background-color: #333333">1990-01-01</asp:TextBox>
-                    &nbsp;Insert in YY-MM-DD format</td>
+                    <asp:TextBox ID="txtDate" runat="server" Style="background-color: #333333">01/01/1990</asp:TextBox>
+                    &nbsp;Insert in MM/DD/YYYY</td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 512px; height: 26px;" align="right">&nbsp;</td>

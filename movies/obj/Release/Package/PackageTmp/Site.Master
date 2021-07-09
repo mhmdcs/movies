@@ -2,19 +2,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--This xlmns is important for DataTables implementation on master page-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Movies</title>
 
-    <%--<link href="/Styles/Site.css" rel="stylesheet" type="text/css" />--%> <%--use this if you're using ali's nav bar, else comment it out--%>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
 
     <%--used http://en.faviconico.org/favicon to convert application logo into a favicon--%>
 
@@ -56,40 +57,18 @@
         </asp:ScriptManager>
 
 
- <!--   ******************************************************    one  way to show menue  start   ********************************* -->
-
-<%--         <div id="TitleContent" style="text-align: center">
-            <a runat="server" href="~/">
-                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo.png" alt="logo" BorderStyle="None" />
-            </a>
-                         <br />
-            <br />  
-                         <br />
-        </div>--%>
-
         <div class="navbar navbar-inverse navbar-fixed-top">
 
             <div class="container">
 
                 <div class="navbar-header">
-                                       
+
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
 
-<%--                    fix this navbar logo then uncomment it--%>
-
-<%--                                             <a href="~/Default.aspx" class="navbar-brand">
-                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/moviesLogo22.png" alt="navbar logo"/>
-                    </a>--%>
-
-                    <%--or try--%>
-
-<%--                     <a href="~/Default.aspx" class="navbar-brand">
-                     <img src="~/Images/moviesLogo22.png" title="navbar logo"/>
-                    </a>--%>
 
 
                     <a class="auto-style1" runat="server" href="~/">Movies</a>
@@ -97,9 +76,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
 
-                           <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false" href="~/WhatsNew/default">Whats New<span class ="caret"></span> </a>
-                            <ul class ="dropdown-menu">
+                        <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false" href="~/WhatsNew/default">Whats New<span class="caret"></span> </a>
+                            <ul class="dropdown-menu">
                                 <li><a href="~/WhatsNew/All.aspx" runat="server">All</a></li>
                                 <li><a href="~/WhatsNew/NowShowing.aspx" runat="server">Now Showing</a></li>
                                 <li><a href="~/WhatsNew/ComingSoon.aspx" runat="server">Coming Soon</a></li>
@@ -110,10 +89,10 @@
                         <li><a runat="server" id="loginLink" visible="true" href="~/Account/Login">Log in</a></li>
                         <li><a runat="server" id="signupLink" visible="true" href="~/Account/Signup">Sign up</a></li>
 
-                        
+
                         <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false" id="adminLink" visible="false" href="~/Admin/default">Admin<span class ="caret"></span> </a>
-                            <ul class ="dropdown-menu">
+                            aria-haspopup="true" aria-expanded="false" id="adminLink" visible="false" href="~/Admin/default">Admin<span class="caret"></span> </a>
+                            <ul class="dropdown-menu">
                                 <li><a href="~/Admin/MoviesManagement.aspx" runat="server">Movies Management</a></li>
                                 <li><a href="~/Admin/CinemasManagement.aspx" runat="server">Cinemas Management</a></li>
                                 <li class="divider" role="separator"></li>
@@ -124,9 +103,9 @@
                             </ul>
                         </li>
 
-                       
-                        
-                          <li><a runat="server" href="~/About">About Us</a></li>
+
+
+                        <li><a runat="server" href="~/About">About Us</a></li>
                     </ul>
 
                     <div class="loginDisplay">
@@ -137,11 +116,10 @@
                             </AnonymousTemplate>
                             <LoggedInTemplate>
 
-                        <span style="color: #ffe1f2;">
-                            Welcome <span class="bold">
+                                <span style="color: #ffe1f2;">Welcome <span class="bold">
                                     <asp:LoginName ID="HeadLoginName" runat="server" />
                                 </span>! </span>
-                        [
+                                [
                                 <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
                                     LogoutPageUrl="~/Default.aspx" />
                                 ]
@@ -152,8 +130,8 @@
                 </div>
             </div>
         </div>
-        
-                <div class="container body-content">
+
+        <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
@@ -162,96 +140,18 @@
             </footer>
         </div>
 
-      
- <!--   ******************************************************    one  way to show menue  end   ********************************* -->
-
-
-
-
- <!--   ******************************************************    another way to show menue  start   ********************************* -->
-      
-            <%--    <div class="header">
-            <div class="title">
-                <h1>
-                    <span style="color: #5b046b;">Movies</span>&nbsp; (2021)</h1>
-            </div>
-
-             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/moviesLogo.jpg" />
-
-            <div class="loginDisplay">
-                <br />
-                <br />
-                <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold">
-                            <asp:LoginName ID="HeadLoginName" runat="server" />
-                        </span>!
-                        [
-                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
-                            LogoutPageUrl="~/default.aspx" />
-                        ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
-                    IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem Text="About Us">
-                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About Us" Value="" />
-                        </asp:MenuItem>
-
-                        <asp:MenuItem Text="Admin">
-                            <asp:MenuItem NavigateUrl="~/Admin/showRoles.aspx" Text="showRoles" Value="" />
-                            <asp:MenuItem NavigateUrl="~/Admin/ChangePassword.aspx" Text="ChangePassword" Value="" />
-                        </asp:MenuItem>
-
-                        <asp:MenuItem Text="Finance">
-                            <asp:MenuItem NavigateUrl="~/Finance/default.aspx" Text="Finance" Value="" />
-                        </asp:MenuItem>
-
-                        <asp:MenuItem Text="Marketing">
-                            <asp:MenuItem NavigateUrl="~/marketing/default.aspx" Text="Marketing" Value="" />
-                        </asp:MenuItem>
-
-                    </Items>
-                </asp:Menu>
-
-            </div>
-        </div>
-        <div class="rigthSide">
-            hi
-        </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>--%>
-
-
-<!--   ******************************************************    another way to show menue end    ********************************* -->
-
 
     </form>
 
-    <script  type="text/javascript" src="/Scripts/clientSide.js"></script>
+    <!--script from party project-->
+    <script type="text/javascript" src="/Scripts/clientSide.js"></script>
 
-            <script src="jquery-1.11.2.js"></script>
-            <link href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/>
-            <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" ></script>
-            <script type="text/javascript">
-                    $(document).ready( function () {
-                      $("gvTicketData").prepend($("<thread></thread>").append($(this).find("tr:first"))).dataTable();
-                     } );
-            </script>
-
-
+    <!--DataTables implementation on master page-->
+    <script src="jquery-1.11.2.js"></script>
+    <link href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <!--DataTables implementation on master page-->
     <p>
-        
-
-
 </body>
 
 </html>
