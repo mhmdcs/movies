@@ -23,7 +23,7 @@
                 <td style="width: 375px">&nbsp;</td>
                 <td>
                     <asp:CreateUserWizard ID="CreateUserWizard" runat="server" CreateUserButtonText="SIGN UP">
-                        <CreateUserButtonStyle BackColor="#9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="sans-serif" Font-Size="13px" />
+                        <CreateUserButtonStyle BackColor="#9E4B77" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
                         <WizardSteps>
                             <asp:CreateUserWizardStep runat="server">
                                 <ContentTemplate>
@@ -139,7 +139,7 @@
                                             <tr>
                                                 <td align="right">
 
-                                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Style="background-color: #9E4B77" Text="CONFIRM" ValidationGroup="CreateUserWizard" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="sans-serif" Font-Size="13px" />
+                                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" OnCommand="ContinueButton_Command" Style="background-color: #9E4B77" Text="CONFIRM" ValidationGroup="CreateUserWizard" BorderColor="#77395A" BorderStyle="Solid"    Font-Names="sans-serif" Font-Size="13px" />
 
 
                                                 </td>

@@ -65,7 +65,7 @@
                 <td style="width: 80px">&nbsp;</td>
                 <td class="modal-sm" style="width: 266px">
                     <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click"
-                        Text="LOGIN" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Bold="True" Font-Names="sans-serif" Font-Size="13px" />
+                        Text="LOGIN" Style="background-color: #9E4B77" BorderColor="#77395A" BorderStyle="Solid" Font-Names="sans-serif" Font-Size="13px" />
                 </td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
